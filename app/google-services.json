@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "416450707174",
+    "firebase_url": "https://mi-salud-5965a.firebaseio.com",
+    "project_id": "mi-salud-5965a",
+    "storage_bucket": "mi-salud-5965a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416450707174:android:a70b5dfc0993521d",
+        "android_client_info": {
+          "package_name": "com.appdemo.mi_salud.misaludplus_pacientes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416450707174-iip6oebb3lnatu0iqgr13bec57ib23eq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appdemo.mi_salud.misaludplus_pacientes",
+            "certificate_hash": "e51b139ce1f20fb3b5117a57c814b43929bc9e22"
+          }
+        },
+        {
+          "client_id": "416450707174-som1sk1qlmrida2gk0nrmi5046e2n2qb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNrB4IbYUjkhfQd_sZu4mi8KV8niksvIE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416450707174-som1sk1qlmrida2gk0nrmi5046e2n2qb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416450707174:android:0b8942d5787d86dc",
+        "android_client_info": {
+          "package_name": "com.appdemo.mi_salud.misakudplus_medicos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416450707174-ujobimvmbmp0e9bm760iudk1r8jl8jb2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appdemo.mi_salud.misakudplus_medicos",
+            "certificate_hash": "e51b139ce1f20fb3b5117a57c814b43929bc9e22"
+          }
+        },
+        {
+          "client_id": "416450707174-som1sk1qlmrida2gk0nrmi5046e2n2qb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNrB4IbYUjkhfQd_sZu4mi8KV8niksvIE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416450707174-som1sk1qlmrida2gk0nrmi5046e2n2qb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
