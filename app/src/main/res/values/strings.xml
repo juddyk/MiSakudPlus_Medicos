@@ -1,3 +1,1822 @@
 <resources>
-    <string name="app_name">MiSakudPlus_Medicos</string>
+    <!-- STRINGS GENERAL-->
+    <string name="app_name">Mi Salud Plus</string>
+    <string name="app_registro">Registro</string>
+    <string name="app_agenda">Agenda</string>
+    <string name="app_perfil">Ajustes Perfil</string>
+    <string name="digitos0">0,1,2,3,4,5,6,7,8,9</string>
+    <string name="digitos1">qwertyuiopasdfghjklñzxcvbnm, ,.</string>
+    <string name="digitos2">0,1,2,3,4,5,6,7,8,9,-, ,qwertyuiopasdfghjklñzxcvbnm,,,.,QWERTYUIOPASDFGHJKLÑZXCVBNM</string>
+    <string name="opcion_ok">Acepto</string>
+    <string name="opcion_nok">Cancel</string>
+    <string name="estado">Estado: </string>
+    <string name="estado_on">ACTIVO</string>
+    <string name="estado_off">INACTIVO</string>
+    <string name="estado_sos">SUSPENDIDO</string>
+
+
+    <!-- STRINGS LOGUEO-->
+    <string name="logueo_usr">Usuario</string>
+    <string name="logueo_pss">Contraseña</string>
+    <string name="logueo_reg">Registrarse</string>
+    <string name="logueo_in">Ingresar</string>
+    <string name="log_usr">Documento de Identidad</string>
+    <string name="log_psww">Contraseña</string>
+    <string name="log_wrong">Campos de inicio de sesión incompletos</string>
+    <string name="log_uwrong">Usuario No Existe</string>
+    <string name="log_pwrong">Contraseña Incorrecta</string>
+    <string name="log_fb">Espere un momento por favor</string>
+    <string name="data_empty">Faltan Datos</string>
+
+
+    <!-- STRINGS REGISTRO -->
+    <string name="reg_direccion">Dirección*</string>
+    <string name="reg_next">Deslice para continuar</string>
+    <string name="reg_finalStep">Verifique toda la información antes de continuar</string>
+    <string name="reg_mensaje">Los datos marcados con (*) son obligatorios</string>
+    <string name="reg_nombre">Nombre Completo*</string>
+    <string name="reg_fechanacimiento">Fecha Nacimiento*</string>
+    <string name="reg_calendario">DD / MM / AAAA</string>
+    <string name="reg_genero">Genero*</string>
+    <string name="reg_documento">Documento*</string>
+    <string name="reg_tipdocumento">Tipo</string>
+    <string name="reg_numdocumneto">Numero</string>
+    <string name="reg_expdocumento">Fecha de Expedicion</string>
+    <string name="reg_slogan">¿Por qué te deberían escoger a ti como su Doctor?</string>
+    <string name="reg_residencia">Residencia*</string>
+    <string name="reg_departamento">Departamento*</string>
+    <string name="reg_municipio">Municipio*</string>
+    <string name="reg_correo1">Correo electrónico*</string>
+    <string name="reg_correo2">Otro correo electrónico</string>
+    <string name="reg_telefono">Telefonos</string>
+    <string name="reg_celular">Celular*</string>
+    <string name="reg_fijo1">Fijo*</string>
+    <string name="reg_fijo2">Otro Fijo</string>
+    <string name="reg_regMedico">Registro Medico*</string>
+    <string name="reg_tarjetaProfesional">Tarjeta Profesional*</string>
+    <string name="reg_tituloPregrado">Titulo de Pregrado*</string>
+    <string name="reg_diploma">Diploma*</string>
+    <string name="reg_acta">Acta de Grado*</string>
+    <string name="reg_resolucion">Resolución para ejercer Medicina*</string>
+    <string name="reg_mensajePos">Si tiene alguna especialidad, es obligatorio adjuntar Diploma y Acta de Grado</string>
+    <string name="reg_tituloPosgrado">Titulo de Especialidad</string>
+    <string name="reg_certificadoExperiencia">Certificado de Experiencia*</string>
+    <string name="reg_institucion">Institución*</string>
+    <string name="reg_fechaInicial">Fecha de Inicio*</string>
+    <string name="reg_fechaFinal">Fecha de Finalización*</string>
+    <string name="reg_mensajeUsuario">La siguiente información será vista por los usuarios</string>
+    <string name="reg_cargo">Cargo*</string>
+    <string name="reg_curso">Programa o Curso*</string>
+    <string name="reg_sede">Dirección del Punto de Atención*</string>
+    <string name="reg_horarioConsulta">Horario de Consultas*</string>
+    <string name="reg_tipoConsulta">Tipos de Consulta a brindar*</string>
+    <string name="reg_consulta1">Teleconsulta</string>
+    <string name="reg_consulta2">Telemedicina</string>
+    <string name="reg_consulta3">Domicilio</string>
+    <string name="reg_consulta4">Prioritaria (24hrs)</string>
+    <string name="reg_consulta5">Prioritaria (48hrs)</string>
+    <string name="reg_consulta6">No Prioritaria</string>
+    <string name="reg_modalidad">Modalidades de Atención*</string>
+    <string name="reg_mensajeAtencion">Debe escoger al menos una de las opciones</string>
+    <string name="reg_atencion1">Especializada por Primera Vez</string>
+    <string name="reg_atencion2">Especializada de Control</string>
+    <string name="reg_atencion3">Interconsulta Especilizada</string>
+    <string name="reg_atencion4">Interconsulta Especializada de Control</string>
+    <string name="reg_atencion5">Medicina General Primera Vez</string>
+    <string name="reg_atencion6">Medicina General de Control</string>
+    <string name="reg_atencion7">Medicina General de Enlace como especialista</string>
+    <string name="reg_atencion8">Contrareferencia</string>
+    <string name="reg_mediopago">Medios de Pago*</string>
+    <string name="reg_medio1">Exito </string>
+    <string name="reg_medio2">PSE </string>
+    <string name="reg_medio3">PayPal </string>
+    <string name="reg_medio4">Gana </string>
+    <string name="reg_medio5">Baloto </string>
+    <string name="reg_medio6">Carulla </string>
+    <string name="reg_medio7">SutiMax </string>
+    <string name="reg_medio8">Efecty </string>
+    <string name="registrar">REGISTRAR</string>
+
+
+    <string-array name="tipdoc">
+        <item>TIPO</item>
+        <item>CC</item>
+        <item>CE</item>
+        <item>NI</item>
+        <item>PA</item>
+        <item>SE</item>
+        <item>TI</item>
+    </string-array>
+
+    <string-array name="genero">
+        <item>GENERO*</item>
+        <item>Femenino</item>
+        <item>Masculino</item>
+        <item>Otro</item>
+    </string-array>
+
+    <string name="reg_tab1">1</string>
+    <string name="reg_tab2">2</string>
+    <string name="reg_tab3">3</string>
+
+    <!-- STRINGS MENU PRINCIPAL -->
+    <string name="main_slogan">SLOGAN</string>
+    <string name="main_agenda">AGENDA</string>
+
+    <!-- NOTICIAS-->
+    <string-array name="nwsLst">
+        <item>NOTICIA 1: </item>
+        <item>NOTICIA 2: </item>
+        <item>NOTICIA 3: </item>
+        <item>NOTICIA 4: </item>
+        <item>NOTICIA 5: </item>
+    </string-array>
+
+
+    <!-- DIALOGO AVISO -->
+    <string name="warning_mensaje">Para hacer el registro debe tener los siguientes documentos en el dispositivo:</string>
+    <string-array name="documentos">
+        <item>Tarjeta Profesional (PDF)</item>
+        <item>Diplomas (PDF)</item>
+        <item>Actas de Grado (PDF)</item>
+        <item>Resolución para ejercer Medicina (PDF)</item>
+        <item>Certificado de Experiencia (PDF)</item>
+    </string-array>
+
+
+    <!-- DIALOGO NAME -->
+    <string name="apellido1">Primer Apellido</string>
+    <string name="apellido2">Segundo Apellido</string>
+    <string name="nombre1">Primer Nombre</string>
+    <string name="nombre2">Segundo Nombre</string>
+
+    <!-- DIALOGO HORARIO -->
+    <string name="horaInicial">Hora de Inicio</string>
+    <string name="horaFinal">Hora de Finalización</string>
+    <string name="horario">desde hh:mm hasta las hh:mm</string>
+    <string-array name="horas">
+        <item>--</item>
+        <item>00:00</item>
+        <item>00:30</item>
+        <item>01:00</item>
+        <item>01:30</item>
+        <item>02:00</item>
+        <item>02:30</item>
+        <item>03:00</item>
+        <item>03:30</item>
+        <item>04:00</item>
+        <item>04:30</item>
+        <item>05:00</item>
+        <item>05:30</item>
+        <item>06:00</item>
+        <item>06:30</item>
+        <item>07:00</item>
+        <item>07:30</item>
+        <item>08:00</item>
+        <item>08:30</item>
+        <item>09:00</item>
+        <item>09:30</item>
+        <item>10:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>13:00</item>
+        <item>13:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>16:00</item>
+        <item>16:30</item>
+        <item>17:00</item>
+        <item>17:30</item>
+        <item>18:00</item>
+        <item>18:30</item>
+        <item>19:00</item>
+        <item>19:30</item>
+        <item>20:00</item>
+        <item>20:30</item>
+        <item>21:00</item>
+        <item>21:30</item>
+        <item>22:00</item>
+        <item>22:30</item>
+        <item>23:00</item>
+        <item>23:30</item>
+    </string-array>
+
+    <!-- DIALOGO CALENDARIO -->
+    <string name="cal_day">Día</string>
+    <string name="cal_month">Mes</string>
+    <string name="cal_year">Año</string>
+    <string-array name="dias">
+        <item>--</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </string-array>
+
+    <string-array name="meses">
+        <item>--</item>
+        <item>ENE</item>
+        <item>FEB</item>
+        <item>MAR</item>
+        <item>ABR</item>
+        <item>MAY</item>
+        <item>JUN</item>
+        <item>JUL</item>
+        <item>AGO</item>
+        <item>SEP</item>
+        <item>OCT</item>
+        <item>NOV</item>
+        <item>DEC</item>
+    </string-array>
+
+
+    <!-- DIALOGO DIRECCIÓN -->
+    <string name="dirMensaje0">Ej: CALLE 7A SUR # 42B OESTE 70 </string>
+    <string name="dirMensaje1">Complemento: </string>
+    <string name="dirMensaje2">Ej: Edificio Palmas, Apartamento 501</string>
+    <string name="dirMensaje3">Para agregar un nombre propio (Ej: Poblado, Floresta, Los Molinos)</string>
+    <string-array name="nomenclatura">
+        <item>--</item>
+        <item>Administración</item>
+        <item>Agencia</item>
+        <item>Agrupación</item>
+        <item>Almacén</item>
+        <item>Altillo</item>
+        <item>Apartado</item>
+        <item>Apartamento</item>
+        <item>Barrio</item>
+        <item>Bloque</item>
+        <item>Bodega</item>
+        <item>Camino</item>
+        <item>Casa</item>
+        <item>Celula</item>
+        <item>Centro Comercial</item>
+        <item>Ciudadela</item>
+        <item>Conjunto</item>
+        <item>Conjunto Residencial</item>
+        <item>Consultorio</item>
+        <item>Deposito</item>
+        <item>Deposito Sotano</item>
+        <item>Edificio</item>
+        <item>Entrada</item>
+        <item>Esquina</item>
+        <item>Etapa</item>
+        <item>Exterior</item>
+        <item>Finca</item>
+        <item>Garaje</item>
+        <item>Garaje Sotano</item>
+        <item>Hacienda</item>
+        <item>Interior</item>
+        <item>Local</item>
+        <item>Local Mezzanine</item>
+        <item>Lote</item>
+        <item>Manzana</item>
+        <item>Mezzanine</item>
+        <item>Modulo</item>
+        <item>Oficina</item>
+        <item>Parcela</item>
+        <item>Parque</item>
+        <item>Parqueadero</item>
+        <item>Pasaje</item>
+        <item>Paseo</item>
+        <item>Penthouse</item>
+        <item>Piso</item>
+        <item>Planta</item>
+        <item>Porteria</item>
+        <item>Predio</item>
+        <item>Puente</item>
+        <item>Puesto</item>
+        <item>Salón</item>
+        <item>Salón Comunal</item>
+        <item>Sector</item>
+        <item>Semisotano</item>
+        <item>Solar</item>
+        <item>Sotano</item>
+        <item>Suite</item>
+        <item>Super Manzana</item>
+        <item>Terminal</item>
+        <item>Terraza</item>
+        <item>Unidad</item>
+        <item>Unidad Residencial</item>
+        <item>Urbanización</item>
+        <item>Zona</item>
+        <item>Zona Franca</item>
+    </string-array>
+
+    <string-array name="abreviatura">
+        <item></item>
+        <item>AD</item>
+        <item>AG</item>
+        <item>AGP</item>
+        <item>ALM</item>
+        <item>AL</item>
+        <item>APTDO</item>
+        <item>AP</item>
+        <item>BRR</item>
+        <item>BL</item>
+        <item>BG</item>
+        <item>CN</item>
+        <item>CA</item>
+        <item>CEL</item>
+        <item>CC</item>
+        <item>CD</item>
+        <item>CONJ</item>
+        <item>CON</item>
+        <item>CS</item>
+        <item>DP</item>
+        <item>DS</item>
+        <item>ED</item>
+        <item>EN</item>
+        <item>ESQ</item>
+        <item>ET</item>
+        <item>EX</item>
+        <item>FCA</item>
+        <item>GJ</item>
+        <item>GS</item>
+        <item>HC</item>
+        <item>IN</item>
+        <item>LC</item>
+        <item>LM</item>
+        <item>LT</item>
+        <item>MZ</item>
+        <item>MN</item>
+        <item>MD</item>
+        <item>OF</item>
+        <item>PA</item>
+        <item>PAR</item>
+        <item>PQ</item>
+        <item>PJ</item>
+        <item>PS</item>
+        <item>PH</item>
+        <item>P</item>
+        <item>PL</item>
+        <item>POR</item>
+        <item>PD</item>
+        <item>PN</item>
+        <item>PT</item>
+        <item>SA</item>
+        <item>SC</item>
+        <item>SEC</item>
+        <item>SS</item>
+        <item>SL</item>
+        <item>ST</item>
+        <item>SUITE</item>
+        <item>SM</item>
+        <item>TER</item>
+        <item>TZ</item>
+        <item>UN</item>
+        <item>UR</item>
+        <item>URB</item>
+        <item>ZN</item>
+        <item>ZF</item>
+    </string-array>
+
+
+    <string-array name="letras">
+        <item>--</item>
+        <item>A</item>
+        <item>AA</item>
+        <item>AB</item>
+        <item>AC</item>
+        <item>AD</item>
+        <item>AE</item>
+        <item>AF</item>
+        <item>AG</item>
+        <item>AH</item>
+        <item>B</item>
+        <item>BA</item>
+        <item>BB</item>
+        <item>BC</item>
+        <item>BD</item>
+        <item>BE</item>
+        <item>BF</item>
+        <item>BG</item>
+        <item>BH</item>
+        <item>C</item>
+        <item>CA</item>
+        <item>CB</item>
+        <item>CC</item>
+        <item>CD</item>
+        <item>CE</item>
+        <item>CF</item>
+        <item>CG</item>
+        <item>CH</item>
+        <item>D</item>
+        <item>DA</item>
+        <item>DB</item>
+        <item>DC</item>
+        <item>DD</item>
+        <item>DE</item>
+        <item>DF</item>
+        <item>DG</item>
+        <item>DH</item>
+        <item>E</item>
+        <item>EA</item>
+        <item>EB</item>
+        <item>EC</item>
+        <item>ED</item>
+        <item>EE</item>
+        <item>EF</item>
+        <item>EG</item>
+        <item>EH</item>
+        <item>F</item>
+        <item>FA</item>
+        <item>FB</item>
+        <item>FC</item>
+        <item>FD</item>
+        <item>FE</item>
+        <item>FF</item>
+        <item>FG</item>
+        <item>FH</item>
+        <item>G</item>
+        <item>GA</item>
+        <item>GB</item>
+        <item>GC</item>
+        <item>GD</item>
+        <item>GE</item>
+        <item>GF</item>
+        <item>GG</item>
+        <item>GH</item>
+        <item>H</item>
+        <item>HA</item>
+        <item>HB</item>
+        <item>HC</item>
+        <item>HD</item>
+        <item>HE</item>
+        <item>HF</item>
+        <item>HG</item>
+        <item>HH</item>
+    </string-array>
+
+    <string-array name="cardinales">
+        <item>--</item>
+        <item>NORTE</item>
+        <item>SUR</item>
+        <item>ESTE</item>
+        <item>OESTE</item>
+    </string-array>
+
+    <string-array name="estandar">
+        <item>--</item>
+        <item>AVENIDA</item>
+        <item>BULEVAR</item>
+        <item>CALLE</item>
+        <item>CARRERA</item>
+        <item>CARRETERA</item>
+        <item>CIRCULAR</item>
+        <item>CIRCUNVALAR</item>
+        <item>DIAGONAL</item>
+        <item>TRANSVERSAL</item>
+        <item>TRONCAL</item>
+        <item>VARIANTE</item>
+        <item>VIA</item>
+        <item>CORREGIMIENTO</item>
+        <item>KILÓMETRO</item>
+        <item>VEREDA</item>
+        <item>AUTOPISTA</item>
+    </string-array>
+
+    <string-array name="standar">
+        <item>--</item>
+        <item>AV</item>
+        <item>BLV</item>
+        <item>CL</item>
+        <item>CR</item>
+        <item>CRT</item>
+        <item>CIR</item>
+        <item>CRV</item>
+        <item>DG</item>
+        <item>TV</item>
+        <item>TC</item>
+        <item>VT</item>
+        <item>VI</item>
+        <item>C</item>
+        <item>KM</item>
+        <item>VRD</item>
+        <item>AUT</item>
+    </string-array>
+
+
+    <!--                                                             DEPARTAMENTO*S Y MUNICIPIO*S -->
+
+    <string-array name="departamentos">
+        <item>DEPARTAMENTO*</item>
+        <item>AMAZONAS</item>
+        <item>ANTIOQUIA</item>
+        <item>ARAUCA</item>
+        <item>ATLANTICO</item>
+        <item>BOLIVAR</item>
+        <item>BOYACA</item>
+        <item>CALDAS</item>
+        <item>CAQUETA</item>
+        <item>CASANARE</item>
+        <item>CAUCA</item>
+        <item>CESAR</item>
+        <item>CHOCO</item>
+        <item>CORDOBA</item>
+        <item>CUNDINAMARCA</item>
+        <item>GUAINIA</item>
+        <item>GUAJIRA</item>
+        <item>GUAVIARE</item>
+        <item>HUILA</item>
+        <item>MAGDALENA</item>
+        <item>META</item>
+        <item>N SANTANDER</item>
+        <item>NARINO</item>
+        <item>PUTUMAYO</item>
+        <item>QUINDIO</item>
+        <item>RISARALDA</item>
+        <item>SAN ANDRES</item>
+        <item>SANTANDER</item>
+        <item>SUCRE</item>
+        <item>TOLIMA</item>
+        <item>VALLE DEL CAUCA</item>
+        <item>VAUPES</item>
+        <item>VICHADA</item>
+    </string-array>
+
+    <string-array name="mun1">
+        <item>MUNICIPIO*</item>
+        <item>LETICIA</item>
+        <item>EL ENCANTO</item>
+        <item>LA CHORRERA</item>
+        <item>LA PEDRERA</item>
+        <item>LA VICTORIA</item>
+        <item>MIRITI-PARANA</item>
+        <item>PUERTO ALEGRIA</item>
+        <item>PUERTO ARICA</item>
+        <item>PUERTO NARINO</item>
+        <item>SANTANDER</item>
+        <item>TARAPACA</item>
+    </string-array>
+
+    <string-array name="mun2">
+        <item>MUNICIPIO*</item>
+        <item>ABEJORRAL</item>
+        <item>ABRIAQUI</item>
+        <item>ALEJANDRIA</item>
+        <item>AMAGA</item>
+        <item>AMALFI</item>
+        <item>ANDES</item>
+        <item>ANGELOPOLIS</item>
+        <item>ANGOSTURA</item>
+        <item>ANORI</item>
+        <item>ANZA</item>
+        <item>APARTADO</item>
+        <item>ARBOLETES</item>
+        <item>ARGELIA</item>
+        <item>ARMENIA</item>
+        <item>BARBOSA</item>
+        <item>BELLO</item>
+        <item>BELMIRA</item>
+        <item>BETANIA</item>
+        <item>BETULIA</item>
+        <item>BRICENO</item>
+        <item>BURITICA</item>
+        <item>CACERES</item>
+        <item>CAICEDO</item>
+        <item>CALDAS</item>
+        <item>CAMPAMENTO</item>
+        <item>CANASGORDAS</item>
+        <item>CARACOLI</item>
+        <item>CARAMANTA</item>
+        <item>CAREPA</item>
+        <item>CARMEN DE VIBORAL</item>
+        <item>CAROLINA</item>
+        <item>CAUCASIA</item>
+        <item>CHIGORODO</item>
+        <item>CISNEROS</item>
+        <item>CIUDAD BOLIVAR</item>
+        <item>COCORNA</item>
+        <item>CONCEPCION</item>
+        <item>CONCORDIA</item>
+        <item>COPACABANA</item>
+        <item>DABEIBA</item>
+        <item>DON MATIAS</item>
+        <item>EBEJICO</item>
+        <item>EL BAGRE</item>
+        <item>ENTRERRIOS</item>
+        <item>ENVIGADO</item>
+        <item>FREDONIA</item>
+        <item>FRONTINO</item>
+        <item>GIRALDO</item>
+        <item>GIRARDOTA</item>
+        <item>GOMEZ PLATA</item>
+        <item>GRANADA</item>
+        <item>GUADALUPE</item>
+        <item>GUARNE</item>
+        <item>GUATAPE</item>
+        <item>HELICONIA</item>
+        <item>HISPANIA</item>
+        <item>ITAGÜÍ</item>
+        <item>ITUANGO</item>
+        <item>JARDIN</item>
+        <item>JERICO</item>
+        <item>LA CEJA</item>
+        <item>LA ESTRELLA</item>
+        <item>LA PINTADA</item>
+        <item>LA UNION</item>
+        <item>LIBORINA</item>
+        <item>MACEO</item>
+        <item>MARINILLA</item>
+        <item>MEDELLIN</item>
+        <item>MONTEBELLO</item>
+        <item>MURINDO</item>
+        <item>MUTATA</item>
+        <item>NARINO</item>
+        <item>NECHI</item>
+        <item>NECOCLI</item>
+        <item>OLAYA</item>
+        <item>PENOL</item>
+        <item>PEQUE</item>
+        <item>PUEBLORRICO</item>
+        <item>PUERTO BERRIO</item>
+        <item>PUERTO NARE</item>
+        <item>PUERTO TRIUNFO</item>
+        <item>REMEDIOS</item>
+        <item>RETIRO</item>
+        <item>RIONEGRO</item>
+        <item>SABANALARGA</item>
+        <item>SABANETA</item>
+        <item>SALGAR</item>
+        <item>SAN ANDRES</item>
+        <item>SAN CARLOS</item>
+        <item>SAN FRANCISCO</item>
+        <item>SAN JERONIMO</item>
+        <item>SAN JOSE DE LA MONTANA</item>
+        <item>SAN JUAN DE URABA</item>
+        <item>SAN LUIS</item>
+        <item>SAN PEDRO</item>
+        <item>SAN PEDRO DE URABA</item>
+        <item>SAN RAFAEL</item>
+        <item>SAN ROQUE</item>
+        <item>SAN VICENTE</item>
+        <item>SANTA BARBARA</item>
+        <item>SANTA FE DE ANTIOQUIA</item>
+        <item>SANTA ROSA DE OSOS</item>
+        <item>SANTO DOMINGO</item>
+        <item>SANTUARIO</item>
+        <item>SEGOVIA</item>
+        <item>SONSON</item>
+        <item>SOPETRAN</item>
+        <item>TAMESIS</item>
+        <item>TARAZA</item>
+        <item>TARSO</item>
+        <item>TITIRIBI</item>
+        <item>TOLEDO</item>
+        <item>TURBO</item>
+        <item>URAMITA</item>
+        <item>URRAO</item>
+        <item>VALDIVIA</item>
+        <item>VALPARAISO</item>
+        <item>VEGACHI</item>
+        <item>VENECIA</item>
+        <item>VIGIA DEL FUERTE</item>
+        <item>YALI</item>
+        <item>YARUMAL</item>
+        <item>YOLOMBO</item>
+        <item>YONDO</item>
+        <item>ZARAGOZA</item>
+    </string-array>
+
+    <string-array name="mun3">
+        <item>MUNICIPIO*</item>
+        <item>ARAUCA</item>
+        <item>ARAUQUITA</item>
+        <item>CRAVO NORTE</item>
+        <item>FORTUL</item>
+        <item>PUERTO RONDON</item>
+        <item>SARAVENA</item>
+        <item>TAME</item>
+    </string-array>
+
+    <string-array name="mun4">
+        <item>MUNICIPIO*</item>
+        <item>BARANOA</item>
+        <item>BARRANQUILLA</item>
+        <item>CAMPO DE LA CRUZ</item>
+        <item>CANDELARIA</item>
+        <item>GALAPA</item>
+        <item>JUAN DE ACOSTA</item>
+        <item>LURUACO</item>
+        <item>MALAMBO</item>
+        <item>MANATI</item>
+        <item>PALMAR DE VARELA</item>
+        <item>PIOJO</item>
+        <item>POLONUEVO</item>
+        <item>PONEDERA</item>
+        <item>PUERTO COLOMBIA</item>
+        <item>REPELON</item>
+        <item>SABANAGRANDE</item>
+        <item>SABANALARGA</item>
+        <item>SANTA LUCIA</item>
+        <item>SANTO TOMAS</item>
+        <item>SOLEDAD</item>
+        <item>SUAN</item>
+        <item>TUBARA</item>
+        <item>USIACURI</item>
+    </string-array>
+
+    <string-array name="mun5">
+        <item>MUNICIPIO*</item>
+        <item>ACHI</item>
+        <item>ALTOS DEL ROSARIO</item>
+        <item>ARENAL</item>
+        <item>ARJONA</item>
+        <item>ARROYOHONDO</item>
+        <item>BARRANCO DE LOBA</item>
+        <item>CALAMAR</item>
+        <item>CANTAGALLO</item>
+        <item>CARTAGENA DE INDIAS</item>
+        <item>CICUCO</item>
+        <item>CLEMENCIA</item>
+        <item>CORDOBA</item>
+        <item>EL CARMEN DE BOLIVAR</item>
+        <item>EL GUAMO</item>
+        <item>EL PENON</item>
+        <item>HATILLO DE LOBA</item>
+        <item>MAGANGUE</item>
+        <item>MAHATES</item>
+        <item>MARGARITA</item>
+        <item>MARIA LA BAJA</item>
+        <item>MOMPOS</item>
+        <item>MONTECRISTO</item>
+        <item>MORALES</item>
+        <item>PINILLOS</item>
+        <item>REGIDOR</item>
+        <item>RIOVIEJO</item>
+        <item>SAN CRISTOBAL</item>
+        <item>SAN ESTANISLAO</item>
+        <item>SAN FERNANDO</item>
+        <item>SAN JACINTO</item>
+        <item>SAN JACINTO DEL CAUCA</item>
+        <item>SAN JUAN NEPOMUCENO</item>
+        <item>SAN MARTIN DE LOBA</item>
+        <item>SAN PABLO</item>
+        <item>SANTA CATALINA</item>
+        <item>SANTA ROSA</item>
+        <item>SANTA ROSA DEL SUR</item>
+        <item>SIMITI</item>
+        <item>SOPLAVIENTO</item>
+        <item>TALAIGUA NUEVO</item>
+        <item>TIQUISIO</item>
+        <item>TURBACO</item>
+        <item>TURBANA</item>
+        <item>VILLANUEVA</item>
+        <item>ZAMBRANO</item>
+    </string-array>
+
+    <string-array name="mun6">
+        <item>MUNICIPIO*</item>
+        <item>ALMEIDA</item>
+        <item>AQUITANIA</item>
+        <item>ARCABUCO</item>
+        <item>BELEN</item>
+        <item>BERBEO</item>
+        <item>BETEITIVA</item>
+        <item>BOAVITA</item>
+        <item>BOYACA</item>
+        <item>BRICENO</item>
+        <item>BUENAVISTA</item>
+        <item>BUSBANZA</item>
+        <item>CALDAS</item>
+        <item>CAMPOHERMOSO</item>
+        <item>CERINZA</item>
+        <item>CHINAVITA</item>
+        <item>CHIQUINQUIRA</item>
+        <item>CHIQUIZA</item>
+        <item>CHISCAS</item>
+        <item>CHITA</item>
+        <item>CHITARAQUE</item>
+        <item>CHIVATA</item>
+        <item>CHIVOR</item>
+        <item>CIENEGA</item>
+        <item>COMBITA</item>
+        <item>COPER</item>
+        <item>CORRALES</item>
+        <item>COVARACHIA</item>
+        <item>CUBARA</item>
+        <item>CUCAITA</item>
+        <item>CUITIVA</item>
+        <item>DUITAMA</item>
+        <item>EL COCUY</item>
+        <item>EL ESPINO</item>
+        <item>FIRAVITOBA</item>
+        <item>FLORESTA</item>
+        <item>GACHANTIVA</item>
+        <item>GAMEZA</item>
+        <item>GARAGOA</item>
+        <item>GUACAMAYAS</item>
+        <item>GUATEQUE</item>
+        <item>GUAYATA</item>
+        <item>GUICAN</item>
+        <item>IZA</item>
+        <item>JENESANO</item>
+        <item>JERICO</item>
+        <item>LA CAPILLA</item>
+        <item>LA UVITA</item>
+        <item>LA VICTORIA</item>
+        <item>LABRANZAGRANDE</item>
+        <item>MACANAL</item>
+        <item>MARIPI</item>
+        <item>MIRAFLORES</item>
+        <item>MONGUA</item>
+        <item>MONGUI</item>
+        <item>MONIQUIRA</item>
+        <item>MOTAVITA</item>
+        <item>MUZO</item>
+        <item>NOBSA</item>
+        <item>NUEVO COLON</item>
+        <item>OICATA</item>
+        <item>OTANCHE</item>
+        <item>PACHAVITA</item>
+        <item>PAEZ</item>
+        <item>PAIPA</item>
+        <item>PAJARITO</item>
+        <item>PANQUEBA</item>
+        <item>PAUNA</item>
+        <item>PAYA</item>
+        <item>PAZ DE RIO</item>
+        <item>PESCA</item>
+        <item>PISVA</item>
+        <item>PUERTO BOYACA</item>
+        <item>QUIPAMA</item>
+        <item>RAMIRIQUI</item>
+        <item>RAQUIRA</item>
+        <item>RONDON</item>
+        <item>SABOYA</item>
+        <item>SACHICA</item>
+        <item>SAMACA</item>
+        <item>SAN EDUARDO</item>
+        <item>SAN JOSEDE PARE</item>
+        <item>SAN LUIS DE GACENO</item>
+        <item>SAN MATEO</item>
+        <item>SAN MIGUEL DE SEMA</item>
+        <item>SAN PABLO DE BORBUR</item>
+        <item>SANTA MARIA</item>
+        <item>SANTA ROSA DE VITERBO</item>
+        <item>SANTA SOFIA</item>
+        <item>SANTANA</item>
+        <item>SATIVANORTE</item>
+        <item>SATIVASUR</item>
+        <item>SIACHOQUE</item>
+        <item>SOATA</item>
+        <item>SOCHA</item>
+        <item>SOCOTA</item>
+        <item>SOGAMOSO</item>
+        <item>SOMONDOCO</item>
+        <item>SORA</item>
+        <item>SORACA</item>
+        <item>SOTAQUIRA</item>
+        <item>SUSACON</item>
+        <item>SUTAMARCHAN</item>
+        <item>SUTATENZA</item>
+        <item>TASCO</item>
+        <item>TENZA</item>
+        <item>TIBANA</item>
+        <item>TIBASOSA</item>
+        <item>TINJACA</item>
+        <item>TIPACOQUE</item>
+        <item>TOCA</item>
+        <item>TOGÜÍ</item>
+        <item>TOPAGA</item>
+        <item>TOTA</item>
+        <item>TUNJA</item>
+        <item>TUNUNGUA</item>
+        <item>TURMEQUE</item>
+        <item>TUTA</item>
+        <item>TUTAZA</item>
+        <item>UMBITA</item>
+        <item>VENTAQUEMADA</item>
+        <item>VILLA DE LEIVA</item>
+        <item>VIRACACHA</item>
+        <item>ZETAQUIRA</item>
+    </string-array>
+
+    <string-array name="mun7">
+        <item>MUNICIPIO*</item>
+        <item>AGUADAS</item>
+        <item>ANSERMA</item>
+        <item>ARANZAZU</item>
+        <item>BELALCAZAR</item>
+        <item>CHINCHINA</item>
+        <item>FILADELFIA</item>
+        <item>LA DORADA</item>
+        <item>LA MERCED</item>
+        <item>MANIZALES</item>
+        <item>MANZANARES</item>
+        <item>MARMATO</item>
+        <item>MARQUETALIA</item>
+        <item>MARULANDA</item>
+        <item>NEIRA</item>
+        <item>NORCASIA</item>
+        <item>PACORA</item>
+        <item>PALESTINA</item>
+        <item>PENSILVANIA</item>
+        <item>RIOSUCIO</item>
+        <item>RISARALDA</item>
+        <item>SALAMINA</item>
+        <item>SAMANA</item>
+        <item>SAN JOSE</item>
+        <item>SUPIA</item>
+        <item>VICTORIA</item>
+        <item>VILLAMARIA</item>
+        <item>VITERBO</item>
+    </string-array>
+
+    <string-array name="mun8">
+        <item>MUNICIPIO*</item>
+        <item>ALBANIA</item>
+        <item>BELEN DE LOS ANDAQUIES</item>
+        <item>CARTAGENA DEL CHAIRA</item>
+        <item>CURILLO</item>
+        <item>EL DONCELLO</item>
+        <item>EL PAUJIL</item>
+        <item>FLORENCIA</item>
+        <item>MILAN</item>
+        <item>MONTANITA</item>
+        <item>MORELIA</item>
+        <item>PUERTO RICO</item>
+        <item>SAN JOSE DEL FRAGUA</item>
+        <item>SAN VICENTE DEL CAGUAN</item>
+        <item>SOLANO</item>
+        <item>SOLITA</item>
+        <item>VALPARAISO</item>
+    </string-array>
+
+    <string-array name="mun9">
+        <item>MUNICIPIO*</item>
+        <item>AGUAZUL</item>
+        <item>CHAMEZA</item>
+        <item>HATO COROZAL</item>
+        <item>LA SALINA</item>
+        <item>MANI</item>
+        <item>MONTERREY</item>
+        <item>NUNCHIA</item>
+        <item>OROCUE</item>
+        <item>PAZ DE ARIPORO</item>
+        <item>PORE</item>
+        <item>RECETOR</item>
+        <item>SABANALARGA</item>
+        <item>SACAMA</item>
+        <item>SAN LUIS DE PALENQUE</item>
+        <item>TAMARA</item>
+        <item>TAURAMENA</item>
+        <item>TRINIDAD</item>
+        <item>VILLANUEVA</item>
+        <item>YOPAL</item>
+    </string-array>
+
+    <string-array name="mun10">
+        <item>MUNICIPIO*</item>
+        <item>ALMAGUER</item>
+        <item>ARGELIA</item>
+        <item>BALBOA</item>
+        <item>BOLIVAR</item>
+        <item>BUENOS AIRES</item>
+        <item>CAJIBIO</item>
+        <item>CALDONO</item>
+        <item>CALOTO</item>
+        <item>CORINTO</item>
+        <item>EL TAMBO</item>
+        <item>FLORENCIA</item>
+        <item>GUAPI</item>
+        <item>INZA</item>
+        <item>JAMBALO</item>
+        <item>LA SIERRA</item>
+        <item>LA VEGA</item>
+        <item>LOPEZ</item>
+        <item>MERCADERES</item>
+        <item>MIRANDA</item>
+        <item>MORALES</item>
+        <item>PADILLA</item>
+        <item>PAEZ</item>
+        <item>PATIA</item>
+        <item>PIAMONTE</item>
+        <item>PIENDAMO</item>
+        <item>POPAYAN</item>
+        <item>PUERTO TEJADA</item>
+        <item>PURACE</item>
+        <item>ROSAS</item>
+        <item>SAN SEBASTIAN</item>
+        <item>SANTA ROSA</item>
+        <item>SANTANDER DE QUILICHAO</item>
+        <item>SILVIA</item>
+        <item>SOTARA</item>
+        <item>SUAREZ</item>
+        <item>SUCRE</item>
+        <item>TIMBIO</item>
+        <item>TIMBIQUI</item>
+        <item>TORIBIO</item>
+        <item>TOTORO</item>
+        <item>VILLA RICA</item>
+    </string-array>
+
+    <string-array name="mun11">
+        <item>MUNICIPIO*</item>
+        <item>AGUACHICA</item>
+        <item>AGUSTIN CODAZZI</item>
+        <item>ASTREA</item>
+        <item>BECERRIL</item>
+        <item>BOSCONIA</item>
+        <item>CHIMI HAGUA</item>
+        <item>CHIRIGUANA</item>
+        <item>CURUMANI</item>
+        <item>EL COPEY</item>
+        <item>EL PASO</item>
+        <item>GAMARRA</item>
+        <item>GONZALEZ</item>
+        <item>LA GLORIA</item>
+        <item>LA JAGUA DE IBIRICO</item>
+        <item>LA PAZ</item>
+        <item>MANAURE BALCON DEL CESAR</item>
+        <item>PAILITAS</item>
+        <item>PELAYA</item>
+        <item>PUEBLO BELLO</item>
+        <item>RIO DE ORO</item>
+        <item>SAN ALBERTO</item>
+        <item>SAN DIEGO</item>
+        <item>SAN MARTIN</item>
+        <item>TAMALAMEQUE</item>
+        <item>VALLEDUPAR</item>
+    </string-array>
+
+    <string-array name="mun12">
+        <item>MUNICIPIO*</item>
+        <item>ACANDI</item>
+        <item>ALTO BAUDO</item>
+        <item>ATRATO</item>
+        <item>BAGADO</item>
+        <item>BAHIA SOLANO</item>
+        <item>BAJO BAUDO</item>
+        <item>BOJAYA</item>
+        <item>CARMEN DEL DARIEN</item>
+        <item>CERTEGUI</item>
+        <item>CONDOTO</item>
+        <item>EL CANTON DEL SAN PABLO</item>
+        <item>EL CARMEN</item>
+        <item>EL LITORAL DEL SAN JUAN</item>
+        <item>ITSMINA</item>
+        <item>JURADO</item>
+        <item>LLORO</item>
+        <item>MEDIO ATRATO</item>
+        <item>MEDIO BAUDO</item>
+        <item>MEDIO SAN JUAN</item>
+        <item>NOVITA</item>
+        <item>NUQUI</item>
+        <item>QUIBDO</item>
+        <item>RIO IRO</item>
+        <item>RIO QUITO</item>
+        <item>RIOSUCIO</item>
+        <item>SAN JOSE DEL PALMAR</item>
+        <item>SIPI</item>
+        <item>TADO</item>
+        <item>UNGUIA</item>
+        <item>UNION PANAMERICANA</item>
+    </string-array>
+
+    <string-array name="mun13">
+        <item>MUNICIPIO*</item>
+        <item>AYAPEL</item>
+        <item>BUENAVISTA</item>
+        <item>CANALETE</item>
+        <item>CERETE</item>
+        <item>CHIMA</item>
+        <item>CHINU</item>
+        <item>CIENAGA DE ORO</item>
+        <item>COTORRA</item>
+        <item>LA APARTADA</item>
+        <item>LORICA</item>
+        <item>LOS CORDOBAS</item>
+        <item>MOMIL</item>
+        <item>MONITOS</item>
+        <item>MONTELIBANO</item>
+        <item>MONTERIA</item>
+        <item>PLANETA RICA</item>
+        <item>PUEBLO NUEVO</item>
+        <item>PUERTO ESCONDIDO</item>
+        <item>PUERTO LIBERTADOR</item>
+        <item>PURISIMA</item>
+        <item>SAHAGUN</item>
+        <item>SAN ANDRES DE SOTAVENTO</item>
+        <item>SAN ANTERO</item>
+        <item>SAN BERNARDO DEL VIENTO</item>
+        <item>SAN CARLOS</item>
+        <item>SAN PELAYO</item>
+        <item>TIERRALTA</item>
+        <item>VALENCIA</item>
+    </string-array>
+
+    <string-array name="mun14">
+        <item>MUNICIPIO*</item>
+        <item>AGUA DE DIOS</item>
+        <item>ALBAN</item>
+        <item>ANAPOIMA</item>
+        <item>ANOLAIMA</item>
+        <item>APULO</item>
+        <item>ARBELAEZ</item>
+        <item>BELTRAN</item>
+        <item>BITUIMA</item>
+        <item>BOJACA</item>
+        <item>CABRERA</item>
+        <item>CACHIPAY</item>
+        <item>CAJICA</item>
+        <item>CAPARRAPI</item>
+        <item>CAQUEZA</item>
+        <item>CARMEN DE CARUPA</item>
+        <item>CHAGUANI</item>
+        <item>CHIA</item>
+        <item>CHIPAQUE</item>
+        <item>CHOACHI</item>
+        <item>CHOCONTA</item>
+        <item>COGUA</item>
+        <item>COTA</item>
+        <item>CUCUNUBA</item>
+        <item>EL COLEGIO</item>
+        <item>EL PENON</item>
+        <item>EL ROSAL</item>
+        <item>FACATATIVA</item>
+        <item>FOMEQUE</item>
+        <item>FOSCA</item>
+        <item>FUNZA</item>
+        <item>FUQUENE</item>
+        <item>FUSAGASUGA</item>
+        <item>GACHALA</item>
+        <item>GACHANCIPA</item>
+        <item>GACHETA</item>
+        <item>GAMA</item>
+        <item>GIRARDOT</item>
+        <item>GRANADA</item>
+        <item>GUACHETA</item>
+        <item>GUADUAS</item>
+        <item>GUASCA</item>
+        <item>GUATAQUI</item>
+        <item>GUATAVITA</item>
+        <item>GUAYABAL DE SIQUIMA</item>
+        <item>GUAYABETAL</item>
+        <item>GUTIERREZ</item>
+        <item>JERUSALEN</item>
+        <item>JUNIN</item>
+        <item>LA CALERA</item>
+        <item>LA MESA</item>
+        <item>LA PALMA</item>
+        <item>LA PENA</item>
+        <item>LA VEGA</item>
+        <item>LENGUAZAQUE</item>
+        <item>MACHETA</item>
+        <item>MADRID</item>
+        <item>MANTA</item>
+        <item>MEDINA</item>
+        <item>MOSQUERA</item>
+        <item>NARINO</item>
+        <item>NEMOCON</item>
+        <item>NILO</item>
+        <item>NIMAIMA</item>
+        <item>NOCAIMA</item>
+        <item>PACHO</item>
+        <item>PAIME</item>
+        <item>PANDI</item>
+        <item>PARATEBUENO</item>
+        <item>PASCA</item>
+        <item>PUERTO SALGAR</item>
+        <item>PULI</item>
+        <item>QUEBRADANEGRA</item>
+        <item>QUETAME</item>
+        <item>QUIPILE</item>
+        <item>RICAURTE</item>
+        <item>SAN ANTONIO DE TEQUENDAMA</item>
+        <item>SAN BERNARDO</item>
+        <item>SAN CAYETANO</item>
+        <item>SAN FRANCISCO</item>
+        <item>SAN JUAN DE RIOSECO</item>
+        <item>SASAIMA</item>
+        <item>SESQUILE</item>
+        <item>SIBATE</item>
+        <item>SILVANIA</item>
+        <item>SIMIJACA</item>
+        <item>SOACHA</item>
+        <item>SOPO</item>
+        <item>SUBACHOQUE</item>
+        <item>SUESCA</item>
+        <item>SUPATA</item>
+        <item>SUSA</item>
+        <item>SUTATAUSA</item>
+        <item>TABIO</item>
+        <item>TAUSA</item>
+        <item>TENA</item>
+        <item>TENJO</item>
+        <item>TIBACUY</item>
+        <item>TIBIRITA</item>
+        <item>TOCAIMA</item>
+        <item>TOCANCIPA</item>
+        <item>TOPAIPI</item>
+        <item>UBALA</item>
+        <item>UBAQUE</item>
+        <item>UBATE</item>
+        <item>UNE</item>
+        <item>UTICA</item>
+        <item>VENECIA</item>
+        <item>VERGARA</item>
+        <item>VIANI</item>
+        <item>VILLAGOMEZ</item>
+        <item>VILLAPINZON</item>
+        <item>VILLETA</item>
+        <item>VIOTA</item>
+        <item>YACOPI</item>
+        <item>ZIPACON</item>
+        <item>ZIPAQUIRA</item>
+    </string-array>
+
+    <string-array name="mun15">
+        <item>MUNICIPIO*</item>
+        <item>BARRANCO MINA</item>
+        <item>CACAHUAL</item>
+        <item>INIRIDA</item>
+        <item>LA GUADALUPE</item>
+        <item>MAPIRIPANA</item>
+        <item>MORICHAL</item>
+        <item>PANA-PANA</item>
+        <item>PUERTO COLOMBIA</item>
+        <item>SAN FELIPE</item>
+    </string-array>
+
+    <string-array name="mun16">
+        <item>MUNICIPIO*</item>
+        <item>ALBANIA</item>
+        <item>BARRANCAS</item>
+        <item>DIBULLA</item>
+        <item>DISTRACCION</item>
+        <item>EL MOLINO</item>
+        <item>FONSECA</item>
+        <item>HATO NUEVO</item>
+        <item>LA JAGUA DEL PILAR</item>
+        <item>MAICAO</item>
+        <item>MANAURE</item>
+        <item>RIOHACHA</item>
+        <item>SAN JUAN DEL CESAR</item>
+        <item>URIBIA</item>
+        <item>URUMITA</item>
+        <item>VILLANUEVA</item>
+    </string-array>
+
+    <string-array name="mun17">
+        <item>MUNICIPIO*</item>
+        <item>CALAMAR</item>
+        <item>EL RETORNO</item>
+        <item>MIRAFLORES</item>
+        <item>SAN JOSE DEL GUAVIARE</item>
+    </string-array>
+
+    <string-array name="mun18">
+        <item>MUNICIPIO*</item>
+        <item>ACEVEDO</item>
+        <item>AGRADO</item>
+        <item>AIPE</item>
+        <item>ALGECIRAS</item>
+        <item>ALTAMIRA</item>
+        <item>BARAYA</item>
+        <item>CAMPOALEGRE</item>
+        <item>COLOMBIA</item>
+        <item>ELIAS</item>
+        <item>GARZON</item>
+        <item>GIGANTE</item>
+        <item>GUADALUPE</item>
+        <item>HOBO</item>
+        <item>IQUIRA</item>
+        <item>ISNOS</item>
+        <item>LA ARGENTINA</item>
+        <item>LA PLATA</item>
+        <item>NATAGA</item>
+        <item>NEIVA</item>
+        <item>OPORAPA</item>
+        <item>PAICOL</item>
+        <item>PALERMO</item>
+        <item>PALESTINA</item>
+        <item>PITAL</item>
+        <item>PITALITO</item>
+        <item>RIVERA</item>
+        <item>SALADOBLANCO</item>
+        <item>SAN AGUSTIN</item>
+        <item>SANTA MARIA</item>
+        <item>SUAZA</item>
+        <item>TARQUI</item>
+        <item>TELLO</item>
+        <item>TERUEL</item>
+        <item>TESALIA</item>
+        <item>TIMANA</item>
+        <item>VILLAVIEJA</item>
+        <item>YAGUARA</item>
+    </string-array>
+
+    <string-array name="mun19">
+        <item>MUNICIPIO*</item>
+        <item>ALGARROBO</item>
+        <item>ARACATACA</item>
+        <item>ARIGUANI</item>
+        <item>CERRO DE SAN ANTONIO</item>
+        <item>CHIVOLO</item>
+        <item>CIENAGA</item>
+        <item>CONCORDIA</item>
+        <item>EL BANCO</item>
+        <item>EL PINON</item>
+        <item>EL RETEN</item>
+        <item>FUNDACION</item>
+        <item>GUAMAL</item>
+        <item>NUEVA GRANADA</item>
+        <item>PEDRAZA</item>
+        <item>PIJINO DEL CARMEN</item>
+        <item>PIVIJAY</item>
+        <item>PLATO</item>
+        <item>PUEBLOVIEJO</item>
+        <item>REMOLINO</item>
+        <item>SABANAS DE SAN ANGEL</item>
+        <item>SALAMINA</item>
+        <item>SAN SEBASTIAN DE BUENAVISTA</item>
+        <item>SAN ZENON</item>
+        <item>SANTA ANA</item>
+        <item>SANTA BARBARA DE PINTO</item>
+        <item>SANTA MARTA</item>
+        <item>SITIONUEVO</item>
+        <item>TENERIFE</item>
+        <item>ZAPAYAN</item>
+        <item>ZONA BANANERA</item>
+    </string-array>
+
+    <string-array name="mun20">
+        <item>MUNICIPIO*</item>
+        <item>ACACIAS</item>
+        <item>BARRANCA DE UPIA</item>
+        <item>CABUYARO</item>
+        <item>CASTILLA LA NUEVA</item>
+        <item>CUBARRAL</item>
+        <item>CUMARAL</item>
+        <item>EL CALVARIO</item>
+        <item>EL CASTILLO</item>
+        <item>EL DORADO</item>
+        <item>FUENTE DE ORO</item>
+        <item>GRANADA</item>
+        <item>GUAMAL</item>
+        <item>LA MACARENA</item>
+        <item>LEJANIAS</item>
+        <item>MAPIRIPAN</item>
+        <item>MESETAS</item>
+        <item>PUERTO CONCORDIA</item>
+        <item>PUERTO GAITAN</item>
+        <item>PUERTO LLERAS</item>
+        <item>PUERTO LOPEZ</item>
+        <item>PUERTO RICO</item>
+        <item>RESTREPO</item>
+        <item>SAN CARLOS DE GUAROA</item>
+        <item>SAN JUAN DE ARAMA</item>
+        <item>SAN JUANITO</item>
+        <item>SAN MARTIN</item>
+        <item>URIBE</item>
+        <item>VILLAVICENCIO</item>
+        <item>VISTAHERMOSA</item>
+    </string-array>
+
+    <string-array name="mun21">
+        <item>MUNICIPIO*</item>
+        <item>ABREGO</item>
+        <item>ARBOLEDAS</item>
+        <item>BOCHALEMA</item>
+        <item>BUCARASICA</item>
+        <item>CACHIRA</item>
+        <item>CACOTA</item>
+        <item>CHINACOTA</item>
+        <item>CHITAGA</item>
+        <item>CONVENCION</item>
+        <item>CUCUTA</item>
+        <item>CUCUTILLA</item>
+        <item>DURANIA</item>
+        <item>EL CARMEN</item>
+        <item>EL TARRA</item>
+        <item>EL ZULIA</item>
+        <item>GRAMALOTE</item>
+        <item>HACARI</item>
+        <item>HERRAN</item>
+        <item>LA ESPERANZA</item>
+        <item>LA PLAYA</item>
+        <item>LABATECA</item>
+        <item>LOS PATIOS</item>
+        <item>LOURDES</item>
+        <item>MUTISCUA</item>
+        <item>OCANA</item>
+        <item>PAMPLONA</item>
+        <item>PAMPLONITA</item>
+        <item>PUERTO SANTANDER</item>
+        <item>RAGONVALIA</item>
+        <item>SALAZAR</item>
+        <item>SAN CALIXTO</item>
+        <item>SAN CAYETANO</item>
+        <item>SANTIAGO</item>
+        <item>SARDINATA</item>
+        <item>SILOS</item>
+        <item>TEORAMA</item>
+        <item>TIBU</item>
+        <item>TOLEDO</item>
+        <item>VILLA CARO</item>
+        <item>VILLA DEL ROSARIO</item>
+    </string-array>
+
+    <string-array name="mun22">
+        <item>MUNICIPIO*</item>
+        <item>ALBAN</item>
+        <item>ALDANA</item>
+        <item>ANCUYA</item>
+        <item>ARBOLEDA</item>
+        <item>BARBACOAS</item>
+        <item>BELEN</item>
+        <item>BUESACO</item>
+        <item>CHACHAGUI</item>
+        <item>COLON (GEnova)</item>
+        <item>CONSACA</item>
+        <item>CONTADERO</item>
+        <item>CORDOBA</item>
+        <item>CUASPUD</item>
+        <item>CUMBAL</item>
+        <item>CUMBITARA</item>
+        <item>EL CHARCO</item>
+        <item>EL PENOL</item>
+        <item>EL ROSARIO</item>
+        <item>EL TABLON</item>
+        <item>EL TAMBO</item>
+        <item>FRANCISCO PIZARRO</item>
+        <item>FUNES</item>
+        <item>GUACHUCAL</item>
+        <item>GUAITARILLA</item>
+        <item>GUALMATAN</item>
+        <item>ILES</item>
+        <item>IMUES</item>
+        <item>IPIALES</item>
+        <item>LA CRUZ</item>
+        <item>LA FLORIDA</item>
+        <item>LA LLANADA</item>
+        <item>LA TOLA</item>
+        <item>LA UNION</item>
+        <item>LEIVA</item>
+        <item>LINARES</item>
+        <item>LOS ANDES</item>
+        <item>MAGÜI</item>
+        <item>MALLAMA</item>
+        <item>MOSQUERA</item>
+        <item>NARINO</item>
+        <item>OLAYA HERRERA</item>
+        <item>OSPINA</item>
+        <item>PASTO</item>
+        <item>POLICARPA</item>
+        <item>POTOSI</item>
+        <item>PROVIDENCIA</item>
+        <item>PUERRES</item>
+        <item>PUPIALES</item>
+        <item>RICAURTE</item>
+        <item>ROBERTO PAYAN</item>
+        <item>SAMANIEGO</item>
+        <item>SAN BERNARDO</item>
+        <item>SAN LORENZO</item>
+        <item>SAN PABLO</item>
+        <item>SAN PEDRO DE CARTAGO</item>
+        <item>SANDONA</item>
+        <item>SANTA BARBARA</item>
+        <item>SANTA CRUZ</item>
+        <item>SAPUYES</item>
+        <item>TAMINANGO</item>
+        <item>TANGUA</item>
+        <item>TUMACO</item>
+        <item>TUQUERRES</item>
+        <item>YACUANQUER</item>
+    </string-array>
+
+    <string-array name="mun23">
+        <item>MUNICIPIO*</item>
+        <item>COLON</item>
+        <item>MOCOA</item>
+        <item>ORITO</item>
+        <item>PUERTO ASIS</item>
+        <item>PUERTO CAICEDO</item>
+        <item>PUERTO GUZMAN</item>
+        <item>PUERTO LEGUIZAMO</item>
+        <item>SAN FRANCISCO</item>
+        <item>SAN MIGUEL</item>
+        <item>SANTIAGO</item>
+        <item>SIBUNDOY</item>
+        <item>VALLE DEL GUAMUEZ</item>
+        <item>VILLAGARZON</item>
+    </string-array>
+
+    <string-array name="mun24">
+        <item>MUNICIPIO*</item>
+        <item>ARMENIA</item>
+        <item>BUENAVISTA</item>
+        <item>CALARCA</item>
+        <item>CIRCASIA</item>
+        <item>CORDOBA</item>
+        <item>FILANDIA</item>
+        <item>GENOVA</item>
+        <item>LA TEBAIDA</item>
+        <item>MONTENEGRO</item>
+        <item>PIJAO</item>
+        <item>QUIMBAYA</item>
+        <item>SALENTO</item>
+    </string-array>
+
+    <string-array name="mun25">
+        <item>MUNICIPIO*</item>
+        <item>APIA</item>
+        <item>BALBOA</item>
+        <item>BELEN DE UMBRIA</item>
+        <item>DOSQUEBRADAS</item>
+        <item>GUATICA</item>
+        <item>LA CELIA</item>
+        <item>LA VIRGINIA</item>
+        <item>MARSELLA</item>
+        <item>MISTRATO</item>
+        <item>PEREIRA</item>
+        <item>PUEBLO RICO</item>
+        <item>QUINCHIA</item>
+        <item>SANTA ROSA DE CABAL</item>
+        <item>SANTUARIO</item>
+    </string-array>
+
+    <string-array name="mun26">
+        <item>MUNICIPIO*</item>
+        <item>PROVIDENCIA Y SANTA CATALINA</item>
+        <item>SAN ANDRES</item>
+    </string-array>
+
+    <string-array name="mun27">
+        <item>MUNICIPIO*</item>
+        <item>AGUADA</item>
+        <item>ALBANIA</item>
+        <item>ARATOCA</item>
+        <item>BARBOSA</item>
+        <item>BARICHARA</item>
+        <item>BARRANCABERMEJA</item>
+        <item>BETULIA</item>
+        <item>BOLIVAR</item>
+        <item>BUCARAMANGA</item>
+        <item>CABRERA</item>
+        <item>CALIFORNIA</item>
+        <item>CAPITANEJO</item>
+        <item>CARCASI</item>
+        <item>CEPITA</item>
+        <item>CERRITO</item>
+        <item>CHARALA</item>
+        <item>CHARTA</item>
+        <item>CHIMA</item>
+        <item>CHIPATA</item>
+        <item>CIMITARRA</item>
+        <item>CONCEPCION</item>
+        <item>CONFINES</item>
+        <item>CONTRATACION</item>
+        <item>COROMORO</item>
+        <item>CURITI</item>
+        <item>EL CARMEN</item>
+        <item>EL GUACAMAYO</item>
+        <item>EL PENON</item>
+        <item>EL PLAYON</item>
+        <item>ENCINO</item>
+        <item>ENCISO</item>
+        <item>FLORIAN</item>
+        <item>FLORIDABLANCA</item>
+        <item>GALAN</item>
+        <item>GAMBITA</item>
+        <item>GIRON</item>
+        <item>GUACA</item>
+        <item>GUADALUPE</item>
+        <item>GUAPOTA</item>
+        <item>GUAVATA</item>
+        <item>GÜEPSA</item>
+        <item>HATO</item>
+        <item>JESUS MARIA</item>
+        <item>JORDAN</item>
+        <item>LA BELLEZA</item>
+        <item>LA PAZ</item>
+        <item>LANDAZURI</item>
+        <item>LEBRIJA</item>
+        <item>LOS SANTOS</item>
+        <item>MACARAVITA</item>
+        <item>MALAGA</item>
+        <item>MATANZA</item>
+        <item>MOGOTES</item>
+        <item>MOLAGAVITA</item>
+        <item>OCAMONTE</item>
+        <item>OIBA</item>
+        <item>ONZAGA</item>
+        <item>PALMAR</item>
+        <item>PALMAS DEL SOCORRO</item>
+        <item>PARAMO</item>
+        <item>PIEDECUESTA</item>
+        <item>PINCHOTE</item>
+        <item>PUENTE NACIONAL</item>
+        <item>PUERTO PARRA</item>
+        <item>PUERTO WILCHES</item>
+        <item>RIONEGRO</item>
+        <item>SABANA DE TORRES</item>
+        <item>SAN ANDRES</item>
+        <item>SAN BENITO</item>
+        <item>SAN GIL</item>
+        <item>SAN JOAQUIN</item>
+        <item>SAN JOSE DE MIRANDA</item>
+        <item>SAN MIGUEL</item>
+        <item>SAN VICENTE DE CHUCURI</item>
+        <item>SANTA BARBARA</item>
+        <item>SANTA HELENA DEL OPON</item>
+        <item>SIMACOTA</item>
+        <item>SOCORRO</item>
+        <item>SUAITA</item>
+        <item>SUCRE</item>
+        <item>SURATA</item>
+        <item>TONA</item>
+        <item>VALLE DE SAN JOSE</item>
+        <item>VELEZ</item>
+        <item>VETAS</item>
+        <item>VILLANUEVA</item>
+        <item>ZAPATOCA</item>
+    </string-array>
+
+    <string-array name="mun28">
+        <item>MUNICIPIO*</item>
+        <item>BUENAVISTA</item>
+        <item>CAIMITO</item>
+        <item>CHALAN</item>
+        <item>COLOSO</item>
+        <item>COROZAL</item>
+        <item>COVENAS</item>
+        <item>EL ROBLE</item>
+        <item>GALERAS</item>
+        <item>GUARANDA</item>
+        <item>LA UNION</item>
+        <item>LOS PALMITOS</item>
+        <item>MAJAGUAL</item>
+        <item>MORROA</item>
+        <item>OVEJAS</item>
+        <item>PALMITO</item>
+        <item>SAMPUES</item>
+        <item>SAN BENITO ABAD</item>
+        <item>SAN JUAN DE BETULIA</item>
+        <item>SAN MARCOS</item>
+        <item>SAN ONOFRE</item>
+        <item>SAN PEDRO</item>
+        <item>SINCE</item>
+        <item>SINCELEJO</item>
+        <item>SUCRE</item>
+        <item>TOLU</item>
+        <item>TOLUVIEJO</item>
+    </string-array>
+
+    <string-array name="mun29">
+        <item>MUNICIPIO*</item>
+        <item>ALPUJARRA</item>
+        <item>ALVARADO</item>
+        <item>AMBALEMA</item>
+        <item>ANZOATEGUI</item>
+        <item>ARMERO</item>
+        <item>ATACO</item>
+        <item>CAJAMARCA</item>
+        <item>CARMEN DE APICALA</item>
+        <item>CASABIANCA</item>
+        <item>CHAPARRAL</item>
+        <item>COELLO</item>
+        <item>COYAIMA</item>
+        <item>CUNDAY</item>
+        <item>DOLORES</item>
+        <item>ESPINAL</item>
+        <item>FALAN</item>
+        <item>FLANDES</item>
+        <item>FRESNO</item>
+        <item>GUAMO</item>
+        <item>HERVEO</item>
+        <item>HONDA</item>
+        <item>IBAGUE</item>
+        <item>ICONONZO</item>
+        <item>LERIDA</item>
+        <item>LIBANO</item>
+        <item>MARIQUITA</item>
+        <item>MELGAR</item>
+        <item>MURILLO</item>
+        <item>NATAGAIMA</item>
+        <item>ORTEGA</item>
+        <item>PALOCABILDO</item>
+        <item>PIEDRAS</item>
+        <item>PLANADAS</item>
+        <item>PRADO</item>
+        <item>PURIFICACION</item>
+        <item>RIOBLANCO</item>
+        <item>RONCESVALLES</item>
+        <item>ROVIRA</item>
+        <item>SALDANA</item>
+        <item>SAN ANTONIO</item>
+        <item>SAN LUIS</item>
+        <item>SANTA ISABEL</item>
+        <item>SUAREZ</item>
+        <item>VALLE DE SAN JUAN</item>
+        <item>VENADILLO</item>
+        <item>VILLAHERMOSA</item>
+        <item>VILLARRICA</item>
+    </string-array>
+
+    <string-array name="mun30">
+        <item>MUNICIPIO*</item>
+        <item>ALCALA</item>
+        <item>ANDALUCIA</item>
+        <item>ANSERMANUEVO</item>
+        <item>ARGELIA</item>
+        <item>BOLIVAR</item>
+        <item>BUENAVENTURA</item>
+        <item>BUGA</item>
+        <item>BUGALAGRANDE</item>
+        <item>CAICEDONIA</item>
+        <item>CALI</item>
+        <item>CALIMA</item>
+        <item>CANDELARIA</item>
+        <item>CARTAGO</item>
+        <item>DAGUA</item>
+        <item>EL AGUILA</item>
+        <item>EL CAIRO</item>
+        <item>EL CERRITO</item>
+        <item>EL DOVIO</item>
+        <item>FLORIDA</item>
+        <item>GINEBRA</item>
+        <item>GUACARI</item>
+        <item>JAMUNDI</item>
+        <item>LA CUMBRE</item>
+        <item>LA UNION</item>
+        <item>LA VICTORIA</item>
+        <item>OBANDO</item>
+        <item>PALMIRA</item>
+        <item>PRADERA</item>
+        <item>RESTREPO</item>
+        <item>RIOFRIO</item>
+        <item>ROLDANILLO</item>
+        <item>SAN PEDRO</item>
+        <item>SEVILLA</item>
+        <item>TORO</item>
+        <item>TRUJILLO</item>
+        <item>TULUA</item>
+        <item>ULLOA</item>
+        <item>VERSALLES</item>
+        <item>VIJES</item>
+        <item>YOTOCO</item>
+        <item>YUMBO</item>
+        <item>ZARZAL</item>
+    </string-array>
+
+    <string-array name="mun31">
+        <item>MUNICIPIO*</item>
+        <item>CARURU</item>
+        <item>MITU</item>
+        <item>PACOA</item>
+        <item>PAPUNAUA</item>
+        <item>TARAIRA</item>
+        <item>YAVARATE</item>
+    </string-array>
+
+    <string-array name="mun32">
+        <item>MUNICIPIO*</item>
+        <item>CUMARIBO</item>
+        <item>LA PRIMAVERA</item>
+        <item>PUERTO CARRENO</item>
+        <item>SANTA ROSALIA</item>
+    </string-array>
+    <string name="title_activity_registro_medicos">registroMedicos</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

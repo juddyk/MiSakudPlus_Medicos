@@ -1,0 +1,127 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.appdemo.mi_salud.misakudplus_medicos.UI_registro.registroX">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:layout_marginTop="10sp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:text="@string/reg_mediopago" />
+
+        <TextView
+            style="@style/txtSub0"
+            android:layout_width="match_parent"
+            android:layout_height="18sp"
+            android:gravity="center"
+            android:text="@string/reg_mensajeAtencion" />
+
+        <CheckBox
+            android:id="@+id/medio1"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio1" />
+
+        <CheckBox
+            android:id="@+id/medio2"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio2" />
+
+        <CheckBox
+            android:id="@+id/medio3"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio3" />
+
+        <CheckBox
+            android:id="@+id/medio4"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio4" />
+
+        <CheckBox
+            android:id="@+id/medio5"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio5" />
+
+        <CheckBox
+            android:id="@+id/medio6"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio6" />
+
+        <CheckBox
+            android:id="@+id/medio7"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio7" />
+
+        <CheckBox
+            android:id="@+id/medio8"
+            style="@style/txtSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_weight="1"
+            android:text="@string/reg_medio8" />
+
+        <TextView
+            android:id="@+id/idFIN"
+            style="@style/txtSub0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reg_finalStep" />
+
+        <Button
+            android:id="@+id/regSend"
+            style="@style/btnBox"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:background="@drawable/round_btn"
+            android:text="@string/registrar" />
+
+    </LinearLayout>
+
+</FrameLayout>

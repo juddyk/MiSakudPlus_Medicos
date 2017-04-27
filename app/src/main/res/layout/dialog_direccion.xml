@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10sp"
+        android:layout_marginRight="5sp"
+        android:layout_marginLeft="5sp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            style="@style/txtSub0"
+            android:gravity="center"
+            android:text="@string/dirMensaje0"
+            android:layout_marginBottom="5sp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <Spinner
+                android:id="@+id/dir1"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="3sp"
+                android:layout_marginRight="3sp"
+                android:layout_height="30sp"
+                android:drawSelectorOnTop="true"
+                android:layout_weight="1"
+                android:entries="@array/estandar"
+                style="@style/spinBox3"
+                />
+
+            <EditText
+                android:id="@+id/dir2"
+                android:layout_width="50sp"
+                android:layout_height="30sp"
+                style="@style/txtSub3"
+                android:digits="@string/digitos0"
+                android:inputType="number"
+                android:maxLength="2"
+                />
+
+            <Spinner
+                android:id="@+id/dir3"
+                android:layout_width="50sp"
+                android:layout_marginLeft="3sp"
+                android:layout_marginRight="3sp"
+                android:layout_height="30sp"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/letras"
+                style="@style/spinBox3"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5sp"
+            >
+            <Spinner
+                android:id="@+id/dir4"
+                android:layout_width="100sp"
+                android:layout_marginLeft="3sp"
+                android:layout_marginRight="3sp"
+                android:layout_height="30sp"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/cardinales"
+                style="@style/spinBox3"
+                />
+            <TextView
+                android:layout_width="10sp"
+                android:layout_height="30sp"
+                android:text="#"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/winter1"/>
+
+            <EditText
+                android:id="@+id/dir5"
+                android:layout_width="50sp"
+                android:layout_height="30sp"
+                style="@style/txtSub3"
+                android:digits="@string/digitos0"
+                android:inputType="number"
+                android:maxLength="3"
+                />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5sp"
+        >
+        <Spinner
+            android:id="@+id/dir6"
+            android:layout_width="50sp"
+            android:layout_marginLeft="3sp"
+            android:layout_marginRight="3sp"
+            android:layout_height="30sp"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/letras"
+            style="@style/spinBox3"
+            />
+        <Spinner
+            android:id="@+id/dir7"
+            android:layout_width="100sp"
+            android:layout_marginLeft="3sp"
+            android:layout_marginRight="3sp"
+            android:layout_height="30sp"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/cardinales"
+            style="@style/spinBox3"
+            />
+
+        <EditText
+            android:id="@+id/dir8"
+            android:layout_width="50sp"
+            android:layout_height="30sp"
+            style="@style/txtSub3"
+            android:maxLength="2"
+            android:digits="@string/digitos0"
+            android:inputType="number"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            style="@style/txtSub"
+            android:gravity="center"
+            android:text="@string/dirMensaje1"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            style="@style/txtSub0"
+            android:gravity="center"
+            android:text="@string/dirMensaje2"
+            />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/dir9"
+            style="@style/txtBoxAC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="82"
+
+            />
+
+        <TextView
+            android:id="@+id/idDirF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_txt"
+            style="@style/txtBox3"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:layout_marginTop="25sp"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+</ScrollView>

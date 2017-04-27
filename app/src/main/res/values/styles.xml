@@ -8,4 +8,128 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="txtBox">
+        <item name="android:textColor">@color/winter4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="txtBox3">
+        <item name="android:textColor">@color/winter4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="txtBox7">
+        <item name="android:textColor">@color/winter4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="txtBoxAC">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/round_txt</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:layout_marginRight">5sp</item>
+        <item name="android:layout_marginLeft">5sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">5</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:digits">@string/digitos2</item>
+    </style>
+
+
+    <style name="spinBox">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/round_spin</item>
+    </style>
+
+    <style name="spinBox3">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/round_spin</item>
+    </style>
+
+    <style name="txtBoxNum">
+        <item name="android:textColor">@color/winter4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:inputType">number</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="txtBoxEmail">
+        <item name="android:textColor">@color/winter4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="txtSub">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="txtSub0">
+        <item name="android:textColor">@color/winter5</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="txtSub3">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/round_txt</item>
+        <item name="android:layout_marginRight">5sp</item>
+        <item name="android:layout_marginLeft">5sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="imgs_0">
+        <item name="android:layout_marginBottom">3sp</item>
+        <item name="android:layout_marginTop">3sp</item>
+        <item name="android:layout_marginLeft">3sp</item>
+        <item name="android:layout_marginRight">3sp</item>
+        <item name="android:layout_height">80sp</item>
+        <item name="android:layout_width">80sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="btnBox">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

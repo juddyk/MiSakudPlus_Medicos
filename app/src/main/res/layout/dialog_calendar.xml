@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_marginTop="40sp"
+        android:layout_marginBottom="5sp"
+        android:layout_marginRight="15sp"
+        android:layout_marginLeft="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            android:layout_weight="1"
+            android:text="@string/cal_day"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            android:layout_weight="1"
+            android:text="@string/cal_month"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            android:layout_weight="1"
+            android:text="@string/cal_year"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="30sp"
+        android:layout_marginRight="15sp"
+        android:layout_marginLeft="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/calDay"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_height="30sp"
+            android:drawSelectorOnTop="true"
+            android:layout_weight="1"
+            android:entries="@array/dias"
+            style="@style/spinBox"
+            />
+
+        <Spinner
+            android:id="@+id/calMonth"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_height="30sp"
+            android:drawSelectorOnTop="true"
+            android:layout_weight="1"
+            android:entries="@array/meses"
+            style="@style/spinBox"
+            />
+
+        <Spinner
+            android:id="@+id/calYear"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_height="30sp"
+            android:drawSelectorOnTop="true"
+            android:layout_weight="1"
+            style="@style/spinBox"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.appdemo.mi_salud.misakudplus_medicos">
+
+    <item
+        android:id="@+id/actionCanceladas"
+        app:showAsAction="ifRoom"
+        android:title="RECHAZADAS"
+        />
+
+    <item
+        android:id="@+id/actionExitosas"
+        app:showAsAction="ifRoom"
+        android:title="ACEPTADAS"/>
+
+
+</menu>

@@ -1,0 +1,143 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.appdemo.mi_salud.misakudplus_medicos.MainActivity"
+    android:orientation="vertical">
+
+    <!-- LOGO Y SLOGAN -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/slogan"
+            android:layout_weight="2"
+            android:contentDescription="@string/app_name"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/txtSub"
+            android:gravity="center"
+            android:layout_width="60sp"
+            android:layout_height="30sp"
+            android:text="@string/estado" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/txtBox3"
+            android:layout_width="100sp"
+            android:layout_height="30sp"
+            android:background="@drawable/round_txt"
+            android:text="@string/estado_on"
+            android:padding="5dp"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/fotoDoctor"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/docs" />
+
+    <TextView
+        style="@style/txtSub"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="Dr. Martin Salas" />
+
+    <ImageView
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/star_5"
+        android:id="@+id/puntajeDoctor"
+        android:contentDescription="@string/app_name"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sloganDoctor"
+            style="@style/txtBox3"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:background="@drawable/round_txt"
+            android:gravity="center"
+            android:hint="@string/main_slogan" />
+
+        <ImageView
+             android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:layout_marginStart="5sp"
+            android:background="@drawable/img_btn"
+            android:contentDescription="@string/app_name"
+            android:padding="5sp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/editar" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/idBtnAgenda"
+        android:layout_width="100sp"
+        android:layout_height="30sp"
+        android:background="@drawable/round_btn"
+        android:textColor="@color/white"
+        android:text="@string/main_agenda"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <!-- NOTICIAS -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡¡Avisos!!"
+        android:gravity="center"
+        style="@style/txtSub"
+        android:layout_marginTop="15sp"/>
+
+    <RelativeLayout
+        android:id="@+id/idFragmentNoticias"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </RelativeLayout>
+
+</LinearLayout>
+
+
+

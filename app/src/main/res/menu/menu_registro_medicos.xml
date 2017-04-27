@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.appdemo.mi_salud.misakudplus_medicos">
+
+    <item
+        android:id="@+id/actPerfil"
+        android:icon="@drawable/perfil"
+        app:showAsAction="ifRoom"
+        android:title="home"/>
+
+    <item
+        android:id="@+id/actSalir"
+        android:icon="@drawable/salir"
+        app:showAsAction="ifRoom"
+        android:title="home"/>
+
+
+</menu>

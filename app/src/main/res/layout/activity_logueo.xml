@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_logueo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.appdemo.mi_salud.misakudplus_medicos.UI_otras.logueo"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|center_horizontal"
+        android:layout_marginStart="-30sp"
+        >
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/user"
+            android:contentDescription="@string/log_usr"
+            />
+        <EditText
+            android:id="@+id/idUSER"
+            android:layout_width="200sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/round_txt"
+            style="@style/txtBox"
+            android:textSize="15sp"
+            android:hint="@string/log_usr"
+            android:inputType="number"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|center_horizontal"
+        android:layout_marginTop="15sp"
+        android:layout_marginStart="-30sp"
+        >
+
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:src="@drawable/password"
+            android:id="@+id/imageView2"
+            android:contentDescription="@string/log_psww"
+            />
+
+        <EditText
+            android:id="@+id/idPASSWORD"
+            android:layout_width="200sp"
+            android:layout_height="30sp"
+            android:background="@drawable/round_txt"
+            style="@style/txtBox"
+            android:hint="@string/log_psww"
+            android:maxLength="4"
+            android:inputType="numberPassword"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center|center_horizontal"
+        android:layout_marginTop="32sp"
+        >
+        <Button
+            android:id="@+id/idBtnLogueo"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/round_btn"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="@string/logueo_in"
+            />
+        <Button
+            android:id="@+id/idBtnRegister"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/round_btn"
+            android:layout_weight="1"
+            android:layout_marginTop="15sp"
+            android:textColor="@color/white"
+            android:text="@string/logueo_reg"
+            />
+    </LinearLayout>
+
+</LinearLayout>
+

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#273B75</color>
+    <color name="colorPrimaryDark">#35649E</color>
+    <color name="colorAccent">#9A336F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="colorName">#6797A8</color>
+    <color name="colorDescrip">#597B96</color>
+
+    <color name="winter1">#273B75</color>
+    <color name="winter2">#294E7C</color>
+    <color name="winter3">#35649E</color>
+    <color name="winter4">#3B92B0</color>
+    <color name="winter5">#9A336F</color>
+    <color name="winter6">#CCCCCC</color>
+    <color name="winter7">#CCCFFC</color>
 </resources>
