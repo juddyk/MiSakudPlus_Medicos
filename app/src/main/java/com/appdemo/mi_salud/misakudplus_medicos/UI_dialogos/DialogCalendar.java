@@ -80,9 +80,9 @@ public class DialogCalendar extends DialogFragment {
         //Si el usuario ya ha escogido alguna fecha en este punto carga la opción por defecto
         Bundle bndle = getArguments();
         codigo=bndle.getInt("CODE",-1);
-        spnDay.setSelection(bndle.getInt("day"));
-        spnMonth.setSelection(bndle.getInt("month"));
-        spnYear.setSelection(y-bndle.getInt("year")+1);
+        //spnDay.setSelection(bndle.getInt("day"));
+        //spnMonth.setSelection(bndle.getInt("month"));
+        //spnYear.setSelection(y-bndle.getInt("year")+1);
 
         builder.setView(view)
                 // Add action buttons
