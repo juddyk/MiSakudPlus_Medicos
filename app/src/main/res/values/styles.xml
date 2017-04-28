@@ -91,6 +91,13 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="txtSub1">
+        <item name="android:textColor">@color/winter6</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
     <style name="txtSub3">
         <item name="android:textColor">@color/winter3</item>
         <item name="android:textStyle">bold</item>
@@ -121,12 +128,21 @@
 
     </style>
 
+    <style name="margin_layouts">
+        <item name="android:layout_marginBottom">5sp</item>
+        <item name="android:layout_marginTop">5sp</item>
+        <item name="android:layout_marginStart">3sp</item>
+        <item name="android:layout_marginEnd">3sp</item>
+    </style>
 
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

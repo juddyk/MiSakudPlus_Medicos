@@ -30,8 +30,28 @@
 
 
     <!-- STRINGS REGISTRO -->
+    <string name="reg_1_ok">Paso 1: Completado!</string>
+    <string name="reg_1_nok">Paso 1: Incompleto!</string>
+    <string name="reg_2_ok">Paso 2: Completado!</string>
+    <string name="reg_2_nok">Paso 2: Incompleto!</string>
+    <string name="reg_3_ok">Paso 3: Completado!</string>
+    <string name="reg_3_nok">Paso 3: Incompleto!</string>
+    <string name="reg_4_ok">Paso 4: Completado!</string>
+    <string name="reg_4_nok">Paso 4: Incompleto!</string>
+    <string name="reg_5_ok">Paso 5: Completado!</string>
+    <string name="reg_5_nok">Paso 5: Incompleto!</string>
+    <string name="reg_6_ok">Paso 6: Completado!</string>
+    <string name="reg_6_nok">Paso 6: Incompleto!</string>
+    <string name="reg_7_ok">Paso 7: Completado!</string>
+    <string name="reg_7_nok">Paso 7: Incompleto!</string>
+    <string name="reg_8_ok">Paso 8: Completado!</string>
+    <string name="reg_8_nok">Paso 8: Incompleto!</string>
+    <string name="reg_9_ok">Paso 9: Completado!</string>
+    <string name="reg_9_nok">Paso 9: Incompleto!</string>
+    <string name="reg_10_ok">Paso 10: Completado!</string>
+    <string name="reg_10_nok">Paso 10: Incompleto!</string>
+    <string name="reg_data_nok">Datos Invalidos</string>
     <string name="reg_direccion">Dirección*</string>
-    <string name="reg_next">Deslice para continuar</string>
     <string name="reg_finalStep">Verifique toda la información antes de continuar</string>
     <string name="reg_mensaje">Los datos marcados con (*) son obligatorios</string>
     <string name="reg_nombre">Nombre Completo*</string>
@@ -151,6 +171,7 @@
     <string name="nombre2">Segundo Nombre</string>
 
     <!-- DIALOGO HORARIO -->
+    <string name="reg9_tittleDialog">Horario PAC</string>
     <string name="horaInicial">Hora de Inicio</string>
     <string name="horaFinal">Hora de Finalización</string>
     <string name="horario">desde hh:mm hasta las hh:mm</string>
@@ -263,6 +284,8 @@
 
 
     <!-- DIALOGO DIRECCIÓN -->
+    <string name="reg1_DialogDireccion">Direccion Residencia</string>
+    <string name="reg9_DialogDireccion">Direccion PAC</string>
     <string name="dirMensaje0">Ej: CALLE 7A SUR # 42B OESTE 70 </string>
     <string name="dirMensaje1">Complemento: </string>
     <string name="dirMensaje2">Ej: Edificio Palmas, Apartamento 501</string>

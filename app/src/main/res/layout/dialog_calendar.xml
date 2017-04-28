@@ -75,14 +75,13 @@
 
         <Spinner
             android:id="@+id/calYear"
+            style="@style/spinBox"
             android:layout_width="match_parent"
+            android:layout_height="30sp"
             android:layout_marginLeft="10sp"
             android:layout_marginRight="10sp"
-            android:layout_height="30sp"
-            android:drawSelectorOnTop="true"
             android:layout_weight="1"
-            style="@style/spinBox"
-            />
+            android:drawSelectorOnTop="true" />
 
     </LinearLayout>
 

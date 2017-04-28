@@ -8,26 +8,27 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
 
 import com.appdemo.mi_salud.misakudplus_medicos.R;
 
+public class DialogHorario extends DialogFragment {
 
-public class DialogName extends DialogFragment {
-
-    EditText etA1;
-    EditText etA2;
-    EditText etN1;
-    EditText etN2;
+    Spinner spn_hora_i;
+    Spinner spn_hora_f;
     int codigo;
+    String hora_i,hora_f;
+    String[] lista;
 
-    public interface NameListener {
-        void onNamePositive(DialogFragment dialog, int code, String a1, String a2, String n1, String n2);
-        void onNameNegative(DialogFragment dialog);
+    public interface HourListener {
+        void onHourPositive(DialogFragment dialog, int code, String hi, String hf);
+        void onHourNegative(DialogFragment dialog);
     }
 
-    NameListener mListener;
+    DialogHorario.HourListener mListener;
 
     // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
     @Override
@@ -36,7 +37,7 @@ public class DialogName extends DialogFragment {
         // Verify that the host activity implements the callback interface
         try {
             // Instantiate the NoticeDialogListener so we can send events to the host
-            mListener = (NameListener) activity;
+            mListener = (DialogHorario.HourListener) activity;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(activity.toString()
@@ -50,20 +51,38 @@ public class DialogName extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_name, null);
-
-        etA1=(EditText) view.findViewById(R.id.idA1);
-        etA2=(EditText) view.findViewById(R.id.idA2);
-        etN1=(EditText) view.findViewById(R.id.idN1);
-        etN2=(EditText) view.findViewById(R.id.idN2);
+        View view = inflater.inflate(R.layout.dialog_horario, null);
 
         Bundle bndle = getArguments();
-
-        etA1.setText(bndle.getString("a1"));
-        etA2.setText(bndle.getString("a2"));
-        etN1.setText(bndle.getString("n1"));
-        etN2.setText(bndle.getString("n2"));
         codigo=bndle.getInt("CODE",-1);
+        lista=getResources().getStringArray(R.array.horas);
+
+        spn_hora_i=(Spinner) view.findViewById(R.id.hourInicial);//Se asocia el Spinner de la hora inicial
+        spn_hora_f=(Spinner) view.findViewById(R.id.hourFinal);//Se asocia el Spinner de la hora final
+
+        spn_hora_i.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                hora_i=lista[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spn_hora_f.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                hora_f=lista[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         builder.setView(view)
                 // Add action buttons
@@ -71,17 +90,17 @@ public class DialogName extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         //ACCEPT
-                        if (etA1.getText().toString().isEmpty() || etN1.getText().toString().isEmpty()) {
-                            Toast.makeText(getContext(), getResources().getString(R.string.data_empty), Toast.LENGTH_SHORT).show();
-                        }else{
-                            mListener.onNamePositive(DialogName.this,codigo, String.valueOf(etA1.getText()), String.valueOf(etA2.getText()), String.valueOf(etN1.getText()), String.valueOf(etN2.getText()));
+                        if(hora_i.isEmpty() || hora_f.isEmpty()){
+                            Toast.makeText(getContext(),getResources().getString(R.string.reg_data_nok), Toast.LENGTH_SHORT).show();
                         }
+                        mListener.onHourPositive(DialogHorario.this,codigo,hora_i,hora_f);
+
                     }
                 })
                 .setNegativeButton(R.string.opcion_nok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //CANCEL
-                        mListener.onNameNegative(DialogName.this);
+                        mListener.onHourNegative(DialogHorario.this);
                     }
                 });
 
@@ -89,6 +108,7 @@ public class DialogName extends DialogFragment {
         return builder.create();
 
     }
+
 
 
 

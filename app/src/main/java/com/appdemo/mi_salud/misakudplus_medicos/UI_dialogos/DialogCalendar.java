@@ -1,5 +1,7 @@
 package com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos;
 
+import android.support.annotation.NonNull;
+import android.widget.Toast;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -11,10 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import com.appdemo.mi_salud.misakudplus_medicos.R;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -26,15 +25,16 @@ public class DialogCalendar extends DialogFragment {
     Spinner spnYear;
     public static int MAX_AGE=120;
     int dia=0, mes=0, anio=0,y;
-
+    int codigo=-1;
     public interface DialogListener {
-        void onCalendarPositiveClick(DialogFragment dialog, int d, int m, int y);
+        void onCalendarPositiveClick(DialogFragment dialog,int code, int d, int m, int y);
         void onCalendarNegativeClick(DialogFragment dialog);
     }
 
     DialogListener mListener;
 
     // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
+    @SuppressWarnings("deprecation")
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -49,6 +49,7 @@ public class DialogCalendar extends DialogFragment {
     }
 
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -63,7 +64,7 @@ public class DialogCalendar extends DialogFragment {
         Calendar calendar = Calendar.getInstance();
         y= calendar.get(Calendar.YEAR);
 
-        List<String> yearList = new ArrayList<String>();
+        List<String> yearList = new ArrayList<>();
         int i=0;
         yearList.add("--");
         while(i<MAX_AGE){//Se considera Personas con un maximo de Edad de 120 años
@@ -71,38 +72,39 @@ public class DialogCalendar extends DialogFragment {
             i++;
         }
         //Create a ArrayAdapter using arraylist and a default spinner layout
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item,yearList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item,yearList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spnYear.setAdapter(adapter);
 
         //Si el usuario ya ha escogido alguna fecha en este punto carga la opción por defecto
         Bundle bndle = getArguments();
+        codigo=bndle.getInt("CODE",-1);
         spnDay.setSelection(bndle.getInt("day"));
         spnMonth.setSelection(bndle.getInt("month"));
         spnYear.setSelection(y-bndle.getInt("year")+1);
 
         builder.setView(view)
-        // Add action buttons
-        .setPositiveButton(R.string.opcion_ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                //ACCEPT
-                if(anio==0 || dia==0 || mes==0){
-                    Toast toast = Toast.makeText(getContext(), "Datos invalidos", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                anio=anio-1;
-                mListener.onCalendarPositiveClick(DialogCalendar.this, dia, mes, y-anio);
-            }
-        })
-        .setNegativeButton(R.string.opcion_nok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                //CANCEL
-                mListener.onCalendarNegativeClick(DialogCalendar.this);
+                // Add action buttons
+                .setPositiveButton(R.string.opcion_ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //ACCEPT
+                        if(anio==0 || dia==0 || mes==0){
+                            Toast toast = Toast.makeText(getContext(), "Datos invalidos", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                        anio=anio-1;
+                        mListener.onCalendarPositiveClick(DialogCalendar.this, codigo,dia, mes, y-anio);
+                    }
+                })
+                .setNegativeButton(R.string.opcion_nok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //CANCEL
+                        mListener.onCalendarNegativeClick(DialogCalendar.this);
 
-            }
-        });
+                    }
+                });
 
 
         spnDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){

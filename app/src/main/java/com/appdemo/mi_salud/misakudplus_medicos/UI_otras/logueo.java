@@ -12,7 +12,6 @@ import android.widget.Button;
 import com.appdemo.mi_salud.misakudplus_medicos.MainActivity;
 import com.appdemo.mi_salud.misakudplus_medicos.R;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogAvisoRegistro;
-import com.appdemo.mi_salud.misakudplus_medicos.UI_registro.registro;
 
 public class logueo extends AppCompatActivity implements DialogAvisoRegistro.AvisoListener {
     Button ActionBtn_logueo;//Se crea boton de logueo

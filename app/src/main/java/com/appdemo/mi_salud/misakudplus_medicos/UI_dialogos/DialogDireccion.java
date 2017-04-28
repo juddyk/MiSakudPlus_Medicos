@@ -28,10 +28,10 @@ public class DialogDireccion extends DialogFragment{
     Spinner lst,ltrs1,ltrs2,card1,card2;
     EditText nums1,nums2,nums3;
     String d1,d2,d3,d4,d5,d6,d7,d8,d9;
-    int pos;
+    int codigo;
 
     public interface DirListener {
-        void onDirPositive(DialogFragment dialog, String dir);
+        void onDirPositive(DialogFragment dialog, int code, String dir);
         void onDirNegative(DialogFragment dialog);
     }
 
@@ -57,6 +57,10 @@ public class DialogDireccion extends DialogFragment{
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_direccion, null);
+
+        Bundle bndle = getArguments();
+        codigo=bndle.getInt("CODE",-1);
+
         d1="";d2="";d3="";d4="";d5="";d6="";d7="";d8="";d9="";
         dir=(TextView) view.findViewById(R.id.idDirF);
         lst=(Spinner) view.findViewById(R.id.dir1);//
@@ -237,7 +241,7 @@ public class DialogDireccion extends DialogFragment{
                         if(dir.getText().toString().isEmpty()){
                             Toast.makeText(getContext(), getResources().getString(R.string.data_empty), Toast.LENGTH_SHORT).show();
                         }else{
-                            mListener.onDirPositive(DialogDireccion.this, String.valueOf(dir.getText()));
+                            mListener.onDirPositive(DialogDireccion.this, codigo, String.valueOf(dir.getText()));
                         }
                     }
                 })

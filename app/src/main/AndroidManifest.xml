@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UI_otras.logueo" />
-        <activity android:name=".UI_registro.registro" />
+        <activity android:name=".UI_otras.registro" />
         <activity android:name=".MainActivity" />
         <activity android:name=".UI_otras.agenda" />
         <activity android:name=".UI_otras.perfilMedico"></activity>
