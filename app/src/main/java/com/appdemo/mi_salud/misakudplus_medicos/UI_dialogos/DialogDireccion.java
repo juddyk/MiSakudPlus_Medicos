@@ -229,9 +229,6 @@ public class DialogDireccion extends DialogFragment{
             }
         });
 
-        Bundle bundle = new Bundle();
-        dir.setText(bundle.getString("dir"));
-
         builder.setView(view)
                 // Add action buttons
                 .setPositiveButton(R.string.opcion_ok, new DialogInterface.OnClickListener() {

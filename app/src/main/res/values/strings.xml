@@ -115,6 +115,11 @@
     <string name="reg_medio6">Carulla </string>
     <string name="reg_medio7">SutiMax </string>
     <string name="reg_medio8">Efecty </string>
+    <string name="reg_select_file">Seleccione el documento </string>
+    <string name="reg_select_photo">Seleccione su foto </string>
+    <string name="reg_select_no">No Selecciono un archivo </string>
+    <string name="reg_select_ok">Archivo Ok </string>
+    <string name="reg_error">Debe ingresar el tipo y número del documento para continuar </string>
     <string name="registrar">REGISTRAR</string>
 
 

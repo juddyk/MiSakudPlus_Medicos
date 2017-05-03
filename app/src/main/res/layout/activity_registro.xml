@@ -1,208 +1,1031 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    tools:context="com.appdemo.mi_salud.misakudplus_medicos.UI_otras.registro">
+    android:orientation="vertical"
+    tools:context="com.appdemo.mi_salud.misakudplus_medicos.UI_otras.registro"
 
-    <LinearLayout
+    >
+
+
+    <ProgressBar
+        android:id="@+id/progressRegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="10sp"
-        android:layout_marginEnd="5sp"
-        android:layout_marginStart="5sp"
-        >
-        <ProgressBar
-            android:id="@+id/progressRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="10"
-            android:minHeight="30sp"
-            android:minWidth="200sp"
-            android:progress="0"
-            android:layout_gravity="center"
-            style="?android:attr/progressBarStyleHorizontal"
-            />
+        android:max="100"
+        android:minHeight="30sp"
+        android:minWidth="200sp"
+        android:progress="0"
+        android:layout_gravity="center"
+        style="?android:attr/progressBarStyleHorizontal"
+        />
 
-        <TextView
-            style="@style/txtSub0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/reg_mensaje" />
 
-        <!-- REGISTRO I-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg1"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:text="@string/reg_1_nok"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg1"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg1"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/show"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg1"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg1"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
             android:orientation="vertical"
-            android:visibility="visible"
+            android:layout_marginBottom="10sp"
+            android:layout_marginEnd="5sp"
+            android:layout_marginStart="5sp"
             >
 
-            <!--1 BANCO DEL NOMBRE-->
-            <LinearLayout
+            <TextView
+                style="@style/txtSub0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="@string/reg_mensaje" />
+
+            <!-- REGISTRO I-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg1"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:text="@string/reg_1_nok"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg1"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg1"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/show"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg1"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical"
+                android:visibility="visible"
+                >
+
+                <!--1 BANCO DEL NOMBRE-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/reg1_tvName"
+                            style="@style/txtBox3"
+                            android:layout_width="0sp"
+                            android:layout_height="30sp"
+                            android:layout_marginEnd="5sp"
+                            android:layout_marginStart="10sp"
+                            android:layout_weight="2"
+                            android:background="@drawable/round_txt"
+                            android:gravity="center"
+                            android:onClick="onClicDialogName"
+                            android:hint="@string/reg_nombre" />
+
+                        <ImageButton
+                            android:id="@+id/reg1_btnName"
+                            android:layout_width="35sp"
+                            android:layout_height="35sp"
+                            android:layout_marginEnd="15sp"
+                            android:background="@drawable/img_btn"
+                            android:contentDescription="@string/app_registro"
+                            android:padding="5sp"
+                            android:scaleType="fitCenter"
+                            android:onClick="onClicDialogName"
+                            android:src="@drawable/editar" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--2 BANCO DE FECHA NACIMIENTO-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtSub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:text="@string/reg_fechanacimiento" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/reg1_tvFecha"
+                            style="@style/txtBox3"
+                            android:layout_width="160sp"
+                            android:layout_height="30sp"
+                            android:layout_marginEnd="5sp"
+                            android:layout_marginStart="10sp"
+                            android:background="@drawable/round_txt"
+                            android:gravity="center"
+                            android:onClick="onClicDialogFechaNac"
+                            android:hint="@string/reg_calendario" />
+
+                        <ImageButton
+                            android:id="@+id/reg1_btnFecha"
+                            android:layout_width="35sp"
+                            android:layout_height="35sp"
+                            android:onClick="onClicDialogFechaNac"
+                            android:background="@drawable/img_btn"
+                            android:contentDescription="@string/app_registro"
+                            android:padding="5sp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/calendar" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/reg1_spnGenero"
+                    style="@style/spinBox"
+                    android:layout_width="100sp"
+                    android:layout_height="30sp"
+                    android:layout_marginTop="10sp"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/genero" />
+
+                <!--3 BANCO DEL DOCUMENTO DE IDENTIDAD-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtSub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:text="@string/reg_documento" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/reg1_spnTipoDoc"
+                            style="@style/spinBox"
+                            android:layout_width="85sp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginRight="10sp"
+                            android:drawSelectorOnTop="true"
+                            android:entries="@array/tipdoc" />
+
+                        <EditText
+                            android:id="@+id/reg1_etDocumento"
+                            style="@style/txtBoxNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="30sp"
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/round_txt"
+                            android:hint="@string/reg_numdocumneto"
+                            android:labelFor="@+id/regDoc"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/txtSub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="@string/reg_expdocumento" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3sp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/reg1_tvFechExp"
+                            style="@style/txtBox3"
+                            android:layout_width="160sp"
+                            android:layout_height="30sp"
+                            android:layout_marginEnd="5sp"
+                            android:layout_marginStart="10sp"
+                            android:background="@drawable/round_txt"
+                            android:onClick="onClicDialogFechaExp"
+                            android:gravity="center"
+                            android:hint="@string/reg_calendario" />
+
+                        <ImageButton
+                            android:id="@+id/reg1_btnFechExpe"
+                            android:layout_width="35sp"
+                            android:layout_height="35sp"
+                            android:onClick="onClicDialogFechaExp"
+                            android:background="@drawable/img_btn"
+                            android:contentDescription="@string/app_registro"
+                            android:padding="5sp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/calendar" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- REGISTRO II-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg2"
+                    android:text="@string/reg_2_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg2"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg2"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg2"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="5sp"
+                android:visibility="gone"
+                >
+
+                <!--BANCOS DE LUGAR DE RESIDENCIA-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/reg2_spnDepartamento"
+                            android:layout_width="35sp"
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginRight="10sp"
+                            android:layout_height="30sp"
+                            android:drawSelectorOnTop="true"
+                            android:layout_weight="1"
+                            android:entries="@array/departamentos"
+                            style="@style/spinBox"
+
+                            />
+
+                        <Spinner
+                            android:id="@+id/reg2_spnMunicipio"
+                            android:layout_width="35sp"
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginRight="10sp"
+                            android:layout_height="30sp"
+                            android:drawSelectorOnTop="true"
+                            android:layout_weight="1"
+                            android:entries="@array/mun1"
+                            style="@style/spinBox"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:id="@+id/reg2_tvDireccion"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/round_txt"
+                                android:layout_marginStart="10sp"
+                                android:layout_marginEnd="5sp"
+                                style="@style/txtBox3"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:onClick="onClicDialogDireccion"
+                                android:padding="5dp"
+                                android:scaleType="fitCenter"
+                                android:hint="@string/reg_direccion"
+                                />
+
+                            <ImageButton
+                                android:id="@+id/reg2_btnDireccion"
+                                android:layout_width="35sp"
+                                android:layout_height="35sp"
+                                android:src="@drawable/editar"
+                                android:scaleType="fitCenter"
+                                android:padding="5sp"
+                                android:background="@drawable/img_btn"
+                                android:onClick="onClicDialogDireccion"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="15sp"
+                                android:contentDescription="@string/reg_direccion"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--7 BANCOS DE TELEFONOS-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5sp"
+                    >
+
+                    <EditText
+                        android:id="@+id/reg2_etCelular"
+                        style="@style/txtBoxNum"
+                        android:hint="@string/reg_celular"
+                        android:layout_width="match_parent"
+                        android:layout_height="30sp"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_txt"
+                        android:labelFor="@+id/reg2_etCelular" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5sp">
+
+                        <EditText
+                            android:labelFor="@+id/reg2_etFijo1"
+                            android:id="@+id/reg2_etFijo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="30sp"
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/round_txt"
+                            style="@style/txtBoxNum"
+                            android:layout_weight="1"
+                            android:hint="@string/reg_fijo1"
+                            />
+
+                        <EditText
+                            android:id="@+id/reg2_etFijo2"
+                            android:labelFor="@+id/reg2_etFijo2"
+                            android:layout_width="match_parent"
+                            android:layout_height="30sp"
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginRight="10sp"
+                            android:background="@drawable/round_txt"
+                            style="@style/txtBoxNum"
+                            android:layout_weight="1"
+                            android:hint="@string/reg_fijo2"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--BANCOS DE CORREO-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10sp"
+                    >
+
+                    <EditText
+                        android:id="@+id/reg2_etEmail1"
+                        android:labelFor="@+id/reg2_etEmail1"
+                        android:layout_width="match_parent"
+                        android:layout_height="30sp"
+                        android:background="@drawable/round_txt"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        style="@style/txtBoxEmail"
+                        android:hint="@string/reg_correo1"
+                        />
+
+                    <EditText
+                        android:layout_marginTop="5sp"
+                        android:id="@+id/reg2_etEmail2"
+                        android:labelFor="@+id/reg2_etEmail2"
+                        android:layout_width="match_parent"
+                        android:layout_height="30sp"
+                        android:background="@drawable/round_txt"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        style="@style/txtBoxEmail"
+                        android:hint="@string/reg_correo2"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- REGISTRO III-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg3"
+                    android:text="@string/reg_3_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg3"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg3"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg3"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5sp"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <ImageButton
+                    android:id="@+id/reg3_ibFoto"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/img_view"
+                    android:contentDescription="@string/app_name"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add_foto" />
+
+                <EditText
+                    android:id="@+id/reg3_etSlogan"
+                    style="@style/txtBox7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_slogan"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    android:maxLength="140"
+                    />
+
+            </LinearLayout>
+
+            <!-- REGISTRO IV-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg4"
+                    android:text="@string/reg_4_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg4"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg4"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg4"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5sp"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/reg4_etRegistroMedico"
+                    style="@style/txtBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_regMedico"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/reg1_tvName"
+                        android:id="@+id/reg4_tvTarjetaProf"
                         style="@style/txtBox3"
-                        android:layout_width="0sp"
+                        android:layout_width="wrap_content"
                         android:layout_height="30sp"
-                        android:layout_marginEnd="5sp"
-                        android:layout_marginStart="10sp"
                         android:layout_weight="2"
                         android:background="@drawable/round_txt"
                         android:gravity="center"
-                        android:onClick="onClicDialogName"
-                        android:hint="@string/reg_nombre" />
+                        android:hint="@string/reg_tarjetaProfesional"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
 
                     <ImageButton
-                        android:id="@+id/reg1_btnName"
-                        android:layout_width="35sp"
-                        android:layout_height="35sp"
+                        android:id="@+id/reg4_ibTarjetaProf"
+                        android:layout_width="45sp"
+                        android:layout_height="45sp"
                         android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
                         android:background="@drawable/img_btn"
-                        android:contentDescription="@string/app_registro"
+                        android:contentDescription="@string/reg_direccion"
                         android:padding="5sp"
                         android:scaleType="fitCenter"
-                        android:onClick="onClicDialogName"
-                        android:src="@drawable/editar" />
+                        android:src="@drawable/upload" />
                 </LinearLayout>
 
             </LinearLayout>
 
-            <!--2 BANCO DE FECHA NACIMIENTO-->
+            <!-- REGISTRO V-->
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:layout_height="30sp"
+                android:orientation="horizontal">
                 <TextView
-                    style="@style/txtSub"
+                    android:id="@+id/tvReg5"
+                    android:text="@string/reg_5_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg5"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg5"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg5"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5sp"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/reg5_etTituloPregrado"
+                    style="@style/txtBox3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp"
-                    android:text="@string/reg_fechanacimiento" />
+                    android:layout_height="30sp"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_tituloPregrado"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/reg1_tvFecha"
+                        android:id="@+id/reg5_tvDiplomaPregrado"
+                        style="@style/txtBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_diploma"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/reg5_ibDiplomaPregrado"
+                        android:layout_width="45sp"
+                        android:layout_height="45sp"
+                        android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/reg_direccion"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/upload" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/reg5_tvActaPregrado"
+                        style="@style/txtBox3"
+                        android:layout_width="0sp"
+                        android:layout_height="30sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_acta"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/reg5_ibActaPregrado"
+                        android:layout_width="45sp"
+                        android:layout_height="45sp"
+                        android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/reg_direccion"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/upload" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/reg5_tvResolucion"
+                        style="@style/txtBox3"
+                        android:layout_width="0sp"
+                        android:layout_height="60sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_resolucion"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/reg5_ibResolucion"
+                        android:layout_width="45sp"
+                        android:layout_height="45sp"
+                        android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/reg_direccion"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/upload" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- REGISTRO VI-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg6"
+                    android:text="@string/reg_6_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg6"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg6"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg6"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="5sp"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/txtSub0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_mensajePos" />
+
+                <EditText
+                    android:id="@+id/reg6_etTituloPosgrado"
+                    style="@style/txtBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_tituloPosgrado"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter"
+                    android:layout_marginTop="5sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/reg6_tvDiplomaPosgrado"
+                        style="@style/txtBox3"
+                        android:layout_width="0sp"
+                        android:layout_height="30sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_diploma"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/reg6_ibDiplomaPosgrado"
+                        android:layout_width="45sp"
+                        android:layout_height="45sp"
+                        android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/reg_direccion"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/upload" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/reg6_tvActaPosgrado"
+                        style="@style/txtBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_acta"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/reg6_ibActaPosgrado"
+                        android:layout_width="45sp"
+                        android:layout_height="45sp"
+                        android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/reg_direccion"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/upload" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- REGISTRO VII-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg7"
+                    android:text="@string/reg_7_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg7"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg7"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg7"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="5sp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/reg7_tvCertificado"
+                        style="@style/txtBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_certificadoExperiencia"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/reg7_ibCertificado"
+                        android:layout_width="45sp"
+                        android:layout_height="45sp"
+                        android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/app_registro"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/upload" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/reg7_etInstitucion"
+                    style="@style/txtBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_institucion"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30sp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="@string/reg_fechaInicial" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3sp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/reg7_tvFechaInicio"
                         style="@style/txtBox3"
                         android:layout_width="160sp"
                         android:layout_height="30sp"
                         android:layout_marginEnd="5sp"
                         android:layout_marginStart="10sp"
+                        android:onClick="onClicDialogExpFI"
                         android:background="@drawable/round_txt"
                         android:gravity="center"
-                        android:onClick="onClicDialogFechaNac"
                         android:hint="@string/reg_calendario" />
 
                     <ImageButton
-                        android:id="@+id/reg1_btnFecha"
+                        android:id="@+id/reg7_ibFechaInicio"
                         android:layout_width="35sp"
                         android:layout_height="35sp"
-                        android:onClick="onClicDialogFechaNac"
+                        android:onClick="onClicDialogExpFI"
                         android:background="@drawable/img_btn"
                         android:contentDescription="@string/app_registro"
                         android:padding="5sp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/calendar" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <Spinner
-                android:id="@+id/reg1_spnGenero"
-                style="@style/spinBox"
-                android:layout_width="100sp"
-                android:layout_height="30sp"
-                android:layout_marginTop="10sp"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/genero" />
-
-            <!--3 BANCO DEL DOCUMENTO DE IDENTIDAD-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/txtSub"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp"
-                    android:text="@string/reg_documento" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Spinner
-                        android:id="@+id/reg1_spnTipoDoc"
-                        style="@style/spinBox"
-                        android:layout_width="85sp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10sp"
-                        android:layout_marginRight="10sp"
-                        android:drawSelectorOnTop="true"
-                        android:entries="@array/tipdoc" />
-
-                    <EditText
-                        android:id="@+id/reg1_etDocumento"
-                        style="@style/txtBoxNum"
-                        android:layout_width="match_parent"
-                        android:layout_height="30sp"
-                        android:layout_marginLeft="10sp"
-                        android:layout_marginRight="10sp"
-                        android:background="@drawable/round_txt"
-                        android:hint="@string/reg_numdocumneto"
-                        android:labelFor="@+id/regDoc" />
                 </LinearLayout>
 
                 <TextView
@@ -211,7 +1034,159 @@
                     android:layout_height="30sp"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
-                    android:text="@string/reg_expdocumento" />
+                    android:text="@string/reg_fechaFinal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3sp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/reg7_tvFechaFinal"
+                        style="@style/txtBox3"
+                        android:layout_width="160sp"
+                        android:layout_height="30sp"
+                        android:layout_marginEnd="5sp"
+                        android:onClick="onClicDialogExpFF"
+                        android:layout_marginStart="10sp"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_calendario" />
+
+                    <ImageButton
+                        android:id="@+id/reg7_ibFechaFinal"
+                        android:layout_width="35sp"
+                        android:layout_height="35sp"
+                        android:background="@drawable/img_btn"
+                        android:onClick="onClicDialogExpFF"
+                        android:contentDescription="@string/app_registro"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/calendar" />
+                </LinearLayout>
+
+                <EditText
+                    android:layout_marginTop="5sp"
+                    android:id="@+id/reg7_etCargo"
+                    style="@style/txtBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_cargo"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter" />
+
+            </LinearLayout>
+
+            <!-- REGISTRO VIII-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg8"
+                    android:text="@string/reg_8_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg8"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg8"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg8"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="5sp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/reg8_etPrograma"
+                    style="@style/txtBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_curso"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter" />
+
+                <EditText
+                    android:layout_marginTop="5sp"
+                    android:id="@+id/reg8_etInstitucion"
+                    style="@style/txtBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:background="@drawable/round_txt"
+                    android:gravity="center"
+                    android:hint="@string/reg_institucion"
+                    android:padding="5dp"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30sp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="@string/reg_fechaInicial" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/reg8_tvFechaInicio"
+                        style="@style/txtBox3"
+                        android:layout_width="160sp"
+                        android:layout_height="30sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginStart="10sp"
+                        android:onClick="onClicDialogCursoFI"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:hint="@string/reg_calendario" />
+
+                    <ImageButton
+                        android:id="@+id/reg8_ibFechaInicio"
+                        android:layout_width="35sp"
+                        android:onClick="onClicDialogCursoFI"
+                        android:layout_height="35sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/app_registro"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/calendar" />
+                </LinearLayout>
+
+
+                <TextView
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30sp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="@string/reg_fechaFinal" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -220,22 +1195,22 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/reg1_tvFechExp"
+                        android:id="@+id/reg8_tvFechaFinal"
                         style="@style/txtBox3"
                         android:layout_width="160sp"
                         android:layout_height="30sp"
+                        android:onClick="onClicDialogCursoFF"
                         android:layout_marginEnd="5sp"
                         android:layout_marginStart="10sp"
                         android:background="@drawable/round_txt"
-                        android:onClick="onClicDialogFechaExp"
                         android:gravity="center"
                         android:hint="@string/reg_calendario" />
 
                     <ImageButton
-                        android:id="@+id/reg1_btnFechExpe"
+                        android:id="@+id/reg8_ibFechaFinal"
                         android:layout_width="35sp"
                         android:layout_height="35sp"
-                        android:onClick="onClicDialogFechaExp"
+                        android:onClick="onClicDialogCursoFF"
                         android:background="@drawable/img_btn"
                         android:contentDescription="@string/app_registro"
                         android:padding="5sp"
@@ -245,1416 +1220,458 @@
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
-        <!-- REGISTRO II-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg2"
-                android:text="@string/reg_2_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg2"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg2"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg2"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:layout_marginEnd="5sp"
-            android:visibility="gone"
-            >
-
-            <!--BANCOS DE LUGAR DE RESIDENCIA-->
+            <!-- REGISTRO IX-->
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg9"
+                    android:text="@string/reg_9_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg9"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivReg9"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg9"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg9"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5sp"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
                 android:orientation="vertical"
-                >
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/txtSub0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_mensajeUsuario" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Spinner
-                        android:id="@+id/reg2_spnDepartamento"
-                        android:layout_width="35sp"
-                        android:layout_marginLeft="10sp"
-                        android:layout_marginRight="10sp"
-                        android:layout_height="30sp"
-                        android:drawSelectorOnTop="true"
-                        android:layout_weight="1"
-                        android:entries="@array/departamentos"
-                        style="@style/spinBox"
+                    <TextView
+                        android:id="@+id/reg9_tvDireccionPAC"
+                        style="@style/txtBox3"
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginStart="10sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:onClick="onClicDialogDireccionPAC"
+                        android:hint="@string/reg_sede"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
 
-                        />
-
-                    <Spinner
-                        android:id="@+id/reg2_spnMunicipio"
+                    <ImageButton
+                        android:id="@+id/reg9_ibDireccionPAC"
                         android:layout_width="35sp"
-                        android:layout_marginLeft="10sp"
-                        android:layout_marginRight="10sp"
-                        android:layout_height="30sp"
-                        android:drawSelectorOnTop="true"
-                        android:layout_weight="1"
-                        android:entries="@array/mun1"
-                        style="@style/spinBox"
-                        />
+                        android:layout_height="35sp"
+                        android:onClick="onClicDialogDireccionPAC"
+                        android:layout_marginEnd="15sp"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/reg_direccion"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/editar" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10sp">
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/reg9_tvHourPAC"
+                        style="@style/txtBox3"
+                        android:layout_width="0sp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                        <TextView
-                            android:id="@+id/reg2_tvDireccion"
-                            android:layout_width="0sp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/round_txt"
-                            android:layout_marginStart="10sp"
-                            android:layout_marginEnd="5sp"
-                            style="@style/txtBox3"
-                            android:inputType="textMultiLine"
-                            android:maxLines="5"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:onClick="onClicDialogDireccion"
-                            android:padding="5dp"
-                            android:scaleType="fitCenter"
-                            android:hint="@string/reg_direccion"
-                            />
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginStart="10sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:onClick="onClicDialogHorario"
+                        android:gravity="center"
+                        android:hint="@string/reg_horarioConsulta"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter" />
 
-                        <ImageButton
-                            android:id="@+id/reg2_btnDireccion"
-                            android:layout_width="35sp"
-                            android:layout_height="35sp"
-                            android:src="@drawable/editar"
-                            android:scaleType="fitCenter"
-                            android:padding="5sp"
-                            android:background="@drawable/img_btn"
-                            android:onClick="onClicDialogDireccion"
-                            android:layout_marginStart="5sp"
-                            android:layout_marginEnd="15sp"
-                            android:contentDescription="@string/reg_direccion"
-                            />
+                    <ImageButton
+                        android:id="@+id/reg9_ibHourPAC"
+                        android:layout_width="35sp"
+                        android:layout_height="35sp"
+                        android:layout_marginEnd="15sp"
+                        android:onClick="onClicDialogHorario"
+                        android:layout_marginStart="5sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/app_registro"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/editar" />
 
-                    </LinearLayout>
                 </LinearLayout>
 
+                <!-- TIPO DE CONSULTA -->
+
+                <TextView
+                    style="@style/txtSub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="@string/reg_tipoConsulta" />
+                <TextView
+                    style="@style/txtSub0"
+                    android:layout_width="match_parent"
+                    android:layout_height="18sp"
+                    android:text="@string/reg_mensajeAtencion"
+                    android:gravity="center"
+                    />
+
+                <CheckBox
+                    android:id="@+id/consulta1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_consulta1"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/consulta2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_consulta2"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+                <CheckBox
+                    android:id="@+id/consulta3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_consulta3"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/consulta4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_consulta4"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/consulta5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_consulta5"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/consulta6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_consulta6"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <!-- MODALIDAD DE ATENCION -->
+
+                <TextView
+                    style="@style/txtSub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="@string/reg_modalidad" />
+                <TextView
+                    style="@style/txtSub0"
+                    android:layout_width="match_parent"
+                    android:layout_height="18sp"
+                    android:text="@string/reg_mensajeAtencion"
+                    android:gravity="center"
+                    />
+
+                <CheckBox
+                    android:id="@+id/atencion1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion1"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/atencion2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion2"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+                <CheckBox
+                    android:id="@+id/atencion3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion3"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/atencion4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion4"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/atencion5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion5"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/atencion6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion6"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+                <CheckBox
+                    android:id="@+id/atencion7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion7"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
+
+                <CheckBox
+                    android:id="@+id/atencion8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reg_atencion8"
+                    android:layout_marginLeft="10sp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10sp"
+                    style="@style/txtSub"/>
 
             </LinearLayout>
 
-            <!--7 BANCOS DE TELEFONOS-->
+            <!-- REGISTRO X-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="5sp"
-                >
+                android:layout_height="30sp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvReg10"
+                    android:text="@string/reg_10_nok"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_width="0dp"
+                    android:layout_height="22sp"
+                    android:padding="2sp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    style="@style/txtSub1"
+                    android:onClick="desplegarReg10"
+                    />
 
-                <EditText
-                    android:id="@+id/reg2_etCelular"
-                    style="@style/txtBoxNum"
-                    android:hint="@string/reg_celular"
+                <ImageView
+                    android:id="@+id/ivReg10"
+                    android:layout_width="22sp"
+                    android:layout_height="22sp"
+                    android:src="@drawable/hide"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:padding="3sp"
+                    android:onClick="desplegarReg10"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llReg10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5sp"
+                android:layout_marginStart="5sp"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/txtSub"
                     android:layout_width="match_parent"
-                    android:layout_height="30sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:text="@string/reg_mediopago" />
+
+                <TextView
+                    style="@style/txtSub0"
+                    android:layout_width="match_parent"
+                    android:layout_height="18sp"
+                    android:gravity="center"
+                    android:text="@string/reg_mensajeAtencion" />
+
+                <CheckBox
+                    android:id="@+id/medio1"
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="10sp"
                     android:layout_weight="1"
-                    android:background="@drawable/round_txt"
-                    android:labelFor="@+id/reg2_etCelular" />
+                    android:text="@string/reg_medio1" />
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <CheckBox
+                    android:id="@+id/medio2"
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5sp">
-
-                    <EditText
-                        android:labelFor="@+id/reg2_etFijo1"
-                        android:id="@+id/reg2_etFijo1"
-                        android:layout_width="match_parent"
-                        android:layout_height="30sp"
-                        android:layout_marginLeft="10sp"
-                        android:layout_marginRight="10sp"
-                        android:background="@drawable/round_txt"
-                        style="@style/txtBoxNum"
-                        android:layout_weight="1"
-                        android:hint="@string/reg_fijo1"
-                        />
-
-                    <EditText
-                        android:id="@+id/reg2_etFijo2"
-                        android:labelFor="@+id/reg2_etFijo2"
-                        android:layout_width="match_parent"
-                        android:layout_height="30sp"
-                        android:layout_marginLeft="10sp"
-                        android:layout_marginRight="10sp"
-                        android:background="@drawable/round_txt"
-                        style="@style/txtBoxNum"
-                        android:layout_weight="1"
-                        android:hint="@string/reg_fijo2"
-                        />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!--BANCOS DE CORREO-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="10sp"
-                >
-
-                <EditText
-                    android:id="@+id/reg2_etEmail1"
-                    android:labelFor="@+id/reg2_etEmail1"
-                    android:layout_width="match_parent"
-                    android:layout_height="30sp"
-                    android:background="@drawable/round_txt"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="10sp"
-                    style="@style/txtBoxEmail"
-                    android:hint="@string/reg_correo1"
-                    />
+                    android:layout_weight="1"
+                    android:text="@string/reg_medio2" />
 
-                <EditText
-                    android:layout_marginTop="5sp"
-                    android:id="@+id/reg2_etEmail2"
-                    android:labelFor="@+id/reg2_etEmail2"
-                    android:layout_width="match_parent"
-                    android:layout_height="30sp"
-                    android:background="@drawable/round_txt"
+                <CheckBox
+                    android:id="@+id/medio3"
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="10sp"
-                    style="@style/txtBoxEmail"
-                    android:hint="@string/reg_correo2"
-                    />
-            </LinearLayout>
+                    android:layout_weight="1"
+                    android:text="@string/reg_medio3" />
 
-
-        </LinearLayout>
-
-        <!-- REGISTRO III-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg3"
-                android:text="@string/reg_3_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg3"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg3"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg3"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5sp"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:orientation="vertical"
-            android:visibility="gone"
-            >
-
-            <ImageButton
-                android:id="@+id/reg3_ibFoto"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:background="@drawable/img_btn"
-                android:contentDescription="@string/app_name"
-                android:padding="5dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/add_foto" />
-
-            <EditText
-                android:id="@+id/reg3_etSlogan"
-                style="@style/txtBox7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_slogan"
-                android:padding="5dp"
-                android:scaleType="fitCenter"
-                android:maxLength="140"
-                />
-
-        </LinearLayout>
-
-        <!-- REGISTRO IV-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg4"
-                android:text="@string/reg_4_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg4"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg4"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg4"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5sp"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-
-            <EditText
-                android:id="@+id/reg4_etRegistroMedico"
-                style="@style/txtBox3"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_regMedico"
-                android:padding="5dp"
-                android:scaleType="fitCenter" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg4_tvTarjetaProf"
-                    style="@style/txtBox3"
+                <CheckBox
+                    android:id="@+id/medio4"
+                    style="@style/txtSub"
                     android:layout_width="wrap_content"
-                    android:layout_height="30sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_tarjetaProfesional"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg4_ibTarjetaProf"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/reg_direccion"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/upload" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- REGISTRO V-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg5"
-                android:text="@string/reg_5_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg5"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg5"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg5"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5sp"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <EditText
-                android:id="@+id/reg5_etTituloPregrado"
-                style="@style/txtBox3"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_tituloPregrado"
-                android:padding="5dp"
-                android:scaleType="fitCenter" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg5_tvDiplomaPregrado"
-                    style="@style/txtBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_diploma"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg5_ibDiplomaPregrado"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/reg_direccion"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/upload" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg5_tvActaPregrado"
-                    style="@style/txtBox3"
-                    android:layout_width="0sp"
-                    android:layout_height="30sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_acta"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg5_ibActaPregrado"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/reg_direccion"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/upload" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg5_tvResolucion"
-                    style="@style/txtBox3"
-                    android:layout_width="0sp"
-                    android:layout_height="60sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_resolucion"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg5_ibResolucion"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/reg_direccion"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/upload" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- REGISTRO VI-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg6"
-                android:text="@string/reg_6_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg6"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg6"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg6"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:layout_marginEnd="5sp"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/txtSub0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_mensajePos" />
-
-            <EditText
-                android:id="@+id/reg6_etTituloPosgrado"
-                style="@style/txtBox3"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_tituloPosgrado"
-                android:padding="5dp"
-                android:scaleType="fitCenter"
-                android:layout_marginTop="5sp"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg6_tvDiplomaPosgrado"
-                    style="@style/txtBox3"
-                    android:layout_width="0sp"
-                    android:layout_height="30sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_diploma"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg6_ibDiplomaPosgrado"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/reg_direccion"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/upload" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg6_tvActaPosgrado"
-                    style="@style/txtBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_acta"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg6_ibActaPosgrado"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/reg_direccion"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/upload" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <!-- REGISTRO VII-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg7"
-                android:text="@string/reg_7_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg7"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg7"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg7"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:layout_marginEnd="5sp"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg7_tvCertificado"
-                    style="@style/txtBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_certificadoExperiencia"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg7_ibCertificado"
-                    android:layout_width="45sp"
-                    android:layout_height="45sp"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/app_registro"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/upload" />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/reg7_etInstitucion"
-                style="@style/txtBox3"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_institucion"
-                android:padding="5dp"
-                android:scaleType="fitCenter" />
-
-            <TextView
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="30sp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:text="@string/reg_fechaInicial" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3sp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/reg7_tvFechaInicio"
-                    style="@style/txtBox3"
-                    android:layout_width="160sp"
-                    android:layout_height="30sp"
-                    android:layout_marginEnd="5sp"
-                    android:layout_marginStart="10sp"
-                    android:onClick="onClicDialogExpFI"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_calendario" />
-
-                <ImageButton
-                    android:id="@+id/reg7_ibFechaInicio"
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:onClick="onClicDialogExpFI"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/app_registro"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/calendar" />
-            </LinearLayout>
-
-            <TextView
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="30sp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:text="@string/reg_fechaFinal" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3sp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/reg7_tvFechaFinal"
-                    style="@style/txtBox3"
-                    android:layout_width="160sp"
-                    android:layout_height="30sp"
-                    android:layout_marginEnd="5sp"
-                    android:onClick="onClicDialogExpFF"
-                    android:layout_marginStart="10sp"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_calendario" />
-
-                <ImageButton
-                    android:id="@+id/reg7_ibFechaFinal"
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:background="@drawable/img_btn"
-                    android:onClick="onClicDialogExpFF"
-                    android:contentDescription="@string/app_registro"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/calendar" />
-            </LinearLayout>
-
-            <EditText
-                android:layout_marginTop="5sp"
-                android:id="@+id/reg7_etCargo"
-                style="@style/txtBox3"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_cargo"
-                android:padding="5dp"
-                android:scaleType="fitCenter" />
-
-        </LinearLayout>
-
-        <!-- REGISTRO VIII-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg8"
-                android:text="@string/reg_8_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg8"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg8"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg8"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:layout_marginEnd="5sp"
-            android:visibility="gone">
-
-            <EditText
-                android:id="@+id/reg8_etPrograma"
-                style="@style/txtBox3"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_curso"
-                android:padding="5dp"
-                android:scaleType="fitCenter" />
-
-            <EditText
-                android:layout_marginTop="5sp"
-                android:id="@+id/reg8_etInstitucion"
-                style="@style/txtBox3"
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:background="@drawable/round_txt"
-                android:gravity="center"
-                android:hint="@string/reg_institucion"
-                android:padding="5dp"
-                android:scaleType="fitCenter" />
-
-            <TextView
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="30sp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:text="@string/reg_fechaInicial" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg8_tvFechaInicio"
-                    style="@style/txtBox3"
-                    android:layout_width="160sp"
-                    android:layout_height="30sp"
-                    android:layout_marginEnd="5sp"
-                    android:layout_marginStart="10sp"
-                    android:onClick="onClicDialogCursoFI"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_calendario" />
-
-                <ImageButton
-                    android:id="@+id/reg8_ibFechaInicio"
-                    android:layout_width="35sp"
-                    android:onClick="onClicDialogCursoFI"
-                    android:layout_height="35sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/app_registro"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/calendar" />
-            </LinearLayout>
-
-
-            <TextView
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="30sp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:text="@string/reg_fechaFinal" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg8_tvFechaFinal"
-                    style="@style/txtBox3"
-                    android:layout_width="160sp"
-                    android:layout_height="30sp"
-                    android:onClick="onClicDialogCursoFF"
-                    android:layout_marginEnd="5sp"
-                    android:layout_marginStart="10sp"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:hint="@string/reg_calendario" />
-
-                <ImageButton
-                    android:id="@+id/reg8_ibFechaFinal"
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:onClick="onClicDialogCursoFF"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/app_registro"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/calendar" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- REGISTRO IX-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg9"
-                android:text="@string/reg_9_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg9"
-                />
-
-            <ImageView
-                android:id="@+id/ivReg9"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg9"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5sp"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/txtSub0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_mensajeUsuario" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/reg9_tvDireccionPAC"
-                    style="@style/txtBox3"
-                    android:layout_width="0sp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5sp"
-                    android:layout_marginStart="10sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:gravity="center"
-                    android:onClick="onClicDialogDireccionPAC"
-                    android:hint="@string/reg_sede"
-                    android:inputType="textMultiLine"
-                    android:maxLines="5"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="@string/reg_medio4" />
 
-                <ImageButton
-                    android:id="@+id/reg9_ibDireccionPAC"
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:onClick="onClicDialogDireccionPAC"
-                    android:layout_marginEnd="15sp"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/reg_direccion"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/editar" />
+                <CheckBox
+                    android:id="@+id/medio5"
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="@string/reg_medio5" />
 
-            </LinearLayout>
+                <CheckBox
+                    android:id="@+id/medio6"
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="@string/reg_medio6" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/medio7"
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="@string/reg_medio7" />
+
+                <CheckBox
+                    android:id="@+id/medio8"
+                    style="@style/txtSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="@string/reg_medio8" />
 
                 <TextView
-                    android:id="@+id/reg9_tvHourPAC"
-                    style="@style/txtBox3"
-                    android:layout_width="0sp"
+                    style="@style/txtSub0"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="5sp"
-                    android:layout_marginStart="10sp"
-                    android:layout_weight="2"
-                    android:background="@drawable/round_txt"
-                    android:onClick="onClicDialogHorario"
-                    android:gravity="center"
-                    android:hint="@string/reg_horarioConsulta"
-                    android:padding="5dp"
-                    android:scaleType="fitCenter" />
-
-                <ImageButton
-                    android:id="@+id/reg9_ibHourPAC"
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:layout_marginEnd="15sp"
-                    android:onClick="onClicDialogHorario"
-                    android:layout_marginStart="5sp"
-                    android:background="@drawable/img_btn"
-                    android:contentDescription="@string/app_registro"
-                    android:padding="5sp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/editar" />
+                    android:text="@string/reg_finalStep" />
 
             </LinearLayout>
 
-            <!-- TIPO DE CONSULTA -->
-
-            <TextView
-                style="@style/txtSub"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="@string/reg_tipoConsulta" />
-            <TextView
-                style="@style/txtSub0"
-                android:layout_width="match_parent"
-                android:layout_height="18sp"
-                android:text="@string/reg_mensajeAtencion"
+            <!-- FIN -->
+            <Button
+                android:id="@+id/reg_btnRegistrar"
+                android:layout_width="150sp"
+                android:layout_height="50sp"
+                android:background="@drawable/round_btn"
+                android:textColor="@color/white"
+                android:text="@string/registrar"
+                android:layout_marginTop="5sp"
                 android:gravity="center"
+                android:layout_gravity="end"
+                android:visibility="gone"
+                android:layout_marginBottom="20sp"
                 />
-
-            <CheckBox
-                android:id="@+id/consulta1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_consulta1"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/consulta2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_consulta2"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-            <CheckBox
-                android:id="@+id/consulta3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_consulta3"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/consulta4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_consulta4"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/consulta5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_consulta5"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/consulta6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_consulta6"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <!-- MODALIDAD DE ATENCION -->
-
-            <TextView
-                style="@style/txtSub"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="@string/reg_modalidad" />
-            <TextView
-                style="@style/txtSub0"
-                android:layout_width="match_parent"
-                android:layout_height="18sp"
-                android:text="@string/reg_mensajeAtencion"
-                android:gravity="center"
-                />
-
-            <CheckBox
-                android:id="@+id/atencion1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion1"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/atencion2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion2"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-            <CheckBox
-                android:id="@+id/atencion3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion3"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/atencion4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion4"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/atencion5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion5"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/atencion6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion6"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-            <CheckBox
-                android:id="@+id/atencion7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion7"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
-
-            <CheckBox
-                android:id="@+id/atencion8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_atencion8"
-                android:layout_marginLeft="10sp"
-                android:layout_weight="1"
-                android:layout_marginRight="10sp"
-                style="@style/txtSub"/>
 
         </LinearLayout>
 
-        <!-- REGISTRO X-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tvReg10"
-                android:text="@string/reg_10_nok"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_width="0dp"
-                android:layout_height="22sp"
-                android:padding="2sp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                style="@style/txtSub1"
-                android:onClick="desplegarReg10"
-                />
 
-            <ImageView
-                android:id="@+id/ivReg10"
-                android:layout_width="22sp"
-                android:layout_height="22sp"
-                android:src="@drawable/hide"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:padding="3sp"
-                android:onClick="desplegarReg10"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llReg10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5sp"
-            android:layout_marginStart="5sp"
-            android:layout_marginTop="10sp"
-            android:orientation="vertical"
-            android:visibility="gone">
 
-            <TextView
-                style="@style/txtSub"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
-                android:text="@string/reg_mediopago" />
+    </ScrollView>
 
-            <TextView
-                style="@style/txtSub0"
-                android:layout_width="match_parent"
-                android:layout_height="18sp"
-                android:gravity="center"
-                android:text="@string/reg_mensajeAtencion" />
-
-            <CheckBox
-                android:id="@+id/medio1"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio1" />
-
-            <CheckBox
-                android:id="@+id/medio2"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio2" />
-
-            <CheckBox
-                android:id="@+id/medio3"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio3" />
-
-            <CheckBox
-                android:id="@+id/medio4"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio4" />
-
-            <CheckBox
-                android:id="@+id/medio5"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio5" />
-
-            <CheckBox
-                android:id="@+id/medio6"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio6" />
-
-            <CheckBox
-                android:id="@+id/medio7"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio7" />
-
-            <CheckBox
-                android:id="@+id/medio8"
-                style="@style/txtSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_weight="1"
-                android:text="@string/reg_medio8" />
-
-            <TextView
-                style="@style/txtSub0"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/reg_finalStep" />
-
-        </LinearLayout>
-
-        <!-- FIN -->
-        <Button
-            android:id="@+id/reg_btnRegistrar"
-            android:layout_width="150sp"
-            android:layout_height="30sp"
-            android:background="@drawable/round_btn"
-            android:textColor="@color/white"
-            android:text="@string/registrar"
-            android:layout_marginTop="5sp"
-            android:gravity="center"
-            android:layout_gravity="end"
-            android:visibility="gone"
-            />
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>
 
 
