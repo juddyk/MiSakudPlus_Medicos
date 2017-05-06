@@ -10,11 +10,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -76,8 +76,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     TextView tv_i,tv_ii,tv_iii,tv_iv,tv_v,tv_vi,tv_vii,tv_viii,tv_ix,tv_x;
     ImageView iv_i,iv_ii,iv_iii,iv_iv,iv_v,iv_vi,iv_vii,iv_viii,iv_ix,iv_x;
     LinearLayout ll_i,ll_ii,ll_iii,ll_iv,ll_v,ll_vi,ll_vii,ll_viii,ll_ix,ll_x;
+    GridView gv9_1,gv9_2,gv10;
     ProgressBar barraAvance=null;
-    InputMethodManager imm;
 
     //Objetos para el control de los ingresos de los datos
     TextView  tv1_editnombre,tv1_editFechaNacim,tv1_editFechaExp,tv2_editDirecc,tv4_loadTarjProf,tv5_loadDiploma,tv5_loadActa,tv5_loadResolucion,tv6_loadDiploma,tv6_loadActa,tv7_loadCertificado,tv7_editFechaI,tv7_editFechaF,tv8_editFechaI,tv8_editFechaF,tv9_editDirecc,tv9_editHorario;
@@ -91,13 +91,13 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     int anio;
     public int pogreso=0;
     boolean ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false,ok10=false;
+    Uri uri_foto,uri_tarjeta,uri_prediploma,uri_preacta,uri_posdiploma,uri_posacta,uri_resolucion,uri_certificado;
 
     //FIREBASE STORAGE
     private StorageReference storageRef;
     public UploadTask uploadTask;
-    private datosMedico dM;
+    datosMedico dM;
     //FIREBASE DATABASE
-    private DatabaseReference mDB;
     private FirebaseDatabase fbDB;
     private static final String TAG_medicos = "Medicos";
 
@@ -128,6 +128,10 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         instanciasObjetosVisualizacion();
         //Se instancian objetos para el registro
         instanciasObjetosRegistro();
+        //Se crean listas dinamicas
+        createLista_TipoConsultas();
+        createLista_ModalidadAtencion();
+        createLista_MediosPago();
 
         //Acciones objetos Registro I
         spn1_genero.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -744,31 +748,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         //Acciones objetos Registro X
 
 
-        //Boton de REGISTRAR
-        btn_registrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9 && ok10){
-                    Random rnd= new Random();
-                    int psw=(int)(rnd.nextDouble()*10000);
-                    while (psw<1000){//Garantiza que la contraseña generada sea de 4 digitos
-                        psw=(int)(rnd.nextDouble()*10000);
-                    }
-                    dM.setPsswrd(String.valueOf(psw));
-                    writeNewUser();
-                    Intent i = new Intent(registro.this, logueo.class);
-                    startActivity(i);
-                    Toast.makeText(getApplicationContext(),"Su contraseña es: "+String.valueOf(dM.getPsswrd()),Toast.LENGTH_LONG).show();
-                    finish();
-                }else{
-                    Toast.makeText(getApplicationContext(),"¡Faltan datos!",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
 
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -776,13 +757,11 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         if(!dM.getTpDoc().isEmpty() && !dM.getNumDoc().isEmpty()){
             if(resultCode==RESULT_OK){
                 Uri uriPath = data.getData();
-                StorageReference riversRef;
                 String ruta;
                 switch (requestCode){
                     case CODE_FOTO:
                         ruta="fotos/"+dM.getTpDoc()+dM.getNumDoc();
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_foto=uriPath;
                         dM.setFoto(ruta);
                         //Establecer FOTO
                         ib3_loadFoto.setImageURI(uriPath);
@@ -792,8 +771,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     case CODE_TARJETA_PROF:
                         ruta="documentos/tarjetas_profesionales/"+dM.getTpDoc()+dM.getNumDoc();
                         dM.setTarjeta_prof(ruta);
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_tarjeta=uriPath;
                         tv4_loadTarjProf.setText(getResources().getString(R.string.reg_select_ok));
                         setPogreso(5);
                         barraAvance.setProgress(getPogreso());
@@ -801,8 +779,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     case CODE_DIPLOMA_PRE:
                         ruta="documentos/pre_diplomas/"+dM.getTpDoc()+dM.getNumDoc();
                         dM.setPre_diploma(ruta);
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_prediploma=uriPath;
                         tv5_loadDiploma.setText(getResources().getString(R.string.reg_select_ok));
                         setPogreso(2);
                         barraAvance.setProgress(getPogreso());
@@ -810,8 +787,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     case CODE_ACTA_PRE:
                         ruta="documentos/pre_actas/"+dM.getTpDoc()+dM.getNumDoc();
                         dM.setPre_acta(ruta);
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_preacta=uriPath;
                         tv5_loadActa.setText(getResources().getString(R.string.reg_select_ok));
                         setPogreso(2);
                         barraAvance.setProgress(getPogreso());
@@ -819,8 +795,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     case CODE_RESOLUCION:
                         ruta="documentos/resoluciones/"+dM.getTpDoc()+dM.getNumDoc();
                         dM.setResolucion(ruta);
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_resolucion=uriPath;
                         tv5_loadResolucion.setText(getResources().getString(R.string.reg_select_ok));
                         setPogreso(2);
                         barraAvance.setProgress(getPogreso());
@@ -828,8 +803,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     case CODE_DIPLOMA_POS:
                         ruta="documentos/pos_diplomas/"+dM.getTpDoc()+dM.getNumDoc();
                         dM.setPos_diploma(ruta);
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_posdiploma=uriPath;
                         tv6_loadDiploma.setText(getResources().getString(R.string.reg_select_ok));
                         setPogreso(3);
                         barraAvance.setProgress(getPogreso());
@@ -837,8 +811,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     case CODE_ACTA_POS:
                         ruta="documentos/pos_actas/"+dM.getTpDoc()+dM.getNumDoc();
                         dM.setPos_acta(ruta);
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_posacta=uriPath;
                         tv6_loadActa.setText(getResources().getString(R.string.reg_select_ok));
                         setPogreso(3);
                         barraAvance.setProgress(getPogreso());
@@ -846,8 +819,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     case CODE_CERTIFICADO_EXP:
                         ruta="documentos/certificados_exp/"+dM.getTpDoc()+dM.getNumDoc();
                         dM.setCertificado_exp(ruta);
-                        riversRef = storageRef.child(ruta);
-                        uploadTask = riversRef.putFile(uriPath);
+                        uri_certificado=uriPath;
                         tv7_loadCertificado.setText(getResources().getString(R.string.reg_select_ok));
                         setPogreso(3);
                         barraAvance.setProgress(getPogreso());
@@ -910,6 +882,10 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
         barraAvance=(ProgressBar) findViewById(R.id.progressRegistro);
         btn_registrar=(Button) findViewById(R.id.reg_btnRegistrar);
+
+        gv10 = (GridView) findViewById(R.id.gridMedios);
+        gv9_1 = (GridView) findViewById(R.id.gridConsultas);
+        gv9_2 = (GridView) findViewById(R.id.gridAtencion);
     }
 
     public void instanciasObjetosRegistro(){
@@ -976,6 +952,34 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         ib9_editDirecc=(ImageButton) findViewById(R.id.reg9_ibDireccionPAC);
         ib9_editHorario=(ImageButton) findViewById(R.id.reg9_ibHourPAC);
         //Objetos registro 10
+
+    }
+
+    public void createLista_MediosPago(){
+        String[] medios = getResources().getStringArray(R.array.medios_pago);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_multiple_choice, medios);
+        gv10.setAdapter(adapter);
+        for(int i=0;i<adapter.getCount();i++){
+            gv10.setItemChecked(i, false);
+        }
+    }
+
+    public void createLista_ModalidadAtencion(){
+        String[] modalidad = getResources().getStringArray(R.array.modalidad_atencion);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_multiple_choice, modalidad);
+        gv9_2.setAdapter(adapter);
+        for(int i=0;i<adapter.getCount();i++){
+            gv9_2.setItemChecked(i, false);
+        }
+    }
+
+    public void createLista_TipoConsultas(){
+        String[] consulta = getResources().getStringArray(R.array.tipo_consultas);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_multiple_choice, consulta);
+        gv9_1.setAdapter(adapter);
+        for(int i=0;i<adapter.getCount();i++){
+            gv9_1.setItemChecked(i, false);
+        }
 
     }
 
@@ -1350,9 +1354,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         estadoReg7(true);
         estadoReg8(true);
         estadoReg9(true);
-        //borrar luego
-        checkReg10();
-
         checkReg2();
         checkReg3();
         checkReg4();
@@ -1479,12 +1480,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
 
     public void checkReg10(){
-        if(ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9){
-            ok10=true;
-            btn_registrar.setVisibility(View.VISIBLE);
-        }else{
-            btn_registrar.setVisibility(View.GONE);
-        }
+        ok10=true;
     }
 
     @Override
@@ -1746,8 +1742,55 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
 
     private void writeNewUser() {
+        DatabaseReference mDB;
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
-        mDB.child(TAG_medicos).child(String.valueOf(dM.getNumDoc())).setValue(dM);
+        mDB.child(TAG_medicos).child(dM.getNumDoc()).setValue(dM);
     }
+
+    private void saveDataNewUser(){
+        StorageReference riversRef;
+        //Guarda la foto
+        riversRef = storageRef.child(dM.getFoto());
+        uploadTask = riversRef.putFile(uri_foto);
+        //Guarda la tarjeta profesional
+        riversRef = storageRef.child(dM.getTarjeta_prof());
+        uploadTask = riversRef.putFile(uri_tarjeta);
+        //Guardar documentos del Pregrado
+        riversRef = storageRef.child(dM.getPre_diploma());
+        uploadTask = riversRef.putFile(uri_prediploma);
+        riversRef = storageRef.child(dM.getPre_acta());
+        uploadTask = riversRef.putFile(uri_preacta);
+        //Guardar documentos del Posgrado
+        riversRef = storageRef.child(dM.getPos_diploma());
+        uploadTask = riversRef.putFile(uri_posdiploma);
+        riversRef = storageRef.child(dM.getPos_acta());
+        uploadTask = riversRef.putFile(uri_posacta);
+        //Guardar Certificado
+        riversRef = storageRef.child(dM.getCertificado_exp());
+        uploadTask = riversRef.putFile(uri_certificado);
+        //Guardar Resolucion
+        riversRef = storageRef.child(dM.getResolucion());
+        uploadTask = riversRef.putFile(uri_resolucion);
+    }
+
+    public void registrar_medico(View view){
+        if(ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9 && ok10){
+            Random rnd= new Random();
+            int psw=(int)(rnd.nextDouble()*10000);
+            while (psw<1000){//Garantiza que la contraseña generada sea de 4 digitos
+                psw=(int)(rnd.nextDouble()*10000);
+            }
+            dM.setPsswrd(String.valueOf(psw));
+            writeNewUser();
+            saveDataNewUser();
+            Intent i = new Intent(registro.this, logueo.class);
+            startActivity(i);
+            Toast.makeText(getApplicationContext(),"Su contraseña es: "+String.valueOf(dM.getPsswrd()),Toast.LENGTH_LONG).show();
+            finish();
+        }else{
+            Toast.makeText(getApplicationContext(),"¡Faltan datos!",Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 }

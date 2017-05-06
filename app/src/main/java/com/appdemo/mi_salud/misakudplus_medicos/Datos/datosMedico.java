@@ -1,5 +1,8 @@
 package com.appdemo.mi_salud.misakudplus_medicos.Datos;
 
+import java.util.HashMap;
+import java.util.Map;
+
 //Clase para la informacion de los medicos
 public class datosMedico {
 
@@ -65,10 +68,10 @@ public class datosMedico {
     private String horai;
     private String horaf;
 
-    private String[] consulta;
-    private String[] atencion;
-    private String[] medios;
-    private String[] servicios;
+    private String consulta;
+    private String atencion;
+    private String medios;
+    private String servicios;
 
     public datosMedico() {
         this.nombre1 = "";
@@ -125,10 +128,10 @@ public class datosMedico {
         this.direccion_sede ="";
         this.horai = "";
         this.horaf = "";
-        this.consulta = new String[]{"", "", ""};
-        this.atencion =new String[]{"","",""};
-        this.medios =new String[]{"","",""};
-        this.servicios =new String[]{"","",""};
+        this.consulta ="";
+        this.atencion ="";
+        this.medios ="";
+        this.servicios ="";
     }
 /*
     public datosMedico(String nombre1, String nombre2, String apellido1, String apellido2, int fnDia, int fnMes, int fnAnio, String tpDoc, String numDoc, int feDia, int feMes, int feAnio, String genero, String departamento, String municipio, String direccion, String celular, String fijo1, String fijo2, String correo1, String correo2, String psswrd, String foto, String slogan, String profesion, String registro_medico, String tarjeta_prof, String pregrado, String pre_diploma, String pre_acta, String resolucion, String ttl_posgrado, String pos_diploma, String pos_acta, String certificado_exp, String institucion_exp, String cargo_exp, int fiDia_exp, int fiMes_exp, int fiAnio_exp, int ffDia_exp, int ffMes_exp, int ffAnio_exp, String curso, String institucion_curso, int fiDia_curso, int fiMes_curso, int fiAnio_curso, int ffDia_curso, int ffMes_curso, int ffAnio_curso, String direccion_sede, String horai, String horaf, String[] consulta, String[] atencion, String[] medios, String[] servicios) {
@@ -200,9 +203,9 @@ public class datosMedico {
         this.nombre1 = nombre1;
     }
 
-    public String getNombre2() {
+    /*public String getNombre2() {
         return nombre2;
-    }
+    }*/
 
     public void setNombre2(String nombre2) {
         this.nombre2 = nombre2;
@@ -216,9 +219,9 @@ public class datosMedico {
         this.apellido1 = apellido1;
     }
 
-    public String getApellido2() {
+    /*public String getApellido2() {
         return apellido2;
-    }
+    }*/
 
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
@@ -336,9 +339,9 @@ public class datosMedico {
         this.fijo1 = fijo1;
     }
 
-    public String getFijo2() {
+    /*public String getFijo2() {
         return fijo2;
-    }
+    }*/
 
     public void setFijo2(String fijo2) {
         this.fijo2 = fijo2;
@@ -352,9 +355,9 @@ public class datosMedico {
         this.correo1 = correo1;
     }
 
-    public String getCorreo2() {
+    /*public String getCorreo2() {
         return correo2;
-    }
+    }*/
 
     public void setCorreo2(String correo2) {
         this.correo2 = correo2;
@@ -384,14 +387,14 @@ public class datosMedico {
         this.slogan = slogan;
     }
 
-    public String getProfesion() {
+    /*public String getProfesion() {
         return profesion;
     }
 
     public void setProfesion(String profesion) {
         this.profesion = profesion;
     }
-
+    */
     public String getRegistro_medico() {
         return registro_medico;
     }
@@ -624,35 +627,35 @@ public class datosMedico {
         this.horaf = horaf;
     }
 
-    public String[] getConsulta() {
+    public String getConsulta() {
         return consulta;
     }
 
-    public void setConsulta(String[] consulta) {
+    public void setConsulta(String consulta) {
         this.consulta = consulta;
     }
 
-    public String[] getAtencion() {
+    public String getAtencion() {
         return atencion;
     }
 
-    public void setAtencion(String[] atencion) {
+    public void setAtencion(String atencion) {
         this.atencion = atencion;
     }
 
-    public String[] getMedios() {
+    public String getMedios() {
         return medios;
     }
 
-    public void setMedios(String[] medios) {
+    public void setMedios(String medios) {
         this.medios = medios;
     }
 
-    public String[] getServicios() {
+    public String getServicios() {
         return servicios;
     }
 
-    public void setServicios(String[] servicios) {
+    public void setServicios(String servicios) {
         this.servicios = servicios;
     }
 }

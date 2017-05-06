@@ -90,31 +90,10 @@
     <string name="reg_sede">Dirección del Punto de Atención*</string>
     <string name="reg_horarioConsulta">Horario de Consultas*</string>
     <string name="reg_tipoConsulta">Tipos de Consulta a brindar*</string>
-    <string name="reg_consulta1">Teleconsulta</string>
-    <string name="reg_consulta2">Telemedicina</string>
-    <string name="reg_consulta3">Domicilio</string>
-    <string name="reg_consulta4">Prioritaria (24hrs)</string>
-    <string name="reg_consulta5">Prioritaria (48hrs)</string>
-    <string name="reg_consulta6">No Prioritaria</string>
     <string name="reg_modalidad">Modalidades de Atención*</string>
     <string name="reg_mensajeAtencion">Debe escoger al menos una de las opciones</string>
-    <string name="reg_atencion1">Especializada por Primera Vez</string>
-    <string name="reg_atencion2">Especializada de Control</string>
-    <string name="reg_atencion3">Interconsulta Especilizada</string>
-    <string name="reg_atencion4">Interconsulta Especializada de Control</string>
-    <string name="reg_atencion5">Medicina General Primera Vez</string>
-    <string name="reg_atencion6">Medicina General de Control</string>
-    <string name="reg_atencion7">Medicina General de Enlace como especialista</string>
-    <string name="reg_atencion8">Contrareferencia</string>
     <string name="reg_mediopago">Medios de Pago*</string>
-    <string name="reg_medio1">Exito </string>
-    <string name="reg_medio2">PSE </string>
-    <string name="reg_medio3">PayPal </string>
-    <string name="reg_medio4">Gana </string>
-    <string name="reg_medio5">Baloto </string>
-    <string name="reg_medio6">Carulla </string>
-    <string name="reg_medio7">SutiMax </string>
-    <string name="reg_medio8">Efecty </string>
+    <string name="reg_servicios">¿Cuales servicios desea habilitar?*</string>
     <string name="reg_select_file">Seleccione el documento </string>
     <string name="reg_select_photo">Seleccione su foto </string>
     <string name="reg_select_no">No Selecciono un archivo </string>
@@ -122,6 +101,45 @@
     <string name="reg_error">Debe ingresar el tipo y número del documento para continuar </string>
     <string name="registrar">REGISTRAR</string>
 
+    <string-array name="tipo_consultas">
+        <item>Teleconsulta</item>
+        <item>Telemedicina</item>
+        <item>Domicilio</item>
+        <item>Prioritaria (24 horas)</item>
+        <item>Prioritaria (48 horas)</item>
+        <item>No prioritaria</item>
+    </string-array>
+
+    <string-array name="modalidad_atencion">
+        <item>Especializada por Primera Vez</item>
+        <item>Especializada de Control</item>
+        <item>Interconsulta Especilizada</item>
+        <item>Interconsulta Especializada de Control</item>
+        <item>Medicina General Primera Vez</item>
+        <item>Medicina General de Control</item>
+        <item>Medicina General de Enlace como especialista</item>
+        <item>Contrareferencia</item>
+
+    </string-array>
+
+    <string-array name="medios_pago">
+        <item>Exito</item>
+        <item>PSE</item>
+        <item>PayPal</item>
+        <item>GANA</item>
+        <item>Baloto</item>
+        <item>Carulla</item>
+        <item>SurtiMax</item>
+        <item>Efecty</item>
+    </string-array>
+
+    <string-array name="servicios">
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+    </string-array>
 
     <string-array name="tipdoc">
         <item>TIPO</item>
