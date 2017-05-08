@@ -195,6 +195,10 @@
 
     <!-- DIALOGO HORARIO -->
     <string name="reg9_tittleDialog">Horario PAC</string>
+    <string name="addDia">Agregar Dìa</string>
+    <string name="addHorario">Agregar Horario</string>
+    <string name="horario_nok">Debe establecer almeno el horario de un día</string>
+    <string name="diaSemana">Dia de la Semana:</string>
     <string name="horaInicial">Hora de Inicio</string>
     <string name="horaFinal">Hora de Finalización</string>
     <string name="horario">desde hh:mm hasta las hh:mm</string>
@@ -248,6 +252,16 @@
         <item>22:30</item>
         <item>23:00</item>
         <item>23:30</item>
+    </string-array>
+    <string-array name="diasSemana">
+        <item>--</item>
+        <item>Domingo</item>
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sábado</item>
     </string-array>
 
     <!-- DIALOGO CALENDARIO -->

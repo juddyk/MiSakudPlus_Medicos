@@ -10,19 +10,22 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.checkboxAdapter;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.checkboxDinamico;
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.datosMedico;
 import com.appdemo.mi_salud.misakudplus_medicos.R;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogCalendar;
@@ -36,7 +39,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 /*
@@ -76,9 +81,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     TextView tv_i,tv_ii,tv_iii,tv_iv,tv_v,tv_vi,tv_vii,tv_viii,tv_ix,tv_x;
     ImageView iv_i,iv_ii,iv_iii,iv_iv,iv_v,iv_vi,iv_vii,iv_viii,iv_ix,iv_x;
     LinearLayout ll_i,ll_ii,ll_iii,ll_iv,ll_v,ll_vi,ll_vii,ll_viii,ll_ix,ll_x;
-    GridView gv9_1,gv9_2,gv10;
+    ListView gv9_1,gv9_2,gv10;
     ProgressBar barraAvance=null;
-
     //Objetos para el control de los ingresos de los datos
     TextView  tv1_editnombre,tv1_editFechaNacim,tv1_editFechaExp,tv2_editDirecc,tv4_loadTarjProf,tv5_loadDiploma,tv5_loadActa,tv5_loadResolucion,tv6_loadDiploma,tv6_loadActa,tv7_loadCertificado,tv7_editFechaI,tv7_editFechaF,tv8_editFechaI,tv8_editFechaF,tv9_editDirecc,tv9_editHorario;
     EditText et1_documento,et2_celular,et2_fijo1,et2_fijo2,et2_correo1,et2_correo2,et3_slogan,et4_registroMed,et5_titulo,et6_titulo,et7_institucion,et7_cargo,et8_curso,et8_institucion;
@@ -86,11 +90,15 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     ImageButton ib1_editName,ib1_editFechaNacim,ib1_editFechaExp,ib2_editDirecc,ib7_editFechaI,ib7_editFechaF,ib8_editFechaI,ib8_editFechaF,ib9_editDirecc,ib9_editHorario;
     ImageButton ib3_loadFoto,ib4_loadTarjProf,ib5_loadDiploma,ib5_loadActa,ib5_loadResolucion,ib6_loadDiploma,ib6_loadActa,ib7_loadCertificado;
     Button btn_registrar;
+    List<checkboxDinamico> medios,consultas,modalidad;
+    checkboxAdapter mediosAdapter,consultasAdapter,modalidadAdapter;
     //Variables Auxiliares
     private String[] lstMunc;
+    List<String> lstMedios,lstConsultas,lstModalidad;
+    String[] dom,lun,mar,mie,jue,vie,sab;
     int anio;
     public int pogreso=0;
-    boolean ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false,ok10=false;
+    boolean ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false,ok10=false,flagH=false;
     Uri uri_foto,uri_tarjeta,uri_prediploma,uri_preacta,uri_posdiploma,uri_posacta,uri_resolucion,uri_certificado;
 
     //FIREBASE STORAGE
@@ -100,7 +108,19 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     //FIREBASE DATABASE
     private FirebaseDatabase fbDB;
     private static final String TAG_medicos = "Medicos";
-
+    private static final String TAG_consultas = "TiposConsultas";
+    private static final String TAG_modalidad = "ModalidadAtencion";
+    private static final String TAG_medios = "MediosPago";
+    private static final String TAG_HORARIO = "Horario";
+    private static final String TAG_HORA_INICIAL = "HoraI";
+    private static final String TAG_HORA_FINAL = "HorarF";
+    private static final String TAG_DOMINGO = "D";
+    private static final String TAG_LUNES = "L";
+    private static final String TAG_MARTES = "M";
+    private static final String TAG_MIERCOLES = "W";
+    private static final String TAG_JUEVES = "J";
+    private static final String TAG_VIERNES = "V";
+    private static final String TAG_SABADO = "S";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -747,8 +767,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
         //Acciones objetos Registro X
 
-
-
     }
 
     @Override
@@ -883,9 +901,9 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         barraAvance=(ProgressBar) findViewById(R.id.progressRegistro);
         btn_registrar=(Button) findViewById(R.id.reg_btnRegistrar);
 
-        gv10 = (GridView) findViewById(R.id.gridMedios);
-        gv9_1 = (GridView) findViewById(R.id.gridConsultas);
-        gv9_2 = (GridView) findViewById(R.id.gridAtencion);
+        gv10 = (ListView) findViewById(R.id.gridMedios);
+        gv9_1 = (ListView) findViewById(R.id.gridConsultas);
+        gv9_2 = (ListView) findViewById(R.id.gridAtencion);
     }
 
     public void instanciasObjetosRegistro(){
@@ -956,30 +974,52 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
 
     public void createLista_MediosPago(){
-        String[] medios = getResources().getStringArray(R.array.medios_pago);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_multiple_choice, medios);
-        gv10.setAdapter(adapter);
-        for(int i=0;i<adapter.getCount();i++){
-            gv10.setItemChecked(i, false);
+        String[] mediosArray = getResources().getStringArray(R.array.medios_pago);
+        medios= new ArrayList<>(mediosArray.length);
+        for (String var : mediosArray) {
+            checkboxDinamico row = new checkboxDinamico();
+            row.setTexto(var);
+            row.setChecked(false);
+            medios.add(row);
         }
+        ViewGroup.LayoutParams params = gv10.getLayoutParams();
+        params.height = (gv10.getDividerHeight()+73)* mediosArray.length;
+        gv10.setLayoutParams(params);
+        mediosAdapter=new checkboxAdapter(this, medios);
+        gv10.setAdapter(mediosAdapter);
+
     }
 
     public void createLista_ModalidadAtencion(){
-        String[] modalidad = getResources().getStringArray(R.array.modalidad_atencion);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_multiple_choice, modalidad);
-        gv9_2.setAdapter(adapter);
-        for(int i=0;i<adapter.getCount();i++){
-            gv9_2.setItemChecked(i, false);
+        String[] modalidadArray = getResources().getStringArray(R.array.modalidad_atencion);
+        modalidad=new ArrayList<>(modalidadArray.length);
+        for (String var : modalidadArray) {
+            checkboxDinamico row = new checkboxDinamico();
+            row.setTexto(var);
+            row.setChecked(false);
+            modalidad.add(row);
         }
+        ViewGroup.LayoutParams params = gv9_2.getLayoutParams();
+        params.height = (gv9_2.getDividerHeight()+73)* modalidadArray.length;
+        gv9_2.setLayoutParams(params);
+        modalidadAdapter=new checkboxAdapter(this, modalidad);
+        gv9_2.setAdapter(modalidadAdapter);
     }
 
     public void createLista_TipoConsultas(){
-        String[] consulta = getResources().getStringArray(R.array.tipo_consultas);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_multiple_choice, consulta);
-        gv9_1.setAdapter(adapter);
-        for(int i=0;i<adapter.getCount();i++){
-            gv9_1.setItemChecked(i, false);
+        String[] consultaArray = getResources().getStringArray(R.array.tipo_consultas);
+        consultas=new ArrayList<>(consultaArray.length);
+        for(String var:consultaArray){
+            checkboxDinamico row = new checkboxDinamico();
+            row.setTexto(var);
+            row.setChecked(false);
+            consultas.add(row);
         }
+        ViewGroup.LayoutParams params = gv9_1.getLayoutParams();
+        params.height = (gv9_1.getDividerHeight()+73)* consultaArray.length;
+        gv9_1.setLayoutParams(params);
+        consultasAdapter=new checkboxAdapter(this, consultas);
+        gv9_1.setAdapter(consultasAdapter);
 
     }
 
@@ -1392,6 +1432,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     iv_i.setImageDrawable(getDrawable(R.drawable.check));
                 }
             }
+        }else{
+            ok1=false;
+            tv_i.setText(getResources().getString(R.string.reg_1_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_i.setImageDrawable(getDrawable(R.drawable.hide));
+            }
         }
     }
 
@@ -1401,6 +1447,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             tv_ii.setText(getResources().getString(R.string.reg_2_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_ii.setImageDrawable(getDrawable(R.drawable.check));
+            }
+        }else{
+            ok2=false;
+            tv_ii.setText(getResources().getString(R.string.reg_2_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_ii.setImageDrawable(getDrawable(R.drawable.hide));
             }
         }
     }
@@ -1412,6 +1464,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_iii.setImageDrawable(getDrawable(R.drawable.check));
             }
+        }else{
+            ok3=false;
+            tv_iii.setText(getResources().getString(R.string.reg_3_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_iii.setImageDrawable(getDrawable(R.drawable.hide));
+            }
         }
     }
 
@@ -1421,6 +1479,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             tv_iv.setText(getResources().getString(R.string.reg_4_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_iv.setImageDrawable(getDrawable(R.drawable.check));
+            }
+        }else{
+            ok4=false;
+            tv_iv.setText(getResources().getString(R.string.reg_4_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_iv.setImageDrawable(getDrawable(R.drawable.hide));
             }
         }
     }
@@ -1432,6 +1496,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_v.setImageDrawable(getDrawable(R.drawable.check));
             }
+        }else{
+            ok5=false;
+            tv_v.setText(getResources().getString(R.string.reg_5_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_v.setImageDrawable(getDrawable(R.drawable.hide));
+            }
         }
     }
 
@@ -1441,6 +1511,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             tv_vi.setText(getResources().getString(R.string.reg_6_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_vi.setImageDrawable(getDrawable(R.drawable.check));
+            }
+        }else{
+            ok6=false;
+            tv_vi.setText(getResources().getString(R.string.reg_6_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_vi.setImageDrawable(getDrawable(R.drawable.hide));
             }
         }
     }
@@ -1454,6 +1530,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     iv_vii.setImageDrawable(getDrawable(R.drawable.check));
                 }
             }
+        }else{
+            ok7=false;
+            tv_vii.setText(getResources().getString(R.string.reg_7_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_vii.setImageDrawable(getDrawable(R.drawable.hide));
+            }
         }
     }
 
@@ -1466,21 +1548,77 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                     iv_viii.setImageDrawable(getDrawable(R.drawable.check));
                 }
             }
+        }else{
+            ok8=false;
+            tv_viii.setText(getResources().getString(R.string.reg_8_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_viii.setImageDrawable(getDrawable(R.drawable.hide));
+            }
         }
     }
 
     public void checkReg9(){
-        if(!dM.getDireccion_sede().isEmpty() && !dM.getHorai().isEmpty() && !dM.getHoraf().isEmpty()){
+        lstModalidad=new ArrayList<>();
+        lstConsultas=new ArrayList<>();
+        ArrayList<checkboxDinamico> listM = modalidadAdapter.getCbList();
+        ArrayList<checkboxDinamico> listC = consultasAdapter.getCbList();
+        boolean flag_modalidad=false;
+        boolean flag_consulta=false;
+        for(int i=0;i<listM.size();i++){
+            checkboxDinamico cb = listM.get(i);
+            if(cb.isChecked()){
+                flag_modalidad=true;
+                lstModalidad.add(cb.getTexto());
+            }
+        }
+        for(int i=0;i<listC.size();i++) {
+            checkboxDinamico cb = listC.get(i);
+            if(cb.isChecked()){
+                flag_consulta=true;
+                lstConsultas.add(cb.getTexto());
+            }
+        }
+
+        if(!dM.getDireccion_sede().isEmpty() && flagH && flag_consulta && flag_modalidad){
             ok9=true;
             tv_ix.setText(getResources().getString(R.string.reg_9_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_ix.setImageDrawable(getDrawable(R.drawable.check));
             }
+        }else{
+            ok9=false;
+            tv_ix.setText(getResources().getString(R.string.reg_9_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_ix.setImageDrawable(getDrawable(R.drawable.hide));
+            }
         }
     }
 
     public void checkReg10(){
-        ok10=true;
+        lstMedios=new ArrayList<>();
+        ArrayList<checkboxDinamico> list = mediosAdapter.getCbList();
+        boolean flag_medios=false;
+        for(int i=0;i<list.size();i++){
+            checkboxDinamico cb = list.get(i);
+            if(cb.isChecked()){
+                flag_medios=true;
+                lstMedios.add(cb.getTexto());
+            }
+        }
+
+        if(flag_medios){
+            ok10=true;
+            tv_x.setText(getResources().getString(R.string.reg_10_ok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_x.setImageDrawable(getDrawable(R.drawable.check));
+            }
+        }else{
+            ok10=false;
+            tv_x.setText(getResources().getString(R.string.reg_10_nok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_x.setImageDrawable(getDrawable(R.drawable.hide));
+            }
+        }
     }
 
     @Override
@@ -1504,23 +1642,50 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
 
     @Override
-    public void onHourPositive(DialogFragment dialog, int code, String hi, String hf) {
-        if(!hi.isEmpty() && !hf.isEmpty()){
+    public void onHourPositive(DialogFragment dialog, int code, String[] d,String[] l,String[] m,String[] w,String[] j,String[] v,String[] s) {
             if(code==90){
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
-                tv9_editHorario.setText(hi+" - "+hf);
-                dM.setHorai(hi);
-                dM.setHoraf(hf);
+                flagH=true;
+                dom=d;
+                lun=l;
+                mar=m;
+                mie=w;
+                jue=j;
+                vie=v;
+                sab=s;
+                String hD="",hL="",hM="",hW="",hJ="",hV="",hS="";
+                if(!d[0].isEmpty() && !d[1].isEmpty()){
+                    hD=TAG_DOMINGO+": "+d[0]+"-"+d[1]+"\n";
+                }
+                if(!l[0].isEmpty() && !l[1].isEmpty()){
+                    hL=TAG_LUNES+": "+l[0]+"-"+l[1]+"\n";
+                }
+                if(!m[0].isEmpty() && !m[1].isEmpty()){
+                    hM=TAG_MARTES+": "+l[0]+"-"+l[1]+"\n";
+                }
+                if(!w[0].isEmpty() && !w[1].isEmpty()){
+                    hW=TAG_MIERCOLES+": "+l[0]+"-"+l[1]+"\n";
+                }
+                if(!j[0].isEmpty() && !j[1].isEmpty()){
+                    hJ=TAG_JUEVES+": "+l[0]+"-"+l[1]+"\n";
+                }
+                if(!v[0].isEmpty() && !v[1].isEmpty()){
+                    hV=TAG_VIERNES+": "+l[0]+"-"+l[1]+"\n";
+                }
+                if(!s[0].isEmpty() && !s[1].isEmpty()){
+                    hS=TAG_SABADO+": "+l[0]+"-"+l[1];
+                }
+                tv9_editHorario.setText(hD+hL+hM+hW+hJ+hV+hS);
             }
-        }
-
 
         dialog.dismiss();
     }
 
     @Override
     public void onHourNegative(DialogFragment dialog) {
+        flagH=false;
+        tv9_editHorario.setText("");
         dialog.dismiss();
     }
 
@@ -1745,6 +1910,49 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         DatabaseReference mDB;
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
         mDB.child(TAG_medicos).child(dM.getNumDoc()).setValue(dM);
+        //Agregar Tipos de Consulta
+        for(int i=0;i<lstConsultas.size();i++){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_consultas).child(String.valueOf(i)).setValue(lstConsultas.get(i));
+        }
+        //Agregar Modalidad de Atención
+        for(int i=0;i<lstModalidad.size();i++){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_modalidad).child(String.valueOf(i)).setValue(lstModalidad.get(i));
+        }
+        //Agregar Medios de Pago
+        for(int i=0;i<lstMedios.size();i++){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_medios).child(String.valueOf(i)).setValue(lstMedios.get(i));
+        }
+        //Agregar Horario
+
+        if(!dom[0].isEmpty() && !dom[1].isEmpty()){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_DOMINGO).child(TAG_HORA_INICIAL).setValue(dom[0]);
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_DOMINGO).child(TAG_HORA_FINAL).setValue(dom[1]);
+        }
+        if(!lun[0].isEmpty() && !lun[1].isEmpty()){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_LUNES).child(TAG_HORA_INICIAL).setValue(lun[0]);
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_LUNES).child(TAG_HORA_FINAL).setValue(lun[1]);
+        }
+        if(!mar[0].isEmpty() && !mar[1].isEmpty()){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MARTES).child(TAG_HORA_INICIAL).setValue(mar[0]);
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MARTES).child(TAG_HORA_FINAL).setValue(mar[1]);
+        }
+        if(!mie[0].isEmpty() && !mie[1].isEmpty()){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MIERCOLES).child(TAG_HORA_INICIAL).setValue(mie[0]);
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MIERCOLES).child(TAG_HORA_FINAL).setValue(mie[1]);
+        }
+        if(!jue[0].isEmpty() && !jue[1].isEmpty()){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_JUEVES).child(TAG_HORA_INICIAL).setValue(jue[0]);
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_JUEVES).child(TAG_HORA_FINAL).setValue(jue[1]);
+        }
+        if(!vie[0].isEmpty() && !vie[1].isEmpty()){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_VIERNES).child(TAG_HORA_INICIAL).setValue(vie[0]);
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_VIERNES).child(TAG_HORA_FINAL).setValue(vie[1]);
+        }
+        if(!sab[0].isEmpty() && !sab[1].isEmpty()){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_SABADO).child(TAG_HORA_INICIAL).setValue(sab[0]);
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_SABADO).child(TAG_HORA_FINAL).setValue(sab[1]);
+        }
+
     }
 
     private void saveDataNewUser(){
@@ -1774,6 +1982,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
 
     public void registrar_medico(View view){
+        checkReg10();
         if(ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9 && ok10){
             Random rnd= new Random();
             int psw=(int)(rnd.nextDouble()*10000);

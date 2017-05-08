@@ -1,67 +1,526 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_marginTop="40sp"
-        android:layout_marginBottom="5sp"
-        android:layout_marginRight="15sp"
-        android:layout_marginLeft="15sp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <CheckBox
+            android:id="@+id/domingo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/txtSub"
-            android:layout_weight="1"
-            android:text="@string/horaInicial"
             />
+        <LinearLayout
+            android:id="@+id/boxDomingo"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaInicial"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaFinal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/hourIDomingo"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+                <Spinner
+                    android:id="@+id/hourFDomingo"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/lunes"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/txtSub"
-            android:layout_weight="1"
-            android:text="@string/horaFinal"
             />
+        <LinearLayout
+            android:id="@+id/boxLunes"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaInicial"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaFinal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/hourILunes"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+                <Spinner
+                    android:id="@+id/hourFLunes"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/martes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            />
+        <LinearLayout
+            android:id="@+id/boxMartes"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaInicial"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaFinal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/hourIMartes"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+                <Spinner
+                    android:id="@+id/hourFMartes"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/miercoles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            />
+        <LinearLayout
+            android:id="@+id/boxMiercoles"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaInicial"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaFinal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/hourIMiercoles"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+                <Spinner
+                    android:id="@+id/hourFMiercoles"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/jueves"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            />
+        <LinearLayout
+            android:id="@+id/boxJueves"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaInicial"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaFinal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/hourIJueves"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+                <Spinner
+                    android:id="@+id/hourFJueves"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/viernes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            />
+        <LinearLayout
+            android:id="@+id/boxViernes"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaInicial"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaFinal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/hourIViernes"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+                <Spinner
+                    android:id="@+id/hourFViernes"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/sabado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/txtSub"
+            />
+        <LinearLayout
+            android:id="@+id/boxSabado"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginBottom="5sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaInicial"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/txtSub"
+                    android:layout_weight="1"
+                    android:text="@string/horaFinal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/hourISabado"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+                <Spinner
+                    android:id="@+id/hourFSabado"
+                    style="@style/spinBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:drawSelectorOnTop="true"
+                    android:entries="@array/horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30sp"
-        android:layout_marginLeft="15sp"
-        android:layout_marginRight="15sp"
-        android:orientation="horizontal">
-
-        <Spinner
-            android:id="@+id/hourInicial"
-            style="@style/spinBox"
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_weight="1"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/horas" />
-
-        <Spinner
-            android:id="@+id/hourFinal"
-            style="@style/spinBox"
-            android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_weight="1"
-            android:drawSelectorOnTop="true"
-            android:entries="@array/horas" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

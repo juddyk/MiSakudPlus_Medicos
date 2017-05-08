@@ -1,8 +1,5 @@
 package com.appdemo.mi_salud.misakudplus_medicos.Datos;
 
-import java.util.HashMap;
-import java.util.Map;
-
 //Clase para la informacion de los medicos
 public class datosMedico {
 
@@ -65,13 +62,7 @@ public class datosMedico {
     private int ffAnio_curso;
 
     private String direccion_sede;
-    private String horai;
-    private String horaf;
 
-    private String consulta;
-    private String atencion;
-    private String medios;
-    private String servicios;
 
     public datosMedico() {
         this.nombre1 = "";
@@ -126,12 +117,6 @@ public class datosMedico {
         this.ffMes_curso = 0;
         this.ffAnio_curso =0;
         this.direccion_sede ="";
-        this.horai = "";
-        this.horaf = "";
-        this.consulta ="";
-        this.atencion ="";
-        this.medios ="";
-        this.servicios ="";
     }
 /*
     public datosMedico(String nombre1, String nombre2, String apellido1, String apellido2, int fnDia, int fnMes, int fnAnio, String tpDoc, String numDoc, int feDia, int feMes, int feAnio, String genero, String departamento, String municipio, String direccion, String celular, String fijo1, String fijo2, String correo1, String correo2, String psswrd, String foto, String slogan, String profesion, String registro_medico, String tarjeta_prof, String pregrado, String pre_diploma, String pre_acta, String resolucion, String ttl_posgrado, String pos_diploma, String pos_acta, String certificado_exp, String institucion_exp, String cargo_exp, int fiDia_exp, int fiMes_exp, int fiAnio_exp, int ffDia_exp, int ffMes_exp, int ffAnio_exp, String curso, String institucion_curso, int fiDia_curso, int fiMes_curso, int fiAnio_curso, int ffDia_curso, int ffMes_curso, int ffAnio_curso, String direccion_sede, String horai, String horaf, String[] consulta, String[] atencion, String[] medios, String[] servicios) {
@@ -187,12 +172,6 @@ public class datosMedico {
         this.ffMes_curso = ffMes_curso;
         this.ffAnio_curso = ffAnio_curso;
         this.direccion_sede = direccion_sede;
-        this.horai = horai;
-        this.horaf = horaf;
-        this.consulta = consulta;
-        this.atencion = atencion;
-        this.medios = medios;
-        this.servicios = servicios;
     }
 */
     public String getNombre1() {
@@ -611,51 +590,5 @@ public class datosMedico {
         this.direccion_sede = direccion_sede;
     }
 
-    public String getHorai() {
-        return horai;
-    }
 
-    public void setHorai(String horai) {
-        this.horai = horai;
-    }
-
-    public String getHoraf() {
-        return horaf;
-    }
-
-    public void setHoraf(String horaf) {
-        this.horaf = horaf;
-    }
-
-    public String getConsulta() {
-        return consulta;
-    }
-
-    public void setConsulta(String consulta) {
-        this.consulta = consulta;
-    }
-
-    public String getAtencion() {
-        return atencion;
-    }
-
-    public void setAtencion(String atencion) {
-        this.atencion = atencion;
-    }
-
-    public String getMedios() {
-        return medios;
-    }
-
-    public void setMedios(String medios) {
-        this.medios = medios;
-    }
-
-    public String getServicios() {
-        return servicios;
-    }
-
-    public void setServicios(String servicios) {
-        this.servicios = servicios;
-    }
 }
