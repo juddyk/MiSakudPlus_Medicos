@@ -1959,35 +1959,49 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
         //Agregar Horario
 
-        if(!dom[0].isEmpty() && !dom[1].isEmpty()){
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_DOMINGO).child(TAG_HORA_INICIAL).setValue(dom[0]);
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_DOMINGO).child(TAG_HORA_FINAL).setValue(dom[1]);
+        if(dom!=null){
+            if(dom[0]!=null && dom[1]!=null){
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_DOMINGO).child(TAG_HORA_INICIAL).setValue(dom[0]);
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_DOMINGO).child(TAG_HORA_FINAL).setValue(dom[1]);
+            }
         }
-        if(!lun[0].isEmpty() && !lun[1].isEmpty()){
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_LUNES).child(TAG_HORA_INICIAL).setValue(lun[0]);
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_LUNES).child(TAG_HORA_FINAL).setValue(lun[1]);
+        if(lun!=null) {
+            if (lun[0] != null && lun[1] != null) {
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_LUNES).child(TAG_HORA_INICIAL).setValue(lun[0]);
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_LUNES).child(TAG_HORA_FINAL).setValue(lun[1]);
+            }
         }
-        if(!mar[0].isEmpty() && !mar[1].isEmpty()){
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MARTES).child(TAG_HORA_INICIAL).setValue(mar[0]);
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MARTES).child(TAG_HORA_FINAL).setValue(mar[1]);
+        if(mar!=null) {
+            if (mar[0] != null && mar[1] != null) {
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MARTES).child(TAG_HORA_INICIAL).setValue(mar[0]);
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MARTES).child(TAG_HORA_FINAL).setValue(mar[1]);
+            }
         }
-        if(!mie[0].isEmpty() && !mie[1].isEmpty()){
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MIERCOLES).child(TAG_HORA_INICIAL).setValue(mie[0]);
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MIERCOLES).child(TAG_HORA_FINAL).setValue(mie[1]);
+        if(mie!=null) {
+            if (mie[0] != null && mie[1] != null) {
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MIERCOLES).child(TAG_HORA_INICIAL).setValue(mie[0]);
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_MIERCOLES).child(TAG_HORA_FINAL).setValue(mie[1]);
+            }
         }
-        if(!jue[0].isEmpty() && !jue[1].isEmpty()){
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_JUEVES).child(TAG_HORA_INICIAL).setValue(jue[0]);
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_JUEVES).child(TAG_HORA_FINAL).setValue(jue[1]);
+        if(jue!=null) {
+            if (jue[0] != null && jue[1] != null) {
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_JUEVES).child(TAG_HORA_INICIAL).setValue(jue[0]);
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_JUEVES).child(TAG_HORA_FINAL).setValue(jue[1]);
+            }
         }
-        if(!vie[0].isEmpty() && !vie[1].isEmpty()){
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_VIERNES).child(TAG_HORA_INICIAL).setValue(vie[0]);
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_VIERNES).child(TAG_HORA_FINAL).setValue(vie[1]);
+        if(vie!=null) {
+            if (vie[0] != null && vie[1] != null) {
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_VIERNES).child(TAG_HORA_INICIAL).setValue(vie[0]);
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_VIERNES).child(TAG_HORA_FINAL).setValue(vie[1]);
+            }
         }
-        if(!sab[0].isEmpty() && !sab[1].isEmpty()){
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_SABADO).child(TAG_HORA_INICIAL).setValue(sab[0]);
-            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_SABADO).child(TAG_HORA_FINAL).setValue(sab[1]);
+        if(sab!=null) {
+            if (sab[0] != null && sab[1] != null) {
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_SABADO).child(TAG_HORA_INICIAL).setValue(sab[0]);
+                mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_SABADO).child(TAG_HORA_FINAL).setValue(sab[1]);
+            }
         }
-
+        
     }
 
     private void saveDataNewUser(){
