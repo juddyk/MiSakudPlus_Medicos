@@ -13,6 +13,8 @@
     <string name="estado_on">ACTIVO</string>
     <string name="estado_off">INACTIVO</string>
     <string name="estado_sos">SUSPENDIDO</string>
+    <string name="load_foto">Cargando Foto</string>
+    <string name="load_no_foto">Error Cargando Foto</string>
 
 
     <!-- STRINGS LOGUEO-->
