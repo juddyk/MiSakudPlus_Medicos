@@ -438,7 +438,7 @@ public class DialogHorario extends DialogFragment {
     }
 
     public boolean validarHorario(){
-        return ((!d[0].isEmpty() && !d[1].isEmpty())|| (!l[0].isEmpty() && !l[1].isEmpty())|| (!m[0].isEmpty() && !m[1].isEmpty())|| (!w[0].isEmpty() && !w[1].isEmpty())|| (!j[0].isEmpty() && !j[1].isEmpty())|| (!v[0].isEmpty() && !v[1].isEmpty())|| (!s[0].isEmpty() && !s[1].isEmpty()));
+        return ((d!=null) || (l!=null) || (m!=null) || (w!=null) || (j!=null)|| (v!=null)|| (s!=null));
 
     }
 

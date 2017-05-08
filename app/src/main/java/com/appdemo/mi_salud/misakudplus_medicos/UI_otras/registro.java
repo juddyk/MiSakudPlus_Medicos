@@ -1655,26 +1655,61 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 vie=v;
                 sab=s;
                 String hD="",hL="",hM="",hW="",hJ="",hV="",hS="";
-                if(!d[0].isEmpty() && !d[1].isEmpty()){
-                    hD=TAG_DOMINGO+": "+d[0]+"-"+d[1]+"\n";
+                if(d!=null){
+                    if(d[0]!=null && d[1]!=null){
+                        hD=TAG_DOMINGO+": "+d[0]+"-"+d[1]+"\n";
+                    }else{
+                        hD="";
+                        dom=new String[2];
+                    }
                 }
-                if(!l[0].isEmpty() && !l[1].isEmpty()){
-                    hL=TAG_LUNES+": "+l[0]+"-"+l[1]+"\n";
+                if(l!=null){
+                    if(l[0]!=null && l[1]!=null){
+                        hL=TAG_LUNES+": "+l[0]+"-"+l[1]+"\n";
+                    }else{
+                        hL="";
+                        lun=new String[2];
+                    }
                 }
-                if(!m[0].isEmpty() && !m[1].isEmpty()){
-                    hM=TAG_MARTES+": "+l[0]+"-"+l[1]+"\n";
+                if(m!=null){
+                    if(m[0]!=null && m[1]!=null){
+                        hM=TAG_MARTES+": "+m[0]+"-"+m[1]+"\n";
+                    }else{
+                        hM="";
+                        mar=new String[2];
+                    }
                 }
-                if(!w[0].isEmpty() && !w[1].isEmpty()){
-                    hW=TAG_MIERCOLES+": "+l[0]+"-"+l[1]+"\n";
+                if(w!=null){
+                    if(w[0]!=null && w[1]!=null){
+                        hW=TAG_MIERCOLES+": "+w[0]+"-"+w[1]+"\n";
+                    }else{
+                        hW="";
+                        mie=new String[2];
+                    }
                 }
-                if(!j[0].isEmpty() && !j[1].isEmpty()){
-                    hJ=TAG_JUEVES+": "+l[0]+"-"+l[1]+"\n";
+                if(j!=null){
+                    if(j[0]!=null && j[1]!=null){
+                        hJ=TAG_JUEVES+": "+j[0]+"-"+j[1]+"\n";
+                    }else{
+                        hJ="";
+                        jue=new String[2];
+                    }
                 }
-                if(!v[0].isEmpty() && !v[1].isEmpty()){
-                    hV=TAG_VIERNES+": "+l[0]+"-"+l[1]+"\n";
+                if(v!=null){
+                    if(v[0]!=null && v[1]!=null){
+                        hV=TAG_VIERNES+": "+v[0]+"-"+v[1]+"\n";
+                    }else{
+                        hV="";
+                        vie=new String[2];
+                    }
                 }
-                if(!s[0].isEmpty() && !s[1].isEmpty()){
-                    hS=TAG_SABADO+": "+l[0]+"-"+l[1];
+                if(s!=null){
+                    if(s[0]!=null && s[1]!=null){
+                        hS=TAG_SABADO+": "+s[0]+"-"+s[1];
+                    }else{
+                        hS="";
+                        sab=new String[2];
+                    }
                 }
                 tv9_editHorario.setText(hD+hL+hM+hW+hJ+hV+hS);
             }
