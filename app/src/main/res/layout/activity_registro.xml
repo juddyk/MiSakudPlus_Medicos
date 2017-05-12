@@ -72,7 +72,9 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg1"
+                    android:contentDescription="@string/app_registro"
                     />
+
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/llReg1"
@@ -85,42 +87,36 @@
                 >
 
                 <!--1 BANCO DEL NOMBRE-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/reg1_tvName"
+                        style="@style/txtBox3"
+                        android:layout_width="0sp"
+                        android:layout_height="30sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginStart="10sp"
+                        android:layout_weight="2"
+                        android:background="@drawable/round_txt"
+                        android:gravity="center"
+                        android:onClick="onClicDialogName"
+                        android:hint="@string/reg_nombre" />
 
-                        <TextView
-                            android:id="@+id/reg1_tvName"
-                            style="@style/txtBox3"
-                            android:layout_width="0sp"
-                            android:layout_height="30sp"
-                            android:layout_marginEnd="5sp"
-                            android:layout_marginStart="10sp"
-                            android:layout_weight="2"
-                            android:background="@drawable/round_txt"
-                            android:gravity="center"
-                            android:onClick="onClicDialogName"
-                            android:hint="@string/reg_nombre" />
-
-                        <ImageButton
-                            android:id="@+id/reg1_btnName"
-                            android:layout_width="35sp"
-                            android:layout_height="35sp"
-                            android:layout_marginEnd="15sp"
-                            android:background="@drawable/img_btn"
-                            android:contentDescription="@string/app_registro"
-                            android:padding="5sp"
-                            android:scaleType="fitCenter"
-                            android:onClick="onClicDialogName"
-                            android:src="@drawable/editar" />
-                    </LinearLayout>
-
+                    <ImageButton
+                        android:id="@+id/reg1_btnName"
+                        android:layout_width="35sp"
+                        android:layout_height="35sp"
+                        android:layout_marginEnd="15sp"
+                        android:background="@drawable/img_btn"
+                        android:contentDescription="@string/app_registro"
+                        android:padding="5sp"
+                        android:scaleType="fitCenter"
+                        android:onClick="onClicDialogName"
+                        android:src="@drawable/editar" />
                 </LinearLayout>
 
                 <!--2 BANCO DE FECHA NACIMIENTO-->
@@ -289,6 +285,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg2"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -340,52 +337,45 @@
                             />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="10sp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10sp"
+                        >
+                        <TextView
+                            android:id="@+id/reg2_tvDireccion"
+                            android:layout_width="0sp"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:id="@+id/reg2_tvDireccion"
-                                android:layout_width="0sp"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/round_txt"
-                                android:layout_marginStart="10sp"
-                                android:layout_marginEnd="5sp"
-                                style="@style/txtBox3"
-                                android:inputType="textMultiLine"
-                                android:maxLines="5"
-                                android:layout_weight="2"
-                                android:gravity="center"
-                                android:onClick="onClicDialogDireccion"
-                                android:padding="5dp"
-                                android:scaleType="fitCenter"
-                                android:hint="@string/reg_direccion"
-                                />
+                            android:background="@drawable/round_txt"
+                            android:layout_marginStart="10sp"
+                            android:layout_marginEnd="5sp"
+                            style="@style/txtBox3"
+                            android:maxLines="5"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:onClick="onClicDialogDireccion"
+                            android:padding="5dp"
+                            android:scaleType="fitCenter"
+                            android:hint="@string/reg_direccion"
+                            />
 
-                            <ImageButton
-                                android:id="@+id/reg2_btnDireccion"
-                                android:layout_width="35sp"
-                                android:layout_height="35sp"
-                                android:src="@drawable/editar"
-                                android:scaleType="fitCenter"
-                                android:padding="5sp"
-                                android:background="@drawable/img_btn"
-                                android:onClick="onClicDialogDireccion"
-                                android:layout_marginStart="5sp"
-                                android:layout_marginEnd="15sp"
-                                android:contentDescription="@string/reg_direccion"
-                                />
+                        <ImageButton
+                            android:id="@+id/reg2_btnDireccion"
+                            android:layout_width="35sp"
+                            android:layout_height="35sp"
+                            android:src="@drawable/editar"
+                            android:scaleType="fitCenter"
+                            android:padding="5sp"
+                            android:background="@drawable/img_btn"
+                            android:onClick="onClicDialogDireccion"
+                            android:layout_marginStart="5sp"
+                            android:layout_marginEnd="15sp"
+                            android:contentDescription="@string/reg_direccion"
+                            />
 
-                        </LinearLayout>
                     </LinearLayout>
-
 
                 </LinearLayout>
 
@@ -402,7 +392,7 @@
                         style="@style/txtBoxNum"
                         android:hint="@string/reg_celular"
                         android:layout_width="match_parent"
-                        android:layout_height="30sp"
+                        android:layout_height="0dp"
                         android:layout_marginLeft="10sp"
                         android:layout_marginRight="10sp"
                         android:layout_weight="1"
@@ -510,6 +500,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg3"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -579,6 +570,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg4"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -613,7 +605,7 @@
                     <TextView
                         android:id="@+id/reg4_tvTarjetaProf"
                         style="@style/txtBox3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="30sp"
                         android:layout_weight="2"
                         android:background="@drawable/round_txt"
@@ -666,6 +658,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg5"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -813,6 +806,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg6"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -884,7 +878,7 @@
                     <TextView
                         android:id="@+id/reg6_tvActaPosgrado"
                         style="@style/txtBox3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="30sp"
                         android:layout_weight="2"
                         android:background="@drawable/round_txt"
@@ -937,6 +931,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg7"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -958,7 +953,7 @@
                     <TextView
                         android:id="@+id/reg7_tvCertificado"
                         style="@style/txtBox3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="30sp"
                         android:layout_weight="2"
                         android:background="@drawable/round_txt"
@@ -1107,6 +1102,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg8"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -1248,6 +1244,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg9"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -1284,10 +1281,10 @@
                         android:gravity="center"
                         android:onClick="onClicDialogDireccionPAC"
                         android:hint="@string/reg_sede"
-                        android:inputType="textMultiLine"
                         android:maxLines="5"
                         android:padding="5dp"
-                        android:scaleType="fitCenter" />
+                        android:scaleType="fitCenter"
+                        />
 
                     <ImageButton
                         android:id="@+id/reg9_ibDireccionPAC"
@@ -1322,8 +1319,7 @@
                         android:gravity="center"
                         android:hint="@string/reg_horarioConsulta"
                         android:padding="5dp"
-                        android:scaleType="fitCenter"
-                        android:inputType="textMultiLine"/>
+                        android:scaleType="fitCenter"/>
 
                     <ImageButton
                         android:id="@+id/reg9_ibHourPAC"
@@ -1374,6 +1370,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10sp"
                     android:text="@string/reg_modalidad" />
+
                 <TextView
                     style="@style/txtSub0"
                     android:layout_width="match_parent"
@@ -1422,6 +1419,7 @@
                     android:scaleType="fitCenter"
                     android:padding="3sp"
                     android:onClick="desplegarReg10"
+                    android:contentDescription="@string/app_registro"
                     />
             </LinearLayout>
             <LinearLayout
@@ -1483,8 +1481,6 @@
                 />
 
         </LinearLayout>
-
-
 
     </ScrollView>
 

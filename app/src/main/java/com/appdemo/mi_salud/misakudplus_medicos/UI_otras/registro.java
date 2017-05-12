@@ -174,7 +174,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 if(position!=0){
                     String[] lista=getResources().getStringArray(R.array.tipdoc);
                     dM.setTpDoc(lista[position]);
-                    setPogreso(2);
+                    setPogreso(1);
                     barraAvance.setProgress(getPogreso());
                 }
             }
@@ -203,7 +203,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 if(position!=0){
                     String[] lista=getResources().getStringArray(R.array.departamentos);
                     dM.setDepartamento(lista[position]);
-                    setPogreso(2);
+                    setPogreso(1);
                     barraAvance.setProgress(getPogreso());
                 }
                 switch (position) {
@@ -508,7 +508,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0){
-                    setPogreso(2);
+                    setPogreso(1);
                     barraAvance.setProgress(getPogreso());
                     dM.setMunicipio(lstMunc[position]);
                 }
@@ -1427,6 +1427,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         if(!dM.getNombre1().isEmpty() && !dM.getApellido1().isEmpty() && !dM.getTpDoc().isEmpty() && !dM.getNumDoc().isEmpty() && !dM.getGenero().isEmpty()){
             if(dM.getFnAnio()!=0 && dM.getFeAnio()!=0 && dM.getFnMes()!=0 && dM.getFeMes()!=0 && dM.getFnDia()!=0 && dM.getFeDia()!=0){
                 ok1=true;
+                setPogreso(3);
+                barraAvance.setProgress(getPogreso());
                 tv_i.setText(getResources().getString(R.string.reg_1_ok));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     iv_i.setImageDrawable(getDrawable(R.drawable.check));
@@ -1444,6 +1446,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     public void checkReg2(){
         if(!dM.getDireccion().isEmpty() && !dM.getDepartamento().isEmpty() && !dM.getMunicipio().isEmpty() && !dM.getCelular().isEmpty() && !dM.getFijo1().isEmpty() && !dM.getCorreo1().isEmpty()){
             ok2=true;
+            setPogreso(5);
+            barraAvance.setProgress(getPogreso());
             tv_ii.setText(getResources().getString(R.string.reg_2_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_ii.setImageDrawable(getDrawable(R.drawable.check));
@@ -1460,6 +1464,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     public void checkReg3(){
         if(!dM.getSlogan().isEmpty() && !dM.getFoto().isEmpty()){
             ok3=true;
+            setPogreso(5);
+            barraAvance.setProgress(getPogreso());
             tv_iii.setText(getResources().getString(R.string.reg_3_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_iii.setImageDrawable(getDrawable(R.drawable.check));
@@ -1492,6 +1498,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     public void checkReg5(){
         if(!dM.getPregrado().isEmpty() && !dM.getPre_diploma().isEmpty() && !dM.getPre_acta().isEmpty() && !dM.getResolucion().isEmpty()){
             ok5=true;
+            setPogreso(4);
+            barraAvance.setProgress(getPogreso());
             tv_v.setText(getResources().getString(R.string.reg_5_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_v.setImageDrawable(getDrawable(R.drawable.check));
@@ -1508,6 +1516,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     public void checkReg6(){
         if(!dM.getTtl_posgrado().isEmpty() && !dM.getPos_diploma().isEmpty() && !dM.getPos_acta().isEmpty()){
             ok6=true;
+            setPogreso(4);
+            barraAvance.setProgress(getPogreso());
             tv_vi.setText(getResources().getString(R.string.reg_6_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_vi.setImageDrawable(getDrawable(R.drawable.check));
@@ -1525,6 +1535,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         if(!dM.getCertificado_exp().isEmpty() && !dM.getInstitucion_exp().isEmpty() && !dM.getCargo_exp().isEmpty()){
             if(dM.getFiAnio_exp()!=0 && dM.getFfAnio_exp()!=0 && dM.getFiMes_exp()!=0 && dM.getFfMes_exp()!=0 && dM.getFiDia_exp()!=0 && dM.getFfDia_exp()!=0) {
                 ok7 = true;
+                setPogreso(4);
+                barraAvance.setProgress(getPogreso());
                 tv_vii.setText(getResources().getString(R.string.reg_7_ok));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     iv_vii.setImageDrawable(getDrawable(R.drawable.check));
@@ -1543,6 +1555,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         if(!dM.getCurso().isEmpty() && !dM.getInstitucion_curso().isEmpty()){
             if(dM.getFiAnio_curso()!=0 && dM.getFfAnio_curso()!=0 && dM.getFiMes_curso()!=0 && dM.getFfMes_curso()!=0 && dM.getFiDia_curso()!=0 && dM.getFfDia_curso()!=0) {
                 ok8 = true;
+                setPogreso(6);
+                barraAvance.setProgress(getPogreso());
                 tv_viii.setText(getResources().getString(R.string.reg_8_ok));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     iv_viii.setImageDrawable(getDrawable(R.drawable.check));
@@ -1581,6 +1595,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
         if(!dM.getDireccion_sede().isEmpty() && flagH && flag_consulta && flag_modalidad){
             ok9=true;
+            setPogreso(6);
+            barraAvance.setProgress(getPogreso());
             tv_ix.setText(getResources().getString(R.string.reg_9_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_ix.setImageDrawable(getDrawable(R.drawable.check));
@@ -1608,6 +1624,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
         if(flag_medios){
             ok10=true;
+            setPogreso(10);
+            barraAvance.setProgress(getPogreso());
             tv_x.setText(getResources().getString(R.string.reg_10_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 iv_x.setImageDrawable(getDrawable(R.drawable.check));
@@ -1747,14 +1765,14 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 dM.setFnDia(d);
                 dM.setFnMes(m);
                 dM.setFnAnio(y);
-                setPogreso(2);
+                setPogreso(1);
                 barraAvance.setProgress(getPogreso());
                 tv1_editFechaNacim.setText(data);
             }else if(code==11){//Fecha de Expedicion
                 dM.setFeDia(d);
                 dM.setFeMes(m);
                 dM.setFeAnio(y);
-                setPogreso(2);
+                setPogreso(1);
                 barraAvance.setProgress(getPogreso());
                 tv1_editFechaExp.setText(data);
             }else if(code==70){//Fecha de Inicio
@@ -2001,7 +2019,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_HORARIO).child(TAG_SABADO).child(TAG_HORA_FINAL).setValue(sab[1]);
             }
         }
-        
+
     }
 
     private void saveDataNewUser(){

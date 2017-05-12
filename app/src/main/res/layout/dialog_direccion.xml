@@ -49,7 +49,7 @@
                 style="@style/txtSub3"
                 android:digits="@string/digitos0"
                 android:inputType="number"
-                android:maxLength="2"
+                android:maxLength="3"
                 />
 
             <Spinner
@@ -135,7 +135,7 @@
             android:layout_width="50sp"
             android:layout_height="30sp"
             style="@style/txtSub3"
-            android:maxLength="2"
+            android:maxLength="3"
             android:digits="@string/digitos0"
             android:inputType="number"
             />

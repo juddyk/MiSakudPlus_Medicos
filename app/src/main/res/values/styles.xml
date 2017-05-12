@@ -79,6 +79,12 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="txtPoint">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
     <style name="txtSub">
         <item name="android:textColor">@color/winter3</item>
         <item name="android:textStyle">bold</item>

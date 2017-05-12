@@ -25,6 +25,14 @@ public class datosMedico {
     private String correo1;
     private String correo2;
     private String psswrd;
+    private String estado;
+    /*
+    * -1:inactivo
+    * 0:pendiente
+    * 1:activo
+    * 2:suspendido
+    * */
+    private String puntaje;
 
     private String foto;
     private String slogan;
@@ -87,6 +95,8 @@ public class datosMedico {
         this.correo1 ="";
         this.correo2 ="";
         this.psswrd ="";
+        this.estado="0";
+        this.puntaje="0.1";
         this.foto ="";
         this.slogan ="";
         this.profesion ="";

@@ -47,12 +47,11 @@
             android:text="@string/estado" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/estadoDoctor"
             style="@style/txtBox3"
             android:layout_width="100sp"
             android:layout_height="30sp"
             android:background="@drawable/round_txt"
-            android:text="@string/estado_on"
             android:padding="5dp"
             android:scaleType="fitCenter" />
     </LinearLayout>
@@ -73,14 +72,32 @@
         android:layout_height="30sp"
         />
 
-    <ImageView
-        android:layout_width="120sp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/star_5"
-        android:id="@+id/puntajeDoctor"
-        android:contentDescription="@string/app_name"
+        android:orientation="horizontal"
         android:layout_gravity="center"
-        />
+        android:gravity="center"
+        android:layout_marginStart="15sp"
+        >
+
+        <ImageView
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star_5"
+            android:id="@+id/puntajeDoctor"
+            android:contentDescription="@string/app_name"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/pointDoctor"
+            style="@style/txtPoint"
+            android:gravity="center|bottom"
+            android:layout_width="20sp"
+            android:layout_height="30sp"
+            />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,7 +107,7 @@
         android:layout_marginBottom="5sp"
         android:orientation="horizontal">
 
-        <EditText
+        <TextView
             android:id="@+id/sloganDoctor"
             style="@style/txtBox3"
             android:layout_width="200sp"
@@ -99,6 +116,18 @@
             android:background="@drawable/round_txt"
             android:gravity="center"
             android:hint="@string/main_slogan" />
+
+        <ImageButton
+            android:id="@+id/guardarSlogan"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:layout_marginEnd="15sp"
+            android:background="@drawable/img_btn"
+            android:contentDescription="@string/app_registro"
+            android:padding="5sp"
+            android:scaleType="fitCenter"
+            android:onClick="onClicSaveSlogan"
+            android:src="@drawable/editar" />
 
     </LinearLayout>
 
@@ -117,7 +146,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¡¡Avisos!!"
+        android:text="@string/avisos"
         android:gravity="center"
         style="@style/txtSub"
         android:layout_marginTop="15sp"/>

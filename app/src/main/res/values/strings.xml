@@ -11,10 +11,15 @@
     <string name="opcion_nok">Cancel</string>
     <string name="estado">Estado: </string>
     <string name="estado_on">ACTIVO</string>
+    <string name="estado_pend">PENDIENTE</string>
     <string name="estado_off">INACTIVO</string>
     <string name="estado_sos">SUSPENDIDO</string>
     <string name="load_foto">Cargando Foto</string>
     <string name="load_no_foto">Error Cargando Foto</string>
+    <string name="avisos">¡Avisos!</string>
+
+    <string name="temporal0">Opción para modificar datos del Medico</string>
+
 
 
     <!-- STRINGS LOGUEO-->
@@ -204,6 +209,7 @@
     <string name="horaInicial">Hora de Inicio</string>
     <string name="horaFinal">Hora de Finalización</string>
     <string name="horario">desde hh:mm hasta las hh:mm</string>
+    <string name="horario_msg">Seleccione el día o los días para establecer el horario en el que estará disponible</string>
     <string-array name="horas">
         <item>--</item>
         <item>00:00</item>
