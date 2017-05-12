@@ -200,7 +200,7 @@
                             android:drawSelectorOnTop="true"
                             android:entries="@array/tipdoc" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/reg1_etDocumento"
                             style="@style/txtBoxNum"
                             android:layout_width="match_parent"
@@ -211,6 +211,7 @@
                             android:hint="@string/reg_numdocumneto"
                             android:labelFor="@+id/regDoc"
                             />
+
                     </LinearLayout>
 
                     <TextView

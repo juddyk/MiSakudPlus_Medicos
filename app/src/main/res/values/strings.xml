@@ -66,6 +66,7 @@
     <string name="reg_calendario">DD / MM / AAAA</string>
     <string name="reg_genero">Genero*</string>
     <string name="reg_documento">Documento*</string>
+    <string name="reg_documento_msg">El número de documento ya se encuetra registrado</string>
     <string name="reg_tipdocumento">Tipo</string>
     <string name="reg_numdocumneto">Numero</string>
     <string name="reg_expdocumento">Fecha de Expedicion</string>

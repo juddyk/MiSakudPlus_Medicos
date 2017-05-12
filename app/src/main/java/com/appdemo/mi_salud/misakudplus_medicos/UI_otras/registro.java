@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +31,15 @@ import com.appdemo.mi_salud.misakudplus_medicos.Datos.datosMedico;
 import com.appdemo.mi_salud.misakudplus_medicos.R;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogCalendar;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogDireccion;
+import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogDocumento;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogHorario;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogName;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
@@ -65,7 +70,7 @@ import java.util.Random;
 *
 * */
 
-public class registro extends AppCompatActivity implements DialogName.NameListener,DialogHorario.HourListener,DialogDireccion.DirListener,DialogCalendar.DialogListener{
+public class registro extends AppCompatActivity implements DialogName.NameListener,DialogHorario.HourListener,DialogDireccion.DirListener,DialogCalendar.DialogListener,DialogDocumento.DocumentoListener{
     //Etiquetas
     private static final int CODE_FOTO=301;
     private static final int CODE_TARJETA_PROF=401;
@@ -84,8 +89,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     ListView gv9_1,gv9_2,gv10;
     ProgressBar barraAvance=null;
     //Objetos para el control de los ingresos de los datos
-    TextView  tv1_editnombre,tv1_editFechaNacim,tv1_editFechaExp,tv2_editDirecc,tv4_loadTarjProf,tv5_loadDiploma,tv5_loadActa,tv5_loadResolucion,tv6_loadDiploma,tv6_loadActa,tv7_loadCertificado,tv7_editFechaI,tv7_editFechaF,tv8_editFechaI,tv8_editFechaF,tv9_editDirecc,tv9_editHorario;
-    EditText et1_documento,et2_celular,et2_fijo1,et2_fijo2,et2_correo1,et2_correo2,et3_slogan,et4_registroMed,et5_titulo,et6_titulo,et7_institucion,et7_cargo,et8_curso,et8_institucion;
+    TextView  tv1_editnombre,tv1_editFechaNacim,tv1_documento,tv1_editFechaExp,tv2_editDirecc,tv4_loadTarjProf,tv5_loadDiploma,tv5_loadActa,tv5_loadResolucion,tv6_loadDiploma,tv6_loadActa,tv7_loadCertificado,tv7_editFechaI,tv7_editFechaF,tv8_editFechaI,tv8_editFechaF,tv9_editDirecc,tv9_editHorario;
+    EditText et2_celular,et2_fijo1,et2_fijo2,et2_correo1,et2_correo2,et3_slogan,et4_registroMed,et5_titulo,et6_titulo,et7_institucion,et7_cargo,et8_curso,et8_institucion;
     Spinner spn1_genero, spn1_tipoDoc,spn2_departamento,spn2_municipio;
     ImageButton ib1_editName,ib1_editFechaNacim,ib1_editFechaExp,ib2_editDirecc,ib7_editFechaI,ib7_editFechaF,ib8_editFechaI,ib8_editFechaF,ib9_editDirecc,ib9_editHorario;
     ImageButton ib3_loadFoto,ib4_loadTarjProf,ib5_loadDiploma,ib5_loadActa,ib5_loadResolucion,ib6_loadDiploma,ib6_loadActa,ib7_loadCertificado;
@@ -100,6 +105,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     public int pogreso=0;
     boolean ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false,ok10=false,flagH=false;
     Uri uri_foto,uri_tarjeta,uri_prediploma,uri_preacta,uri_posdiploma,uri_posacta,uri_resolucion,uri_certificado;
+    boolean docExist=false;
 
     //FIREBASE STORAGE
     private StorageReference storageRef;
@@ -107,6 +113,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     datosMedico dM;
     //FIREBASE DATABASE
     private FirebaseDatabase fbDB;
+    private static final String TAG = "registro";
     private static final String TAG_medicos = "Medicos";
     private static final String TAG_consultas = "TiposConsultas";
     private static final String TAG_modalidad = "ModalidadAtencion";
@@ -121,6 +128,9 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     private static final String TAG_JUEVES = "J";
     private static final String TAG_VIERNES = "V";
     private static final String TAG_SABADO = "S";
+    private static final String TAG_estado = "estado";
+    private static final String TAG_puntaje = "puntaje";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,17 +192,12 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
-        et1_documento.addTextChangedListener(new TextWatcher() {
+        tv1_documento.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                dM.setNumDoc(et1_documento.getText().toString());
+            public void onClick(View v) {
+                showDialogDocumento();
             }
         });
-
         //Acciones objetos Registro II
 
         //Establecer la lista de los municipios de acuerdo al departamento
@@ -911,7 +916,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         tv1_editnombre=(TextView) findViewById(R.id.reg1_tvName);
         tv1_editFechaNacim=(TextView) findViewById(R.id.reg1_tvFecha);
         tv1_editFechaExp=(TextView) findViewById(R.id.reg1_tvFechExp);
-        et1_documento=(EditText) findViewById(R.id.reg1_etDocumento);
+        tv1_documento=(TextView) findViewById(R.id.reg1_etDocumento);
         spn1_tipoDoc=(Spinner) findViewById(R.id.reg1_spnTipoDoc);
         spn1_genero=(Spinner) findViewById(R.id.reg1_spnGenero);
         ib1_editName=(ImageButton) findViewById(R.id.reg1_btnName);
@@ -1424,6 +1429,14 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
 
     public void checkReg1(){
+        if(!docExist){
+            dM.setNumDoc(tv1_documento.getText().toString());
+        }else{
+            dM.setNumDoc("");
+            tv1_documento.setText("");
+            Toast.makeText(getApplicationContext(),getResources().getString(R.string.reg_documento_msg),Toast.LENGTH_SHORT).show();
+        }
+
         if(!dM.getNombre1().isEmpty() && !dM.getApellido1().isEmpty() && !dM.getTpDoc().isEmpty() && !dM.getNumDoc().isEmpty() && !dM.getGenero().isEmpty()){
             if(dM.getFnAnio()!=0 && dM.getFeAnio()!=0 && dM.getFnMes()!=0 && dM.getFeMes()!=0 && dM.getFnDia()!=0 && dM.getFeDia()!=0){
                 ok1=true;
@@ -1660,6 +1673,20 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
 
     @Override
+    public void onDocumentoPositive(DialogFragment dialog,String slgn){
+        if(!slgn.isEmpty()){
+            validarDoc(slgn);
+            tv1_documento.setText(slgn);
+        }
+        dialog.dismiss();
+    }
+
+    @Override
+    public void onDocumentoNegative(DialogFragment dialog){
+        dialog.dismiss();
+    }
+
+    @Override
     public void onHourPositive(DialogFragment dialog, int code, String[] d,String[] l,String[] m,String[] w,String[] j,String[] v,String[] s) {
             if(code==90){
                 setPogreso(2);
@@ -1878,6 +1905,15 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         dialog.setArguments(bundle);
         dialog.show(getSupportFragmentManager(), getResources().getString(R.string.reg_nombre));
     }
+
+    public void showDialogDocumento() {
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new DialogDocumento();
+        Bundle bundle = new Bundle();
+        bundle.putString("actual",tv1_documento.getText().toString());
+        dialog.setArguments(bundle);
+        dialog.show(getSupportFragmentManager(), getResources().getString(R.string.reg_documento));
+    }
     public void showDialogHorario() {
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new DialogHorario();
@@ -1963,6 +1999,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         DatabaseReference mDB;
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
         mDB.child(TAG_medicos).child(dM.getNumDoc()).setValue(dM);
+        mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_estado).setValue(String.valueOf(-1));
+        mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_puntaje).setValue(String.valueOf(1));
         //Agregar Tipos de Consulta
         for(int i=0;i<lstConsultas.size();i++){
             mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_consultas).child(String.valueOf(i)).setValue(lstConsultas.get(i));
@@ -2066,6 +2104,26 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }else{
             Toast.makeText(getApplicationContext(),"¡Faltan datos!",Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    //Método para validar existencia de la cedula
+    private  void validarDoc(String documento){
+        DatabaseReference mDB;
+        mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(documento);
+        mDB.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if(snapshot.getValue()!=null){
+                    docExist=true;
+                }else{
+                    docExist=false;
+                }
+            }
+            @Override public void onCancelled(DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            }
+        });
     }
 
 

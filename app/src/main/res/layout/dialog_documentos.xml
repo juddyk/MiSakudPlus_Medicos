@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:layout_marginTop="5sp"
+        android:id="@+id/idDocumento"
+        style="@style/txtBoxNum"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="@drawable/round_txt"
+        android:hint="@string/reg_numdocumneto"
+        android:labelFor="@+id/regDoc"
+        />
+
+</LinearLayout>
