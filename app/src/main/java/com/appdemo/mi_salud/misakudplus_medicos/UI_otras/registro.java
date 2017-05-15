@@ -152,7 +152,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         Calendar calendar = Calendar.getInstance();
         anio = calendar.get(Calendar.YEAR);
         //Se inicializa Paciente
-        dM.setFnAnio(anio + 1);
+        dM.setFnAnio(String.valueOf(anio+1));
 
         //Se instancian objetos de Visualizacion
         instanciasObjetosVisualizacion();
@@ -867,7 +867,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
@@ -910,7 +909,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         gv9_1 = (ListView) findViewById(R.id.gridConsultas);
         gv9_2 = (ListView) findViewById(R.id.gridAtencion);
     }
-
     public void instanciasObjetosRegistro(){
         //Objetos registro 1
         tv1_editnombre=(TextView) findViewById(R.id.reg1_tvName);
@@ -994,7 +992,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         gv10.setAdapter(mediosAdapter);
 
     }
-
     public void createLista_ModalidadAtencion(){
         String[] modalidadArray = getResources().getStringArray(R.array.modalidad_atencion);
         modalidad=new ArrayList<>(modalidadArray.length);
@@ -1010,7 +1007,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         modalidadAdapter=new checkboxAdapter(this, modalidad);
         gv9_2.setAdapter(modalidadAdapter);
     }
-
     public void createLista_TipoConsultas(){
         String[] consultaArray = getResources().getStringArray(R.array.tipo_consultas);
         consultas=new ArrayList<>(consultaArray.length);
@@ -1049,7 +1045,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg1(boolean in){
         if(in){//Oculta la vista
             ll_i.setVisibility(View.GONE);
@@ -1089,7 +1084,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg2(boolean in){
         if(in){//Oculta la vista
             ll_ii.setVisibility(View.GONE);
@@ -1129,7 +1123,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg3(boolean in){
         if(in){//Oculta la vista
             ll_iii.setVisibility(View.GONE);
@@ -1169,7 +1162,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg4(boolean in){
         if(in){//Oculta la vista
             ll_iv.setVisibility(View.GONE);
@@ -1209,7 +1201,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg5(boolean in){
         if(in){//Oculta la vista
             ll_v.setVisibility(View.GONE);
@@ -1249,7 +1240,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg6(boolean in){
         if(in){//Oculta la vista
             ll_vi.setVisibility(View.GONE);
@@ -1289,7 +1279,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg7(boolean in){
         if(in){//Oculta la vista
             ll_vii.setVisibility(View.GONE);
@@ -1329,7 +1318,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg10();
     }
-
     public void estadoReg8(boolean in){
         if(in){//Oculta la vista
             ll_viii.setVisibility(View.GONE);
@@ -1369,7 +1357,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg1();
         checkReg10();
     }
-
     public void estadoReg9(boolean in){
         if(in){//Oculta la vista
             ll_ix.setVisibility(View.GONE);
@@ -1409,7 +1396,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         checkReg9();
         checkReg1();
     }
-
     public void estadoReg10(boolean in){
         if(in){//Oculta la vista
             ll_x.setVisibility(View.GONE);
@@ -1438,7 +1424,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
 
         if(!dM.getNombre1().isEmpty() && !dM.getApellido1().isEmpty() && !dM.getTpDoc().isEmpty() && !dM.getNumDoc().isEmpty() && !dM.getGenero().isEmpty()){
-            if(dM.getFnAnio()!=0 && dM.getFeAnio()!=0 && dM.getFnMes()!=0 && dM.getFeMes()!=0 && dM.getFnDia()!=0 && dM.getFeDia()!=0){
+            if(dM.getFnAnio().isEmpty() && dM.getFeAnio().isEmpty() && dM.getFnMes().isEmpty() && dM.getFeMes().isEmpty() && dM.getFnDia().isEmpty() && dM.getFeDia().isEmpty()){
                 ok1=true;
                 setPogreso(3);
                 barraAvance.setProgress(getPogreso());
@@ -1455,7 +1441,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg2(){
         if(!dM.getDireccion().isEmpty() && !dM.getDepartamento().isEmpty() && !dM.getMunicipio().isEmpty() && !dM.getCelular().isEmpty() && !dM.getFijo1().isEmpty() && !dM.getCorreo1().isEmpty()){
             ok2=true;
@@ -1473,7 +1458,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg3(){
         if(!dM.getSlogan().isEmpty() && !dM.getFoto().isEmpty()){
             ok3=true;
@@ -1491,7 +1475,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg4(){
         if(!dM.getRegistro_medico().isEmpty() && !dM.getTarjeta_prof().isEmpty()){
             ok4=true;
@@ -1507,7 +1490,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg5(){
         if(!dM.getPregrado().isEmpty() && !dM.getPre_diploma().isEmpty() && !dM.getPre_acta().isEmpty() && !dM.getResolucion().isEmpty()){
             ok5=true;
@@ -1525,7 +1507,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg6(){
         if(!dM.getTtl_posgrado().isEmpty() && !dM.getPos_diploma().isEmpty() && !dM.getPos_acta().isEmpty()){
             ok6=true;
@@ -1543,10 +1524,9 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg7(){
         if(!dM.getCertificado_exp().isEmpty() && !dM.getInstitucion_exp().isEmpty() && !dM.getCargo_exp().isEmpty()){
-            if(dM.getFiAnio_exp()!=0 && dM.getFfAnio_exp()!=0 && dM.getFiMes_exp()!=0 && dM.getFfMes_exp()!=0 && dM.getFiDia_exp()!=0 && dM.getFfDia_exp()!=0) {
+            if(dM.getFiAnio_exp().isEmpty() && dM.getFfAnio_exp().isEmpty() && dM.getFiMes_exp().isEmpty() && dM.getFfMes_exp().isEmpty() && dM.getFiDia_exp().isEmpty() && dM.getFfDia_exp().isEmpty()) {
                 ok7 = true;
                 setPogreso(4);
                 barraAvance.setProgress(getPogreso());
@@ -1563,10 +1543,9 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg8(){
         if(!dM.getCurso().isEmpty() && !dM.getInstitucion_curso().isEmpty()){
-            if(dM.getFiAnio_curso()!=0 && dM.getFfAnio_curso()!=0 && dM.getFiMes_curso()!=0 && dM.getFfMes_curso()!=0 && dM.getFiDia_curso()!=0 && dM.getFfDia_curso()!=0) {
+            if(dM.getFiAnio_curso().isEmpty() && dM.getFfAnio_curso().isEmpty() && dM.getFiMes_curso().isEmpty() && dM.getFfMes_curso().isEmpty() && dM.getFiDia_curso().isEmpty() && dM.getFfDia_curso().isEmpty()) {
                 ok8 = true;
                 setPogreso(6);
                 barraAvance.setProgress(getPogreso());
@@ -1583,7 +1562,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg9(){
         lstModalidad=new ArrayList<>();
         lstConsultas=new ArrayList<>();
@@ -1622,7 +1600,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
     }
-
     public void checkReg10(){
         lstMedios=new ArrayList<>();
         ArrayList<checkboxDinamico> list = mediosAdapter.getCbList();
@@ -1788,52 +1765,52 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             data = data + String.valueOf(y) + " ";
         }
         if(d!=0 && m!=0 && y!=0){
+            String auxD=String.valueOf(d);
+            String auxM=String.valueOf(m);
+            String auxY=String.valueOf(y);
             if(code==10){//Fecha de Nacimiento
-                dM.setFnDia(d);
-                dM.setFnMes(m);
-                dM.setFnAnio(y);
+                dM.setFnDia(auxD);
+                dM.setFnMes(auxM);
+                dM.setFnAnio(auxY);
                 setPogreso(1);
                 barraAvance.setProgress(getPogreso());
                 tv1_editFechaNacim.setText(data);
             }else if(code==11){//Fecha de Expedicion
-                dM.setFeDia(d);
-                dM.setFeMes(m);
-                dM.setFeAnio(y);
+                dM.setFeDia(auxD);
+                dM.setFeMes(auxM);
+                dM.setFeAnio(auxY);
                 setPogreso(1);
                 barraAvance.setProgress(getPogreso());
                 tv1_editFechaExp.setText(data);
             }else if(code==70){//Fecha de Inicio
-                dM.setFiDia_exp(d);
-                dM.setFiMes_exp(m);
-                dM.setFiAnio_exp(y);
+                dM.setFiDia_exp(auxD);
+                dM.setFiMes_exp(auxM);
+                dM.setFiAnio_exp(auxY);
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
                 tv7_editFechaI.setText(data);
             }else if(code==71){//Fecha de Finalizacion
-                dM.setFfDia_exp(d);
-                dM.setFfMes_exp(m);
-                dM.setFfAnio_exp(y);
+                dM.setFfDia_exp(auxD);
+                dM.setFfMes_exp(auxM);
+                dM.setFfAnio_exp(auxY);
                 setPogreso(1);
                 barraAvance.setProgress(getPogreso());
                 tv7_editFechaF.setText(data);
             }else if(code==80){//Fecha de Inicio
-                dM.setFiDia_curso(d);
-                dM.setFiMes_curso(m);
-                dM.setFiAnio_curso(y);
+                dM.setFiDia_curso(auxD);
+                dM.setFiMes_curso(auxM);
+                dM.setFiAnio_curso(auxY);
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
                 tv8_editFechaI.setText(data);
             }else if(code==81){//Fecha de Finalizacion
-                dM.setFfDia_curso(d);
-                dM.setFfMes_curso(m);
-                dM.setFfAnio_curso(y);
+                dM.setFfDia_curso(auxD);
+                dM.setFfMes_curso(auxM);
+                dM.setFfAnio_curso(auxY);
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
                 tv8_editFechaF.setText(data);
             }
-
-
-
         }
         dialog.dismiss();
     }
@@ -1905,7 +1882,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         dialog.setArguments(bundle);
         dialog.show(getSupportFragmentManager(), getResources().getString(R.string.reg_nombre));
     }
-
     public void showDialogDocumento() {
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new DialogDocumento();
@@ -1990,7 +1966,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     public int getPogreso() {
         return pogreso;
     }
-
     public void setPogreso(int pogreso) {
         this.pogreso += pogreso;
     }
@@ -2059,7 +2034,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
 
     }
-
     private void saveDataNewUser(){
         StorageReference riversRef;
         //Guarda la foto
@@ -2114,11 +2088,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         mDB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if(snapshot.getValue()!=null){
-                    docExist=true;
-                }else{
-                    docExist=false;
-                }
+                docExist = snapshot.getValue() != null;
             }
             @Override public void onCancelled(DatabaseError error) {
                 Log.w(TAG, "loadPost:onCancelled", error.toException());
