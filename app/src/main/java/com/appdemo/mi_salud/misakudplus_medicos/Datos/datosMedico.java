@@ -27,16 +27,16 @@ public class datosMedico {
     private String psswrd;
     private String estado;
     /*
-    * -1:inactivo
-    * 0:pendiente
-    * 1:activo
-    * 2:suspendido
-    * */
+        * -1:inactivo
+        * 0:pendiente
+        * 1:activo
+        * 2:suspendido
+        * */
     private String puntaje;
 
     private String foto;
     private String slogan;
-    private String profesion;
+    private String profesion;/*AGREGAR EL GET PARA QUE SE PUEDA GUARDAR EN LA BASE DE DATOS*/
 
     private String registro_medico;
     private String tarjeta_prof;
@@ -70,6 +70,7 @@ public class datosMedico {
     private String ffAnio_curso;
 
     private String direccion_sede;
+    private String nombre_sede;
 
 
     public datosMedico() {
@@ -95,8 +96,8 @@ public class datosMedico {
         this.correo1 ="";
         this.correo2 ="";
         this.psswrd ="";
-        this.estado="0";
-        this.puntaje="0.1";
+        this.estado="-1";
+        this.puntaje="0";
         this.foto ="";
         this.slogan ="";
         this.profesion ="";
@@ -127,6 +128,7 @@ public class datosMedico {
         this.ffMes_curso = "";
         this.ffAnio_curso ="";
         this.direccion_sede ="";
+        this.nombre_sede="";
     }
 
     public String getNombre1() {
@@ -521,5 +523,35 @@ public class datosMedico {
         this.direccion_sede = direccion_sede;
     }
 
+    public String getNombre2() {
+        return nombre2;
+    }
 
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public String getFijo2() {
+        return fijo2;
+    }
+
+    public String getCorreo2() {
+        return correo2;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getPuntaje() {
+        return puntaje;
+    }
+
+    public String getNombre_sede() {
+        return nombre_sede;
+    }
+
+    public void setNombre_sede(String nombre_sede) {
+        this.nombre_sede = nombre_sede;
+    }
 }

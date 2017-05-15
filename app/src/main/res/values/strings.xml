@@ -21,7 +21,6 @@
     <string name="temporal0">Opción para modificar datos del Medico</string>
 
 
-
     <!-- STRINGS LOGUEO-->
     <string name="logueo_usr">Usuario</string>
     <string name="logueo_pss">Contraseña</string>
@@ -96,6 +95,8 @@
     <string name="reg_cargo">Cargo*</string>
     <string name="reg_curso">Programa o Curso*</string>
     <string name="reg_sede">Dirección del Punto de Atención*</string>
+    <string name="reg_nombreSede">Asigne un nombre para su punto de Atención*</string>
+    <string name="reg_ejemploSede">Puede ser referente a su ubicación</string>
     <string name="reg_horarioConsulta">Horario de Consultas*</string>
     <string name="reg_tipoConsulta">Tipos de Consulta a brindar*</string>
     <string name="reg_modalidad">Modalidades de Atención*</string>
@@ -173,6 +174,7 @@
     <!-- STRINGS MENU PRINCIPAL -->
     <string name="main_slogan">SLOGAN</string>
     <string name="main_agenda">AGENDA</string>
+    <string name="main_citas">CITAS</string>
 
     <!-- NOTICIAS-->
     <string-array name="nwsLst">
@@ -205,6 +207,7 @@
     <string name="reg9_tittleDialog">Horario PAC</string>
     <string name="addDia">Agregar Dìa</string>
     <string name="addHorario">Agregar Horario</string>
+    <string name="saveHorario">Guardar</string>
     <string name="horario_nok">Debe establecer almeno el horario de un día</string>
     <string name="diaSemana">Dia de la Semana:</string>
     <string name="horaInicial">Hora de Inicio</string>
@@ -272,6 +275,14 @@
         <item>Viernes</item>
         <item>Sábado</item>
     </string-array>
+    <string name="domingo">D</string>
+    <string name="lunes">L</string>
+    <string name="martes">M</string>
+    <string name="miercoles">W</string>
+    <string name="jueves">J</string>
+    <string name="viernes">V</string>
+    <string name="sabado">S</string>
+
 
     <!-- DIALOGO CALENDARIO -->
     <string name="cal_day">Día</string>

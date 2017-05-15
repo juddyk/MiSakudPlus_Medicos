@@ -103,6 +103,17 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="txtDias">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_height">38sp</item>
+        <item name="android:layout_width">38sp</item>
+        <item name="android:background">@drawable/circle_btn</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+
+    </style>
 
     <style name="txtSub3">
         <item name="android:textColor">@color/winter3</item>
@@ -128,10 +139,14 @@
     <style name="btnBox">
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
-
+    </style>
+    <style name="btnBox1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="margin_layouts">

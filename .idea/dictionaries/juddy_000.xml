@@ -4,26 +4,49 @@
       <w>acta</w>
       <w>anio</w>
       <w>apellido</w>
+      <w>atencion</w>
+      <w>atención</w>
       <w>celular</w>
       <w>certificado</w>
+      <w>citas</w>
+      <w>clic</w>
+      <w>consultas</w>
       <w>correo</w>
       <w>curso</w>
       <w>departamento</w>
+      <w>desplegar</w>
       <w>direccion</w>
       <w>documento</w>
+      <w>estado</w>
       <w>fijo</w>
       <w>foto</w>
       <w>genero</w>
+      <w>horario</w>
+      <w>inicial</w>
+      <w>instancias</w>
       <w>institucion</w>
+      <w>jueves</w>
+      <w>lista</w>
+      <w>lunes</w>
+      <w>martes</w>
+      <w>medios</w>
+      <w>miercoles</w>
+      <w>modalidad</w>
       <w>municipio</w>
       <w>nombre</w>
+      <w>objetos</w>
+      <w>pago</w>
+      <w>pogreso</w>
       <w>posgrado</w>
       <w>pregrado</w>
       <w>psswrd</w>
       <w>registro</w>
       <w>resolucion</w>
+      <w>sabado</w>
       <w>sede</w>
       <w>tarjeta</w>
+      <w>tipo</w>
+      <w>viernes</w>
     </words>
   </dictionary>
 </component>

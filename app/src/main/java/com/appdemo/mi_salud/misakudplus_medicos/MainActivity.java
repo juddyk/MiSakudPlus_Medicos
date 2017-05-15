@@ -38,7 +38,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements dialogSlogan.sloganListener{
 
     //Objetos de la Interfaz
-    Button btnAction_Agenda;
+    Button btnAction_Agenda,btnAction_Citas;
     ImageView iv_foto;
     ImageView iv_puntaje;
     ImageButton ib_editarSlogan;
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
 
         //Se instancias objetos del a interfaz
         btnAction_Agenda=(Button) findViewById(R.id.idBtnAgenda);
+        btnAction_Citas=(Button) findViewById(R.id.idBtnCitas);
         ib_editarSlogan=(ImageButton) findViewById(R.id.guardarSlogan);
         iv_foto=(ImageView) findViewById(R.id.fotoDoctor);
         iv_puntaje=(ImageView) findViewById(R.id.puntajeDoctor);
@@ -201,6 +202,13 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
             }
         });
 
+        btnAction_Citas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(MainActivity.this, citas.class);
+                startActivity(i);
+            }
+        });
 
     }
 
