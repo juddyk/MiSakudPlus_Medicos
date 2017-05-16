@@ -5,8 +5,14 @@
     tools:context="com.appdemo.mi_salud.misakudplus_medicos">
 
     <item
+        android:id="@+id/actAgenda"
+        android:icon="@drawable/agenda"
+        app:showAsAction="ifRoom"
+        android:title="@string/app_agenda"/>
+
+    <item
         android:id="@+id/actPerfil"
-        android:icon="@drawable/perfil"
+        android:icon="@drawable/profile"
         app:showAsAction="ifRoom"
         android:title="home"/>
 
@@ -15,6 +21,7 @@
         android:icon="@drawable/salir"
         app:showAsAction="ifRoom"
         android:title="home"/>
+
 
 
 </menu>

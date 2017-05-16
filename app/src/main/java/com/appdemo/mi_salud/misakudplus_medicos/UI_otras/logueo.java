@@ -39,6 +39,7 @@ public class logueo extends AppCompatActivity implements DialogAvisoRegistro.Avi
     private DatabaseReference mDB;
     private static final String TAG = "logueo";
     private static final String TAG_medicos = "Medicos";
+    private static final String TAG_data = "Data";
     private static final String TAG_contrasena = "psswrd";
     //Variables Axuliares
     public String uname,upass;
@@ -82,7 +83,7 @@ public class logueo extends AppCompatActivity implements DialogAvisoRegistro.Avi
                     uname=et_Usuario.getText().toString();
                     upass=et_Contrasena.getText().toString();
                     mDB= FirebaseDatabase.getInstance().getReference().child(TAG_medicos).child(uname);
-                    mDB.child(TAG_contrasena).addValueEventListener(new ValueEventListener() {
+                    mDB.child(TAG_data).child(TAG_contrasena).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot snapshot) {
                             String psw= (String) snapshot.getValue();  //prints "Do you have data? You'll love Firebase."

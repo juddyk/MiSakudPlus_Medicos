@@ -9,6 +9,7 @@ public class horarioDoctor {
     private int minutoI;
     private int horaF;
     private int minutoF;
+    private long id;
 
     public horarioDoctor() {
         this.dia = 0;
@@ -65,5 +66,13 @@ public class horarioDoctor {
 
     public void setMinutoF(int minutoF) {
         this.minutoF = minutoF;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

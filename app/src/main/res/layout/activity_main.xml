@@ -132,17 +132,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/idBtnAgenda"
-        android:layout_width="100sp"
-        android:layout_height="30sp"
-        android:background="@drawable/round_btn"
-        android:textColor="@color/white"
-        android:text="@string/main_agenda"
-        android:layout_gravity="center"
-        android:gravity="center"
-        />
-
-    <Button
         android:layout_marginTop="5sp"
         android:id="@+id/idBtnCitas"
         android:layout_width="100sp"
@@ -153,21 +142,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         />
-
-    <!-- NOTICIAS -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/avisos"
-        android:gravity="center"
-        style="@style/txtSub"
-        android:layout_marginTop="15sp"/>
-
-    <RelativeLayout
-        android:id="@+id/idFragmentNoticias"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </RelativeLayout>
 
 </LinearLayout>
 

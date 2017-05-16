@@ -24,8 +24,9 @@
             <ImageView
                 android:layout_width="90sp"
                 android:layout_height="100sp"
-                android:background="@drawable/perfil"
+                android:background="@color/winter6"
                 android:contentDescription="@string/app_perfil"
+                android:src="@drawable/profile"
                 />
         </LinearLayout>
 

@@ -24,6 +24,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="txtBox7">
         <item name="android:textColor">@color/winter4</item>
         <item name="android:textStyle">bold</item>
@@ -103,6 +104,28 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="txtSub2">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="txtSUB">
+        <item name="android:textColor">@color/winter3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
+    <style name="txtSUB0">
+        <item name="android:textColor">@color/winter5</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
     <style name="txtDias">
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
@@ -143,11 +166,23 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="btnBox1">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="boxImageButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_height">40sp</item>
+        <item name="android:layout_width">40sp</item>
+        <item name="android:layout_marginEnd">5sp</item>
+        <item name="android:layout_marginStart">5sp</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:gravity">end</item>
+    </style>
+
 
     <style name="margin_layouts">
         <item name="android:layout_marginBottom">5sp</item>
@@ -161,8 +196,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

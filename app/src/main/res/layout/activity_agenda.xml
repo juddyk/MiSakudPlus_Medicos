@@ -1,165 +1,135 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.appdemo.mi_salud.misakudplus_medicos.UI_otras.agenda"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.appdemo.mi_salud.misakudplus_medicos.UI_otras.agenda"
+    tools:ignore="MergeRootFrame">
 
     <LinearLayout
+        android:id="@+id/agenda_container"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:orientation="horizontal"
-        android:layout_marginStart="3sp"
-        android:layout_marginEnd="3sp"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal"
+            android:layout_marginStart="3sp"
+            android:layout_marginEnd="3sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
 
-        <Button
-            android:id="@+id/domingo"
-            style="@style/txtDias"
-            android:text="@string/domingo"
-            android:onClick="onClicDomingo"
-            />
+            <Button
+                android:id="@+id/domingo"
+                style="@style/txtDias"
+                android:text="@string/domingo"
+                android:onClick="onClicDomingo"
+                />
 
-        <Button
-            android:id="@+id/lunes"
-            style="@style/txtDias"
-            android:text="@string/lunes"
-            android:layout_marginStart="5sp"
-            android:onClick="onClicLunes"
-            />
+            <Button
+                android:id="@+id/lunes"
+                style="@style/txtDias"
+                android:text="@string/lunes"
+                android:layout_marginStart="5sp"
+                android:onClick="onClicLunes"
+                />
 
-        <Button
-            android:id="@+id/martes"
-            style="@style/txtDias"
-            android:text="@string/martes"
-            android:layout_marginStart="5sp"
-            android:onClick="onClicMartes"
-            />
+            <Button
+                android:id="@+id/martes"
+                style="@style/txtDias"
+                android:text="@string/martes"
+                android:layout_marginStart="5sp"
+                android:onClick="onClicMartes"
+                />
 
-        <Button
-            android:id="@+id/miercoles"
-            style="@style/txtDias"
-            android:text="@string/miercoles"
-            android:layout_marginStart="5sp"
-            android:onClick="onClicMiercoles"
-            />
+            <Button
+                android:id="@+id/miercoles"
+                style="@style/txtDias"
+                android:text="@string/miercoles"
+                android:layout_marginStart="5sp"
+                android:onClick="onClicMiercoles"
+                />
 
-        <Button
-            android:id="@+id/jueves"
-            style="@style/txtDias"
-            android:text="@string/jueves"
-            android:layout_marginStart="5sp"
-            android:onClick="onClicJueves"
-            />
+            <Button
+                android:id="@+id/jueves"
+                style="@style/txtDias"
+                android:text="@string/jueves"
+                android:layout_marginStart="5sp"
+                android:onClick="onClicJueves"
+                />
 
-        <Button
-            android:id="@+id/viernes"
-            style="@style/txtDias"
-            android:text="@string/viernes"
-            android:layout_marginStart="5sp"
-            android:onClick="onClicViernes"
-            />
+            <Button
+                android:id="@+id/viernes"
+                style="@style/txtDias"
+                android:text="@string/viernes"
+                android:layout_marginStart="5sp"
+                android:onClick="onClicViernes"
+                />
 
-        <Button
-            android:id="@+id/sabado"
-            style="@style/txtDias"
-            android:text="@string/sabado"
-            android:layout_marginStart="5sp"
-            android:onClick="onClicSabado"
-            />
+            <Button
+                android:id="@+id/sabado"
+                style="@style/txtDias"
+                android:text="@string/sabado"
+                android:layout_marginStart="5sp"
+                android:onClick="onClicSabado"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/txtLst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/lista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:dividerHeight="2dp"
+                    android:cacheColorHint="@android:color/transparent"
+                    >
+                </ListView>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/vistaD"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DOMINGO"/>
-    </RelativeLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_margin="15sp"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/plus"
+        app:backgroundTint="@color/winter3"
+        app:layout_anchor="@+id/agenda_container"
 
-    <RelativeLayout
-        android:id="@+id/vistaL"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LUNES"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/vistaM"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MARTES"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/vistaW"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MIERCOLES"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/vistaJ"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="JUEVES"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/vistaV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="VIERNES"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/vistaS"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SABADO"/>
-    </RelativeLayout>
+        />
 
 
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

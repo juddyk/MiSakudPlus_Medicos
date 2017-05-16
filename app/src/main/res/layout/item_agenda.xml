@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="5sp"
+    android:layout_marginEnd="5sp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <!-- HORA Inicial-->
+            <TextView
+                android:id="@+id/hourI"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                style="@style/txtSUB"
+                android:text="@string/hhmm"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                style="@style/txtSUB0"
+                android:text="@string/auxiliar"
+                android:layout_weight="0.5"
+                />
+            <!-- HORA Final-->
+            <TextView
+                android:id="@+id/hourF"
+                android:layout_width="wrap_content"
+                android:layout_height="30sp"
+                style="@style/txtSUB"
+                android:text="@string/hhmm"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="5sp"
+            >
+
+            <TextView
+                android:id="@+id/tiempoC"
+                android:layout_width="0sp"
+                android:layout_height="30sp"
+                style="@style/txtSub0"
+                android:layout_weight="1"
+                />
+            <ImageButton
+                android:id="@+id/cancel"
+                style="@style/boxImageButton"
+                android:src="@drawable/delete"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

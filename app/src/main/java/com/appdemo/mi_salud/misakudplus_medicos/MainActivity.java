@@ -38,7 +38,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements dialogSlogan.sloganListener{
 
     //Objetos de la Interfaz
-    Button btnAction_Agenda,btnAction_Citas;
+    Button btnAction_Citas;
     ImageView iv_foto;
     ImageView iv_puntaje;
     ImageButton ib_editarSlogan;
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
     private DatabaseReference mDB;
     private static final String TAG = "logueo";
     private static final String TAG_medicos = "Medicos";
+    private static final String TAG_data = "Data";
     private static final String TAG_foto = "foto";
     private static final String TAG_slogan = "slogan";
     private static final String TAG_nombre1 = "nombre1";
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         setContentView(R.layout.activity_main);
 
         //Se instancias objetos del a interfaz
-        btnAction_Agenda=(Button) findViewById(R.id.idBtnAgenda);
         btnAction_Citas=(Button) findViewById(R.id.idBtnCitas);
         ib_editarSlogan=(ImageButton) findViewById(R.id.guardarSlogan);
         iv_foto=(ImageView) findViewById(R.id.fotoDoctor);
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         mDB= FirebaseDatabase.getInstance().getReference().child(TAG_medicos).child(usuarioId);
 
         //Establecer el Nombre del Doctor
-        mDB.child(TAG_nombre1).addValueEventListener(new ValueEventListener() {
+        mDB.child(TAG_data).child(TAG_nombre1).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 nombre= (String) snapshot.getValue();
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         });
 
         //Establecer Slogan
-        mDB.child(TAG_slogan).addValueEventListener(new ValueEventListener() {
+        mDB.child(TAG_data).child(TAG_slogan).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 eslogan= (String) snapshot.getValue();  //prints "Do you have data? You'll love Firebase."
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         });
 
         //Establecer Estado
-        mDB.child(TAG_estado).addValueEventListener(new ValueEventListener() {
+        mDB.child(TAG_data).child(TAG_estado).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if(snapshot.getValue()!=null){
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         });
 
         //Establecer Puntaje
-        mDB.child(TAG_puntaje).addValueEventListener(new ValueEventListener() {
+        mDB.child(TAG_data).child(TAG_puntaje).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if(snapshot.getValue()!=null){
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         });
 
         //Establecer la ruta(Firebase) de la foto
-        mDB.child(TAG_foto).addValueEventListener(new ValueEventListener() {
+        mDB.child(TAG_data).child(TAG_foto).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 rutaFoto= (String) snapshot.getValue();  //prints "Do you have data? You'll love Firebase."
@@ -186,22 +186,6 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
             }
         });
 
-        //SE CARGA EL FRAGMENT PARA MOSTRAR LAS NOTICIAS
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        noticias fragment = new noticias();
-        ft.add(R.id.idFragmentNoticias, fragment);
-        ft.commit();
-
-        //Se asocia la acción de ver la agenda cuando se da CLICK en el boton de la Agenda
-        btnAction_Agenda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i =new Intent(MainActivity.this, agenda.class);
-                startActivity(i);
-            }
-        });
-
         btnAction_Citas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,6 +206,11 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.actAgenda:
+                Intent k=new Intent(MainActivity.this, agenda.class);
+                k.putExtra("cedula", usuarioId);
+                startActivity(k);
+                return true;
             case R.id.actPerfil:
                 startActivity(new Intent(MainActivity.this, perfilMedico.class));
                 return true;

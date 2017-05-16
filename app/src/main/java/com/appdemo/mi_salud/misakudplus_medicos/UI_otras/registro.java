@@ -27,7 +27,6 @@ import android.widget.Toast;
 
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.checkboxAdapter;
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.checkboxDinamico;
-import com.appdemo.mi_salud.misakudplus_medicos.Datos.datosCita;
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.datosMedico;
 import com.appdemo.mi_salud.misakudplus_medicos.R;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogCalendar;
@@ -112,8 +111,8 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     //FIREBASE DATABASE
     private FirebaseDatabase fbDB;
     private static final String TAG = "registro";
-    private static final String TAG_citas = "Citas";
     private static final String TAG_medicos = "Medicos";
+    private static final String TAG_data = "Data";
     private static final String TAG_consultas = "TiposConsultas";
     private static final String TAG_modalidad = "ModalidadAtencion";
     private static final String TAG_medios = "MediosPago";
@@ -1027,7 +1026,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         gv9_1.setLayoutParams(params);
         consultasAdapter=new checkboxAdapter(this, consultas);
         gv9_1.setAdapter(consultasAdapter);
-
     }
 
     public void desplegarReg1(View view){
@@ -1885,18 +1883,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     private void writeNewUser() {
         DatabaseReference mDB;
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
-        mDB.child(TAG_medicos).child(dM.getNumDoc()).setValue(dM);
-
-        datosCita dC=new datosCita();
-        dC.setDocumPaciente("12345");
-        dC.setFechaAnio("2017");
-        dC.setFechaMes("5");
-        dC.setFechaDia("21");
-        dC.setHora("03:30");
-        dC.setModalidadAtencion("atencion");
-        dC.setTipoConsulta("tipo");
-        dC.setSede("sede");
-        mDB.child(TAG_citas).child(dM.getNumDoc()).child(dC.getFechaAnio()).child(dC.getFechaMes()).child(dC.getFechaDia()).child(dC.getDocumPaciente()).setValue(dC);
+        mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_data).setValue(dM);
 
         //Agregar Tipos de Consulta
         for(int i=0;i<lstConsultas.size();i++){
