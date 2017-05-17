@@ -9,11 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
         >
         <ImageView
             android:id="@+id/foto"
             android:layout_width="80sp"
             android:layout_height="80sp"
+            android:src="@drawable/profile2"
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,6 +60,8 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:gravity="end"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
         >
         <!-- SEDE -->
         <LinearLayout

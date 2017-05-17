@@ -19,17 +19,24 @@
         android:orientation="vertical"
         >
 
-        <Button
-            android:layout_width="match_parent"
+        <ImageButton
             android:layout_height="50sp"
+            android:layout_width="50sp"
             android:onClick="temporal"
+            android:background="@android:color/transparent"
+            android:src="@drawable/filter"
+            android:padding="3sp"
+            android:scaleType="fitCenter"
             />
+
         <TextView
+            android:id="@+id/mensaje"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5sp"
             android:layout_marginEnd="5sp"
             style="@style/txtSub0"
+            android:visibility="gone"
             android:text="@string/citas_mensaje"
             />
     </LinearLayout>

@@ -181,6 +181,10 @@
 
     <!-- STRINGS CITAS -->
     <string name="citas_mensaje">*Puede ver más información de la cita manteniendo presionado</string>
+    <string name="citas_notificar1">Se notificara a </string>
+    <string name="citas_notificar2_cancel">de la cancelación de la cita.</string>
+    <string name="citas_notificar2_change">de la propuesta del cambio de la cita.</string>
+    <string name="citas_estado_pos">En espera de respuesta</string>
 
 
     <!-- NOTICIAS-->
@@ -227,7 +231,7 @@
     <string name="horaInicio">Hora de Inicio</string>
     <string name="horaFinal">Hora de Finalización</string>
     <string name="horario">Estableza su disponibilidad horaria</string>
-    <string name="auxiliar"> - </string>
+    <string name="auxiliar"> a </string>
     <string name="min">minutos</string>
     <string name="mensajeHorario">*Mantenga presionado para eliminar algun horario.</string>
     <string-array name="tiempoConsultas">

@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         tv_Slogan.setText(slgn);
         Map<String, Object> updates = new HashMap<>();
         updates.put("/"+TAG_slogan, slgn);
-        mDB.updateChildren(updates);
+        mDB.child(TAG_data).updateChildren(updates);
         dialog.dismiss();
     }
 

@@ -14,6 +14,8 @@ public class datosCita {
     private String documPaciente;
     private String documMedico;
     private String nombrePaciente;
+    private String tiempo;
+    private String estado;
     private long id;
 
     public datosCita() {
@@ -27,6 +29,8 @@ public class datosCita {
         this.sede = "";
         this.documPaciente = "";
         this.documMedico="";
+        this.tiempo="";
+        this.estado="";
         this.id=0;
     }
 
@@ -116,6 +120,22 @@ public class datosCita {
 
     public void setNombrePaciente(String nombrePaciente) {
         this.nombrePaciente = nombrePaciente;
+    }
+
+    public String getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(String tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public long getId() {

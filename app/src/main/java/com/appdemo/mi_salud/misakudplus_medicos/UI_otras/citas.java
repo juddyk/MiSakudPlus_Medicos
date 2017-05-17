@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.citasAdapter;
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.datosCita;
@@ -21,13 +23,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class citas extends AppCompatActivity implements DialogCitas.CitasListener {
 
     ListView lstCitas;
     String usuarioId;
     List<datosCita> lstData;
+    TextView mensaje;
     long lData = 0;
     private static final int FACTOR = 200;
     //FireBase
@@ -35,6 +40,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
     private DatabaseReference mDB;
     private static final String TAG = "citas";
     private static final String TAG_citas = "Citas";
+    private static final String TAG_estado = "estado";
 
 
     @Override
@@ -51,7 +57,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
 
         //instancia de objetos de la interfaz
         lstCitas=(ListView) findViewById(R.id.listaCitas);
-
+        mensaje=(TextView) findViewById(R.id.mensaje);
         //FIREBASE DATABASE
         fbDB= FirebaseDatabase.getInstance();
 
@@ -61,13 +67,12 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         //Extraer datos de Base de Datos
         existLista();
         actualizarConteo();
-        //actualizar_lista();
 
         //Acciones para el listview
         lstCitas.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                showDialoginfo();
+                showDialoginfo(position);
                 return false;
             }
         });
@@ -86,9 +91,24 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         }
     }
 
-    public void showDialoginfo() {
+    public void showDialoginfo(int pos) {
+        String date=lstData.get(pos).getFechaDia()+"/"+lstData.get(pos).getFechaMes()+"/"+lstData.get(pos).getFechaAnio();
+        String hour=citasAdapter.correcTime(lstData.get(pos).getHora())+":"+citasAdapter.correcTime(lstData.get(pos).getMinuto());
+
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new DialogCitas();
+        Bundle bndl=new Bundle();
+        bndl.putInt("POS",pos);
+        bndl.putLong("ID",lstData.get(pos).getId());
+        bndl.putString("nombre",lstData.get(pos).getNombrePaciente());
+        bndl.putString("fecha",date);
+        bndl.putString("hora",hour);
+        bndl.putString("sede",lstData.get(pos).getSede());
+        bndl.putString("tipo",lstData.get(pos).getTipoConsulta());
+        bndl.putString("mod",lstData.get(pos).getModalidadAtencion());
+        bndl.putString("time",lstData.get(pos).getTiempo());
+
+        dialog.setArguments(bndl);
         dialog.show(getSupportFragmentManager(), getResources().getString(R.string.app_citas));
     }
 
@@ -114,7 +134,6 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
                 Log.w(TAG, "loadPost:onCancelled", error.toException());
             }
         });
-
     }
     public void actualizarConteo(){
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
@@ -141,12 +160,26 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
 
 
     @Override
-    public void onCitasEliminar(DialogFragment dialog) {
+    public void onCitasEliminar(DialogFragment dialog,int pos, long id) {
+        String msg=getResources().getString(R.string.citas_notificar1)+" "+lstData.get(pos).getNombrePaciente()+" "+getResources().getString(R.string.citas_notificar2_cancel);
+        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
+        //Eliminar en la base de datos
+        deleteCita(id);
+        //
+        lstData.remove(pos);
+        actualizar_lista();
         dialog.dismiss();
     }
 
     @Override
-    public void onCitasCambiar(DialogFragment dialog) {
+    public void onCitasCambiar(DialogFragment dialog,int pos, long id) {
+        String msg=getResources().getString(R.string.citas_notificar1)+" "+lstData.get(pos).getNombrePaciente()+" "+getResources().getString(R.string.citas_notificar2_change);
+        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
+        //Guardar en Base de Datos
+        saveEstadoCita(id,getResources().getString(R.string.citas_estado_pos));
+        //
+        lstData.get(pos).setEstado(getResources().getString(R.string.citas_estado_pos));
+        actualizar_lista();
         dialog.dismiss();
     }
 
@@ -155,10 +188,30 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         dialog.dismiss();
     }
 
+    public void deleteCita(long id){
+        mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
+        mDB.child(TAG_citas).child(usuarioId).child(String.valueOf(id)).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                snapshot.getRef().removeValue();
+            }
+            @Override public void onCancelled(DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+            }
+        });
+    }
 
+    public void saveEstadoCita(long id, String estado){
+        mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
+        Map<String, Object> updates = new HashMap<>();
+        updates.put("/"+TAG_estado, estado);
+        mDB.child(TAG_citas).child(usuarioId).child(String.valueOf(id)).updateChildren(updates);
+
+    }
 
     public void temporal(View view){
         actualizar_lista();
+        mensaje.setVisibility(View.VISIBLE);
         /*datosCita d1,d2,d3,d4,d5,d6;
         d1=new datosCita();
         d2=new datosCita();

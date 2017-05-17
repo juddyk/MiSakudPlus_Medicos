@@ -46,33 +46,6 @@ public class datosMedico {
     private String pre_acta;
     private String resolucion;
 
-    private String ttl_posgrado;
-    private String pos_diploma;
-    private String pos_acta;
-
-    private String certificado_exp;
-    private String institucion_exp;
-    private String cargo_exp;
-    private String fiDia_exp;
-    private String fiMes_exp;
-    private String fiAnio_exp;
-    private String ffDia_exp;
-    private String ffMes_exp;
-    private String ffAnio_exp;
-
-    private String curso;
-    private String institucion_curso;
-    private String fiDia_curso;
-    private String fiMes_curso;
-    private String fiAnio_curso;
-    private String ffDia_curso;
-    private String ffMes_curso;
-    private String ffAnio_curso;
-
-    private String direccion_sede;
-    private String nombre_sede;
-
-
     public datosMedico() {
         this.nombre1 = "";
         this.nombre2 = "";
@@ -107,28 +80,6 @@ public class datosMedico {
         this.pre_diploma = "";
         this.pre_acta = "";
         this.resolucion = "";
-        this.ttl_posgrado = "";
-        this.pos_diploma = "";
-        this.pos_acta = "";
-        this.certificado_exp = "";
-        this.institucion_exp = "";
-        this.cargo_exp = "";
-        this.fiDia_exp = "";
-        this.fiMes_exp ="";
-        this.fiAnio_exp = "";
-        this.ffDia_exp = "";
-        this.ffMes_exp = "";
-        this.ffAnio_exp = "";
-        this.curso = "";
-        this.institucion_curso ="";
-        this.fiDia_curso = "";
-        this.fiMes_curso = "";
-        this.fiAnio_curso = "";
-        this.ffDia_curso = "";
-        this.ffMes_curso = "";
-        this.ffAnio_curso ="";
-        this.direccion_sede ="";
-        this.nombre_sede="";
     }
 
     public String getNombre1() {
@@ -355,174 +306,6 @@ public class datosMedico {
         this.resolucion = resolucion;
     }
 
-    public String getTtl_posgrado() {
-        return ttl_posgrado;
-    }
-
-    public void setTtl_posgrado(String ttl_posgrado) {
-        this.ttl_posgrado = ttl_posgrado;
-    }
-
-    public String getPos_diploma() {
-        return pos_diploma;
-    }
-
-    public void setPos_diploma(String pos_diploma) {
-        this.pos_diploma = pos_diploma;
-    }
-
-    public String getPos_acta() {
-        return pos_acta;
-    }
-
-    public void setPos_acta(String pos_acta) {
-        this.pos_acta = pos_acta;
-    }
-
-    public String getCertificado_exp() {
-        return certificado_exp;
-    }
-
-    public void setCertificado_exp(String certificado_exp) {
-        this.certificado_exp = certificado_exp;
-    }
-
-    public String getInstitucion_exp() {
-        return institucion_exp;
-    }
-
-    public void setInstitucion_exp(String institucion_exp) {
-        this.institucion_exp = institucion_exp;
-    }
-
-    public String getCargo_exp() {
-        return cargo_exp;
-    }
-
-    public void setCargo_exp(String cargo_exp) {
-        this.cargo_exp = cargo_exp;
-    }
-
-    public String getFiDia_exp() {
-        return fiDia_exp;
-    }
-
-    public void setFiDia_exp(String fiDia_exp) {
-        this.fiDia_exp = fiDia_exp;
-    }
-
-    public String getFiMes_exp() {
-        return fiMes_exp;
-    }
-
-    public void setFiMes_exp(String fiMes_exp) {
-        this.fiMes_exp = fiMes_exp;
-    }
-
-    public String getFiAnio_exp() {
-        return fiAnio_exp;
-    }
-
-    public void setFiAnio_exp(String fiAnio_exp) {
-        this.fiAnio_exp = fiAnio_exp;
-    }
-
-    public String getFfDia_exp() {
-        return ffDia_exp;
-    }
-
-    public void setFfDia_exp(String ffDia_exp) {
-        this.ffDia_exp = ffDia_exp;
-    }
-
-    public String getFfMes_exp() {
-        return ffMes_exp;
-    }
-
-    public void setFfMes_exp(String ffMes_exp) {
-        this.ffMes_exp = ffMes_exp;
-    }
-
-    public String getFfAnio_exp() {
-        return ffAnio_exp;
-    }
-
-    public void setFfAnio_exp(String ffAnio_exp) {
-        this.ffAnio_exp = ffAnio_exp;
-    }
-
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-    public String getInstitucion_curso() {
-        return institucion_curso;
-    }
-
-    public void setInstitucion_curso(String institucion_curso) {
-        this.institucion_curso = institucion_curso;
-    }
-
-    public String getFiDia_curso() {
-        return fiDia_curso;
-    }
-
-    public void setFiDia_curso(String fiDia_curso) {
-        this.fiDia_curso = fiDia_curso;
-    }
-
-    public String getFiMes_curso() {
-        return fiMes_curso;
-    }
-
-    public void setFiMes_curso(String fiMes_curso) {
-        this.fiMes_curso = fiMes_curso;
-    }
-
-    public String getFiAnio_curso() {
-        return fiAnio_curso;
-    }
-
-    public void setFiAnio_curso(String fiAnio_curso) {
-        this.fiAnio_curso = fiAnio_curso;
-    }
-
-    public String getFfDia_curso() {
-        return ffDia_curso;
-    }
-
-    public void setFfDia_curso(String ffDia_curso) {
-        this.ffDia_curso = ffDia_curso;
-    }
-
-    public String getFfMes_curso() {
-        return ffMes_curso;
-    }
-
-    public void setFfMes_curso(String ffMes_curso) {
-        this.ffMes_curso = ffMes_curso;
-    }
-
-    public String getFfAnio_curso() {
-        return ffAnio_curso;
-    }
-
-    public void setFfAnio_curso(String ffAnio_curso) {
-        this.ffAnio_curso = ffAnio_curso;
-    }
-
-    public String getDireccion_sede() {
-        return direccion_sede;
-    }
-
-    public void setDireccion_sede(String direccion_sede) {
-        this.direccion_sede = direccion_sede;
-    }
-
     public String getNombre2() {
         return nombre2;
     }
@@ -547,11 +330,4 @@ public class datosMedico {
         return puntaje;
     }
 
-    public String getNombre_sede() {
-        return nombre_sede;
-    }
-
-    public void setNombre_sede(String nombre_sede) {
-        this.nombre_sede = nombre_sede;
-    }
 }

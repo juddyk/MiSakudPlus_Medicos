@@ -51,14 +51,24 @@ public class citasAdapter extends BaseAdapter implements ListAdapter {
         TextView tv_nombre=(TextView) view.findViewById(R.id.nombre);
         TextView tv_fecha=(TextView) view.findViewById(R.id.fecha);
         TextView tv_hora=(TextView) view.findViewById(R.id.hour);
+        TextView tv_estado=(TextView) view.findViewById(R.id.estadoCita);
 
         String date=list.get(position).getFechaDia()+"/"+list.get(pos).getFechaMes()+"/"+list.get(pos).getFechaAnio();
-        String hour=list.get(pos).getHora()+":"+list.get(pos).getMinuto();
+        String hour=correcTime(list.get(pos).getHora())+":"+correcTime(list.get(pos).getMinuto());
         tv_fecha.setText(date);
         tv_hora.setText(hour);
         tv_nombre.setText(list.get(pos).getNombrePaciente());
-
+        tv_estado.setText(list.get(pos).getEstado());
         return view;
     }
+
+    public static String correcTime(String t){
+        if(Integer.parseInt(t)<10){
+            return "0"+t;
+        }else{
+            return t;
+        }
+    }
+
 
 }

@@ -51,8 +51,8 @@ public class agendaAdapter extends BaseAdapter implements ListAdapter {
         TextView itemTime = (TextView)view.findViewById(R.id.tiempoC);
 
         //listItemText.setText(list.get(position));
-        String HI=String.valueOf(list.get(position).getHoraI())+":"+String.valueOf(list.get(position).getMinutoI());
-        String HF=String.valueOf(list.get(position).getHoraF())+":"+String.valueOf(list.get(position).getMinutoF());
+        String HI=correcTime(list.get(position).getHoraI())+":"+correcTime(list.get(position).getMinutoI());
+        String HF=correcTime(list.get(position).getHoraF())+":"+correcTime(list.get(position).getMinutoF());
         String TC=view.getResources().getString(R.string.tiempoConsulta)+"\t"+String.valueOf(list.get(position).getTiempoXcita())+"\t"+view.getResources().getString(R.string.min);
         itemHourI.setText(HI);
         itemHourF.setText(HF);
@@ -61,4 +61,11 @@ public class agendaAdapter extends BaseAdapter implements ListAdapter {
         return view;
     }
 
+    public String correcTime(int t){
+        if(t<10){
+            return "0"+t;
+        }else{
+            return String.valueOf(t);
+        }
+    }
 }
