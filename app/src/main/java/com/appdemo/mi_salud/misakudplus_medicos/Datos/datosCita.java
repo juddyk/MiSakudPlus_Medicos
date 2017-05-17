@@ -12,6 +12,7 @@ public class datosCita {
     private String modalidadAtencion;
     private String sede;
     private String documPaciente;
+    private long id;
 
     public datosCita() {
         this.fechaDia = "";
@@ -23,8 +24,8 @@ public class datosCita {
         this.modalidadAtencion = "";
         this.sede = "";
         this.documPaciente = "";
+        this.id=0;
     }
-
 
     public String getFechaDia() {
         return fechaDia;
@@ -96,6 +97,14 @@ public class datosCita {
 
     public void setFechaDiaNum(String fechaDiaNum) {
         this.fechaDiaNum = fechaDiaNum;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }

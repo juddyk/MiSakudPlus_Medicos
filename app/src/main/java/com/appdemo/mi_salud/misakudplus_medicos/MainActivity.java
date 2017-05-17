@@ -86,12 +86,45 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
         usuarioId=getIntent().getStringExtra("usuario");
         mDB= FirebaseDatabase.getInstance().getReference().child(TAG_medicos).child(usuarioId);
 
+        //Establecer la ruta(Firebase) de la foto
+        mDB.child(TAG_data).child(TAG_foto).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                rutaFoto= (String) snapshot.getValue();  //prints "Do you have data? You'll love Firebase."
+                if(rutaFoto!=null){
+                    storageRef.child(rutaFoto).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Toast.makeText(getApplicationContext(),getResources().getString(R.string.load_foto),Toast.LENGTH_SHORT).show();
+                            Glide.with(getApplicationContext())
+                                    .load(uri)
+                                    .into(iv_foto);
+
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            Toast.makeText(getApplicationContext(),getResources().getString(R.string.load_no_foto),Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+
+
+            }
+            @Override public void onCancelled(DatabaseError error) {
+                Log.w(TAG, "loadPost:onCancelled", error.toException());
+                Toast.makeText(MainActivity.this, "Failed to load data.",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         //Establecer el Nombre del Doctor
         mDB.child(TAG_data).child(TAG_nombre1).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 nombre= (String) snapshot.getValue();
-                mDB.child(TAG_apellido1).addValueEventListener(new ValueEventListener() {
+                mDB.child(TAG_data).child(TAG_apellido1).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         apellido= (String) snapshot.getValue();  //prints "Do you have data? You'll love Firebase."
@@ -153,38 +186,6 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
             }
         });
 
-        //Establecer la ruta(Firebase) de la foto
-        mDB.child(TAG_data).child(TAG_foto).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                rutaFoto= (String) snapshot.getValue();  //prints "Do you have data? You'll love Firebase."
-                if(rutaFoto!=null){
-                    storageRef.child(rutaFoto).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Toast.makeText(getApplicationContext(),getResources().getString(R.string.load_foto),Toast.LENGTH_SHORT).show();
-                            Glide.with(getApplicationContext())
-                                    .load(uri)
-                                    .into(iv_foto);
-
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            Toast.makeText(getApplicationContext(),getResources().getString(R.string.load_no_foto),Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                }
-
-
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-                Toast.makeText(MainActivity.this, "Failed to load data.",Toast.LENGTH_SHORT).show();
-            }
-        });
 
         btnAction_Citas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,7 +226,6 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
 
         }
     }
-
 
     public void onClicSaveSlogan(View view){
         showDialogSlogan();

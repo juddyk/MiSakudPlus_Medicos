@@ -59,12 +59,13 @@
                 style="@style/txtSub0"
                 android:layout_weight="1"
                 />
+            <!--
             <ImageButton
                 android:id="@+id/cancel"
                 style="@style/boxImageButton"
                 android:src="@drawable/delete"
                 />
-
+-->
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

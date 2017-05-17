@@ -14,9 +14,12 @@ import com.appdemo.mi_salud.misakudplus_medicos.R;
 
 public class DialogDelete extends DialogFragment {
 
+    long idItem;
+    String dia;
+    int pos;
 
     public interface DeleteListener {
-        void onDeletePositive(DialogFragment dialog);
+        void onDeletePositive(DialogFragment dialog, long id, String dia, int pos);
         void onDeleteNegative(DialogFragment dialog);
     }
 
@@ -44,13 +47,18 @@ public class DialogDelete extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_delete, null);
 
+        Bundle bndl= getArguments();
+        idItem=bndl.getLong("ID");
+        dia=bndl.getString("DIA");
+        pos=bndl.getInt("POS");
+
         builder.setView(view)
                 // Add action buttons
                 .setPositiveButton(R.string.opcion_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         //ACCEPT
-                        mListener.onDeletePositive(DialogDelete.this);
+                        mListener.onDeletePositive(DialogDelete.this,idItem,dia,pos);
 
                     }
                 })

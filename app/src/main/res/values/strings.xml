@@ -216,6 +216,7 @@
     <string name="horario">Estableza su disponibilidad horaria</string>
     <string name="auxiliar"> - </string>
     <string name="min">minutos</string>
+    <string name="mensajeHorario">*Mantenga presionado para eliminar algun horario.</string>
     <string-array name="tiempoConsultas">
         <item>--</item>
         <item>20 minutos</item>
