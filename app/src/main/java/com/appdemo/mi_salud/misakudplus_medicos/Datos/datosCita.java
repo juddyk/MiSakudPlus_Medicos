@@ -4,26 +4,29 @@ package com.appdemo.mi_salud.misakudplus_medicos.Datos;
 
 public class datosCita {
     private String fechaDia;
-    private String fechaDiaNum;
     private String fechaMes;
     private String fechaAnio;
     private String hora;
+    private String minuto;
     private String tipoConsulta;
     private String modalidadAtencion;
     private String sede;
     private String documPaciente;
+    private String documMedico;
+    private String nombrePaciente;
     private long id;
 
     public datosCita() {
         this.fechaDia = "";
-        this.fechaDiaNum="";
         this.fechaMes = "";
         this.fechaAnio = "";
         this.hora = "";
+        this.minuto="";
         this.tipoConsulta = "";
         this.modalidadAtencion = "";
         this.sede = "";
         this.documPaciente = "";
+        this.documMedico="";
         this.id=0;
     }
 
@@ -59,6 +62,14 @@ public class datosCita {
         this.hora = hora;
     }
 
+    public String getMinuto() {
+        return minuto;
+    }
+
+    public void setMinuto(String minuto) {
+        this.minuto = minuto;
+    }
+
     public String getTipoConsulta() {
         return tipoConsulta;
     }
@@ -91,12 +102,20 @@ public class datosCita {
         this.documPaciente = documPaciente;
     }
 
-    public String getFechaDiaNum() {
-        return fechaDiaNum;
+    public String getDocumMedico() {
+        return documMedico;
     }
 
-    public void setFechaDiaNum(String fechaDiaNum) {
-        this.fechaDiaNum = fechaDiaNum;
+    public void setDocumMedico(String documMedico) {
+        this.documMedico = documMedico;
+    }
+
+    public String getNombrePaciente() {
+        return nombrePaciente;
+    }
+
+    public void setNombrePaciente(String nombrePaciente) {
+        this.nombrePaciente = nombrePaciente;
     }
 
     public long getId() {

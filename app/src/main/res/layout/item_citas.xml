@@ -4,24 +4,28 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="5sp"
-    android:layout_marginEnd="5sp"
+    android:layout_gravity="center"
+    android:gravity="center"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:orientation="horizontal"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
         >
         <ImageView
             android:id="@+id/foto"
             android:layout_width="80sp"
             android:layout_height="80sp"
+            android:src="@drawable/profile2"
             />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginStart="3sp"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,53 +36,35 @@
                 <TextView
                     android:id="@+id/nombre"
                     android:layout_width="wrap_content"
-                    android:layout_height="20sp"
+                    android:layout_height="wrap_content"
                     style="@style/txtSUB"
-                    android:text="PACIENTE"
                     />
-                <!-- FECHA -->
-                <TextView
-                    android:id="@+id/fecha"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20sp"
-                    style="@style/txtSUB0"
-                    android:text="dd/mm/yyyy"
-                    />
-                <!-- HORA -->
-                <TextView
-                    android:id="@+id/hour"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20sp"
-                    style="@style/txtSUB0"
-                    android:text="hh:mm"
-                    />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- FECHA -->
+                    <TextView
+                        android:id="@+id/fecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/txtSUB0"
+                        android:layout_weight="1"
+                        />
+                    <!-- HORA -->
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/txtSUB0"
+                        />
+
+                </LinearLayout>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40sp"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:gravity="end"
-                >
 
-                <ImageButton
-                    android:id="@+id/info"
-                    style="@style/boxImageButton"
-                    android:src="@drawable/view"
-                    />
-                <ImageButton
-                    android:id="@+id/cambiar"
-                    style="@style/boxImageButton"
-                    android:src="@drawable/cambiar"
-                    />
-                <ImageButton
-                    android:id="@+id/cancel"
-                    style="@style/boxImageButton"
-                    android:src="@drawable/delete"
-                    />
-
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

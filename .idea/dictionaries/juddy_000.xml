@@ -9,14 +9,18 @@
       <w>asocia</w>
       <w>atencion</w>
       <w>atención</w>
+      <w>cedula</w>
       <w>celular</w>
       <w>certificado</w>
+      <w>cita</w>
       <w>citas</w>
       <w>clic</w>
       <w>consulta</w>
       <w>consultas</w>
+      <w>conteo</w>
       <w>correo</w>
       <w>curso</w>
+      <w>datos</w>
       <w>departamento</w>
       <w>desde</w>
       <w>desplegar</w>
@@ -55,6 +59,7 @@
       <w>municipio</w>
       <w>nombre</w>
       <w>objetos</w>
+      <w>pacientes</w>
       <w>pago</w>
       <w>pogreso</w>
       <w>posgrado</w>
@@ -62,6 +67,7 @@
       <w>psswrd</w>
       <w>registro</w>
       <w>resolucion</w>
+      <w>ruta</w>
       <w>sabado</w>
       <w>sede</w>
       <w>tarjeta</w>

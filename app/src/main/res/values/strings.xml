@@ -3,12 +3,16 @@
     <string name="app_name">Mi Salud Plus</string>
     <string name="app_registro">Registro</string>
     <string name="app_agenda">Agenda</string>
+    <string name="app_citas">Citas</string>
     <string name="app_perfil">Ajustes Perfil</string>
     <string name="digitos0">0,1,2,3,4,5,6,7,8,9</string>
     <string name="digitos1">qwertyuiopasdfghjklñzxcvbnm, ,.</string>
     <string name="digitos2">0,1,2,3,4,5,6,7,8,9,-, ,qwertyuiopasdfghjklñzxcvbnm,,,.,QWERTYUIOPASDFGHJKLÑZXCVBNM</string>
     <string name="opcion_ok">Acepto</string>
-    <string name="opcion_nok">Cancel</string>
+    <string name="opcion_nok">Cancelar</string>
+    <string name="opcion_cancel">CERRAR</string>
+    <string name="opcion_delete">ELIMINAR</string>
+    <string name="opcion_change">POSPONER</string>
     <string name="estado">Estado: </string>
     <string name="estado_on">ACTIVO</string>
     <string name="estado_pend">PENDIENTE</string>
@@ -17,7 +21,6 @@
     <string name="load_foto">Cargando Foto</string>
     <string name="load_no_foto">Error Cargando Foto</string>
     <string name="avisos">¡Avisos!</string>
-
     <string name="temporal0">Opción para modificar datos del Medico</string>
 
 
@@ -176,6 +179,10 @@
     <string name="main_agenda">AGENDA</string>
     <string name="main_citas">CITAS</string>
 
+    <!-- STRINGS CITAS -->
+    <string name="citas_mensaje">*Puede ver más información de la cita manteniendo presionado</string>
+
+
     <!-- NOTICIAS-->
     <string-array name="nwsLst">
         <item>NOTICIA 1: </item>
@@ -195,6 +202,12 @@
         <item>Resolución para ejercer Medicina (PDF)</item>
         <item>Certificado de Experiencia (PDF)</item>
     </string-array>
+
+    <!-- DIALOGO CITA -->
+    <string name="tiempoXCONSULTA">Tiempo para la consulta: </string>
+    <string name="modATENCION">Modalidad de Atención: </string>
+    <string name="tipoCONSULTA">Tipo de Consulta: </string>
+    <string name="puntoAC">Punto de Atención: </string>
 
 
     <!-- DIALOGO NAME -->

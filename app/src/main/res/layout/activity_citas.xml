@@ -10,13 +10,28 @@
     >
 
     <LinearLayout
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:orientation="vertical"
         >
 
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:onClick="temporal"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginEnd="5sp"
+            style="@style/txtSub0"
+            android:text="@string/citas_mensaje"
+            />
     </LinearLayout>
 
     <ScrollView
@@ -32,9 +47,8 @@
                 android:id="@+id/listaCitas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:dividerHeight="2dp"
-                android:cacheColorHint="@android:color/transparent"
-                android:divider="@android:color/transparent"
+                android:dividerHeight="1dp"
+
                 />
 
         </LinearLayout>

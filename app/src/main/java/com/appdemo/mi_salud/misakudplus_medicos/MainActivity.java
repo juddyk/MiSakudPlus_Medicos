@@ -186,11 +186,11 @@ public class MainActivity extends AppCompatActivity implements dialogSlogan.slog
             }
         });
 
-
         btnAction_Citas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i =new Intent(MainActivity.this, citas.class);
+                i.putExtra("cedula", usuarioId);
                 startActivity(i);
             }
         });

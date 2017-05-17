@@ -234,49 +234,49 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
     }
 
     public void actualizar_listaD(){
-        agendaAdapter adapter = new agendaAdapter(lstD, this,usuarioId);
+        agendaAdapter adapter = new agendaAdapter(lstD, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
         params.height = (lstHorario.getDividerHeight()+FACTOR)* lstD.size();
         lstHorario.setLayoutParams(params);
         lstHorario.setAdapter(adapter);
     }
     public void actualizar_listaL(){
-        agendaAdapter adapter = new agendaAdapter(lstL, this,usuarioId);
+        agendaAdapter adapter = new agendaAdapter(lstL, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
         params.height = (lstHorario.getDividerHeight()+FACTOR)* lstL.size();
         lstHorario.setLayoutParams(params);
         lstHorario.setAdapter(adapter);
     }
     public void actualizar_listaM(){
-        agendaAdapter adapter = new agendaAdapter(lstM, this,usuarioId);
+        agendaAdapter adapter = new agendaAdapter(lstM, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
         params.height = (lstHorario.getDividerHeight()+FACTOR)* lstM.size();
         lstHorario.setLayoutParams(params);
         lstHorario.setAdapter(adapter);
     }
     public void actualizar_listaW(){
-        agendaAdapter adapter = new agendaAdapter(lstW, this,usuarioId);
+        agendaAdapter adapter = new agendaAdapter(lstW, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
         params.height = (lstHorario.getDividerHeight()+FACTOR)* lstW.size();
         lstHorario.setLayoutParams(params);
         lstHorario.setAdapter(adapter);
     }
     public void actualizar_listaJ(){
-        agendaAdapter adapter = new agendaAdapter(lstJ, this,usuarioId);
+        agendaAdapter adapter = new agendaAdapter(lstJ, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
         params.height = (lstHorario.getDividerHeight()+FACTOR)* lstJ.size();
         lstHorario.setLayoutParams(params);
         lstHorario.setAdapter(adapter);
     }
     public void actualizar_listaV(){
-        agendaAdapter adapter = new agendaAdapter(lstV, this,usuarioId);
+        agendaAdapter adapter = new agendaAdapter(lstV, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
         params.height = (lstHorario.getDividerHeight()+FACTOR)* lstV.size();
         lstHorario.setLayoutParams(params);
         lstHorario.setAdapter(adapter);
     }
     public void actualizar_listaS(){
-        agendaAdapter adapter = new agendaAdapter(lstS, this,usuarioId);
+        agendaAdapter adapter = new agendaAdapter(lstS, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
         params.height = (lstHorario.getDividerHeight()+FACTOR)* lstS.size();
         lstHorario.setLayoutParams(params);
@@ -538,7 +538,6 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
 
     public void actualizarConteo(){
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
-
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_domingo).orderByKey().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
