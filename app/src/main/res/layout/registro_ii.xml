@@ -53,6 +53,14 @@
             android:layout_height="wrap_content"
             android:text="@string/reg_mensajePos" />
 
+        <TextView
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="center_vertical"
+            android:gravity="start"
+            android:text="@string/reg_add" />
+
         <EditText
             android:id="@+id/reg6_etTituloPosgrado"
             style="@style/txtBox3"
@@ -128,6 +136,27 @@
                 android:src="@drawable/upload" />
         </LinearLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginTop="5sp"
+            android:text="Añadir"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10sp"
+            android:background="@drawable/cornes_btn"
+            android:onClick="onClicEspecialidades"
+            android:textColor="@color/winter1"
+            />
+
+        <ListView
+            android:descendantFocusability="blocksDescendants"
+            android:id="@+id/gridEsp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="1dp"
+            android:cacheColorHint="@android:color/transparent"
+            />
+
 
     </LinearLayout>
 
@@ -171,6 +200,14 @@
         android:layout_marginTop="10sp"
         android:layout_marginEnd="5sp"
         android:visibility="gone">
+
+        <TextView
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="center_vertical"
+            android:gravity="start"
+            android:text="@string/reg_add" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -300,6 +337,27 @@
             android:padding="5dp"
             android:scaleType="fitCenter" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginTop="5sp"
+            android:text="Añadir"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10sp"
+            android:background="@drawable/cornes_btn"
+            android:onClick="onClicExperiencia"
+            android:textColor="@color/winter1"
+            />
+
+        <ListView
+            android:descendantFocusability="blocksDescendants"
+            android:id="@+id/gridExp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="1dp"
+            android:cacheColorHint="@android:color/transparent"
+            />
+
     </LinearLayout>
 
     <!-- REGISTRO VIII-->
@@ -343,6 +401,13 @@
         android:layout_marginEnd="5sp"
         android:visibility="gone">
 
+        <TextView
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="center_vertical"
+            android:gravity="start"
+            android:text="@string/reg_add" />
         <EditText
             android:id="@+id/reg8_etPrograma"
             style="@style/txtBox3"
@@ -442,6 +507,28 @@
                 android:src="@drawable/calendar" />
         </LinearLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:text="Añadir"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10sp"
+            android:background="@drawable/cornes_btn"
+            android:onClick="onClicCursos"
+            android:textColor="@color/winter1"
+            android:layout_marginTop="5sp"
+            />
+
+        <ListView
+            android:descendantFocusability="blocksDescendants"
+            android:id="@+id/gridCursos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="1dp"
+            android:cacheColorHint="@android:color/transparent"
+            />
+
+
     </LinearLayout>
 
     <!-- REGISTRO IX-->
@@ -491,12 +578,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/reg_mensajeUsuario" />
+        <TextView
+            style="@style/txtSub"
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="center_vertical"
+            android:gravity="start"
+            android:text="@string/reg_add" />
+
+        <EditText
+            android:id="@+id/reg9_etNombrePAC"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:background="@drawable/round_txt"
+            style="@style/txtBox3"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="8sp"
+            android:scaleType="fitCenter"
+            android:hint="@string/reg_nombreSede"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <TextView
                 android:id="@+id/reg9_tvDireccionPAC"
                 style="@style/txtBox3"
@@ -513,7 +618,6 @@
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 />
-
             <ImageButton
                 android:id="@+id/reg9_ibDireccionPAC"
                 android:layout_width="35sp"
@@ -526,25 +630,26 @@
                 android:padding="5sp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/editar" />
-
         </LinearLayout>
 
-        <TextView
-            style="@style/txtSub"
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="30sp"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:text="@string/reg_nombreSede" />
-
-        <EditText
-            android:id="@+id/reg9_etNombrePAC"
+            android:layout_marginTop="5sp"
+            android:text="Añadir"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10sp"
+            android:background="@drawable/cornes_btn"
+            android:onClick="onClicSedes"
+            android:textColor="@color/winter1"
+            />
+        <ListView
+            android:descendantFocusability="blocksDescendants"
+            android:id="@+id/gridSedes"
             android:layout_width="match_parent"
-            android:layout_height="30sp"
-            android:background="@drawable/round_txt"
-            style="@style/txtBox3"
-            android:scaleType="fitCenter"
-            android:hint="@string/reg_ejemploSede"
+            android:layout_height="wrap_content"
+            android:dividerHeight="1dp"
+            android:cacheColorHint="@android:color/transparent"
             />
 
         <!-- TIPO DE CONSULTA -->
@@ -571,6 +676,7 @@
             android:dividerHeight="2dp"
             android:cacheColorHint="@android:color/transparent"
             android:divider="@android:color/transparent"
+
             >
         </ListView>
 

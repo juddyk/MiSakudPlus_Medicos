@@ -20,6 +20,7 @@
       <w>conteo</w>
       <w>correo</w>
       <w>curso</w>
+      <w>cursos</w>
       <w>datos</w>
       <w>departamento</w>
       <w>desde</w>
@@ -28,9 +29,11 @@
       <w>direccion</w>
       <w>disponible</w>
       <w>documento</w>
+      <w>especialidades</w>
       <w>estableza</w>
       <w>estado</w>
       <w>estará</w>
+      <w>experiencia</w>
       <w>fecha</w>
       <w>fijo</w>
       <w>finalización</w>
@@ -70,11 +73,13 @@
       <w>ruta</w>
       <w>sabado</w>
       <w>sede</w>
+      <w>sedes</w>
       <w>tarjeta</w>
       <w>texto</w>
       <w>tiempo</w>
       <w>tipo</w>
       <w>viernes</w>
+      <w>visualizacion</w>
     </words>
   </dictionary>
 </component>

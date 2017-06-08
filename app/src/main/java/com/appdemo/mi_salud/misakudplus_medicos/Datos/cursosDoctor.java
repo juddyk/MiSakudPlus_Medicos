@@ -9,6 +9,7 @@ public class cursosDoctor {
     private String ffDia_curso;
     private String ffMes_curso;
     private String ffAnio_curso;
+    private long id;
 
     public cursosDoctor() {
         this.curso = "";
@@ -19,6 +20,7 @@ public class cursosDoctor {
         this.ffDia_curso = "";
         this.ffMes_curso = "";
         this.ffAnio_curso = "";
+        this.id=0;
     }
 
     public String getCurso() {
@@ -84,6 +86,16 @@ public class cursosDoctor {
     public void setFfAnio_curso(String ffAnio_curso) {
         this.ffAnio_curso = ffAnio_curso;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
 }
 
 

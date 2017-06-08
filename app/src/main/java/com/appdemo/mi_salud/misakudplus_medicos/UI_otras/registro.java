@@ -27,7 +27,15 @@ import android.widget.Toast;
 
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.checkboxAdapter;
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.checkboxDinamico;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.cursosAdapter;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.cursosDoctor;
 import com.appdemo.mi_salud.misakudplus_medicos.Datos.datosMedico;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.posgradoAdapter;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.posgradosDoctor;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.sedesAdapter;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.sedesDoctor;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.trabajosAdapter;
+import com.appdemo.mi_salud.misakudplus_medicos.Datos.trabajosDoctor;
 import com.appdemo.mi_salud.misakudplus_medicos.R;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogCalendar;
 import com.appdemo.mi_salud.misakudplus_medicos.UI_dialogos.DialogDireccion;
@@ -83,7 +91,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     TextView tv_i,tv_ii,tv_iii,tv_iv,tv_v,tv_vi,tv_vii,tv_viii,tv_ix,tv_x;
     ImageView iv_i,iv_ii,iv_iii,iv_iv,iv_v,iv_vi,iv_vii,iv_viii,iv_ix,iv_x;
     LinearLayout ll_i,ll_ii,ll_iii,ll_iv,ll_v,ll_vi,ll_vii,ll_viii,ll_ix,ll_x;
-    ListView gv9_1,gv9_2,gv10;
+    ListView gv6,gv7,gv8,gv9_0,gv9_1,gv9_2,gv10;
     ProgressBar barraAvance=null;
     //Objetos para el control de los ingresos de los datos
     TextView  tv1_editnombre,tv1_editFechaNacim,tv1_documento,tv1_editFechaExp,tv2_editDirecc,tv4_loadTarjProf,tv5_loadDiploma,tv5_loadActa,tv5_loadResolucion,tv6_loadDiploma,tv6_loadActa,tv7_loadCertificado,tv7_editFechaI,tv7_editFechaF,tv8_editFechaI,tv8_editFechaF,tv9_editDirecc;
@@ -97,12 +105,20 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     //Variables Auxiliares
     private String[] lstMunc;
     List<String> lstMedios,lstConsultas,lstModalidad;
+    List<trabajosDoctor> lstExp;
+    List<sedesDoctor> lstSedes;
+    List<posgradosDoctor> lstEsp;
+    List<cursosDoctor> lstCursos;
     String[] dom,lun,mar,mie,jue,vie,sab;
-    int anio;
+    int anio,cntPos=0,cntCert=0;
     public int pogreso=0;
     boolean ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false,ok10=false;
-    Uri uri_foto,uri_tarjeta,uri_prediploma,uri_preacta,uri_posdiploma,uri_posacta,uri_resolucion,uri_certificado;
+    Uri uri_foto,uri_tarjeta,uri_prediploma,uri_preacta,uri_posdiploma,uri_posActa,uri_resolucion,uri_certificado;
     boolean docExist=false;
+    String rutaDiploma,rutaActa,rutaCert;
+    List<Uri> uriDip,uriAct,uriCert;
+    cursosDoctor generalCD;
+    trabajosDoctor generalTD;
 
     //FIREBASE STORAGE
     private StorageReference storageRef;
@@ -116,6 +132,10 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     private static final String TAG_consultas = "TiposConsultas";
     private static final String TAG_modalidad = "ModalidadAtencion";
     private static final String TAG_medios = "MediosPago";
+    private static final String TAG_sedes = "Sedes";
+    private static final String TAG_cursos = "Cursos";
+    private static final String TAG_exp = "Experiencia";
+    private static final String TAG_esp = "Especialidades";
     private static final String TAG_HORARIO = "Horario";
     private static final String TAG_HORA_INICIAL = "HoraI";
     private static final String TAG_HORA_FINAL = "HoraF";
@@ -668,16 +688,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         });
 
         //Acciones objetos Registro VI
-        et6_titulo.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                dM.setTtl_posgrado(et6_titulo.getText().toString());
-            }
-        });
         ib6_loadDiploma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -706,7 +716,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 startActivityForResult(Intent.createChooser(intent, getResources().getString(R.string.reg_select_file)),CODE_ACTA_POS);
             }
         });
-        //Acciones objetos Registro VII
+        //Acciones objetos Registro VIII
         ib7_loadCertificado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -721,59 +731,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 startActivityForResult(Intent.createChooser(intent, getResources().getString(R.string.reg_select_file)),CODE_CERTIFICADO_EXP);
             }
         });
-        et7_institucion.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                dM.setInstitucion_exp(et7_institucion.getText().toString());
-            }
-        });
-        et7_cargo.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                dM.setCargo_exp(et7_cargo.getText().toString());
-            }
-        });
-
-        //Acciones objetos Registro VIII
-        et8_curso.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                dM.setCurso(et8_curso.getText().toString());
-            }
-        });
-        et8_institucion.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                dM.setInstitucion_curso(et8_institucion.getText().toString());
-            }
-        });
         //Acciones objetos Registro IX
-        et9_nombreSede.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                dM.setNombre_sede(s.toString());
-            }
-        });
         //Acciones objetos Registro X
 
     }
@@ -828,28 +786,19 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                         barraAvance.setProgress(getPogreso());
                         break;
                     case CODE_DIPLOMA_POS:
-                        ruta="documentos/pos_diplomas/"+dM.getTpDoc()+dM.getNumDoc();
-                        dM.setPos_diploma(ruta);
+                        rutaDiploma="documentos/pos_diplomas/"+dM.getTpDoc()+dM.getNumDoc()+"_"+String.valueOf(cntPos);
                         uri_posdiploma=uriPath;
                         tv6_loadDiploma.setText(getResources().getString(R.string.reg_select_ok));
-                        setPogreso(3);
-                        barraAvance.setProgress(getPogreso());
                         break;
                     case CODE_ACTA_POS:
-                        ruta="documentos/pos_actas/"+dM.getTpDoc()+dM.getNumDoc();
-                        dM.setPos_acta(ruta);
-                        uri_posacta=uriPath;
+                        rutaActa="documentos/pos_actas/"+dM.getTpDoc()+dM.getNumDoc()+"_"+String.valueOf(cntPos);
+                        uri_posActa=uriPath;
                         tv6_loadActa.setText(getResources().getString(R.string.reg_select_ok));
-                        setPogreso(3);
-                        barraAvance.setProgress(getPogreso());
                         break;
                     case CODE_CERTIFICADO_EXP:
-                        ruta="documentos/certificados_exp/"+dM.getTpDoc()+dM.getNumDoc();
-                        dM.setCertificado_exp(ruta);
+                        rutaCert="documentos/certificados_exp/"+dM.getTpDoc()+dM.getNumDoc()+"_"+String.valueOf(cntCert);
                         uri_certificado=uriPath;
                         tv7_loadCertificado.setText(getResources().getString(R.string.reg_select_ok));
-                        setPogreso(3);
-                        barraAvance.setProgress(getPogreso());
                         break;
                     default:
                         break;
@@ -910,6 +859,10 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         btn_registrar=(Button) findViewById(R.id.reg_btnRegistrar);
 
         gv10 = (ListView) findViewById(R.id.gridMedios);
+        gv6 = (ListView) findViewById(R.id.gridEsp);
+        gv7 = (ListView) findViewById(R.id.gridExp);
+        gv8 = (ListView) findViewById(R.id.gridCursos);
+        gv9_0 = (ListView) findViewById(R.id.gridSedes);
         gv9_1 = (ListView) findViewById(R.id.gridConsultas);
         gv9_2 = (ListView) findViewById(R.id.gridAtencion);
 
@@ -979,6 +932,18 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         et9_nombreSede=(EditText) findViewById(R.id.reg9_etNombrePAC);
         //Objetos registro 10
 
+        //Instanciar Listas
+        lstCursos=new ArrayList<>();
+        lstEsp=new ArrayList<>();
+        lstSedes=new ArrayList<>();
+        lstExp=new ArrayList<>();
+        uriDip=new ArrayList<>();
+        uriAct=new ArrayList<>();
+        uriCert=new ArrayList<>();
+
+        generalCD=new cursosDoctor();
+        generalTD=new trabajosDoctor();
+
     }
 
     public void createLista_MediosPago(){
@@ -1026,6 +991,35 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         gv9_1.setLayoutParams(params);
         consultasAdapter=new checkboxAdapter(this, consultas);
         gv9_1.setAdapter(consultasAdapter);
+    }
+
+    public void updateLista_Sedes(){
+        ViewGroup.LayoutParams params = gv9_0.getLayoutParams();
+        params.height = (gv9_0.getDividerHeight()+55)* lstSedes.size();
+        gv9_0.setLayoutParams(params);
+        sedesAdapter lstAdapter=new sedesAdapter(lstSedes,this);
+        gv9_0.setAdapter(lstAdapter);
+    }
+    public void updateLista_Esp(){
+        ViewGroup.LayoutParams params = gv6.getLayoutParams();
+        params.height = (gv6.getDividerHeight()+55)* lstEsp.size();
+        gv6.setLayoutParams(params);
+        posgradoAdapter lstAdapter=new posgradoAdapter(lstEsp,this);
+        gv6.setAdapter(lstAdapter);
+    }
+    public void updateLista_Cursos(){
+        ViewGroup.LayoutParams params = gv8.getLayoutParams();
+        params.height = (gv8.getDividerHeight()+55)* lstCursos.size();
+        gv8.setLayoutParams(params);
+        cursosAdapter lstAdapter=new cursosAdapter(lstCursos,this);
+        gv8.setAdapter(lstAdapter);
+    }
+    public void updateLista_Exp(){
+        ViewGroup.LayoutParams params = gv7.getLayoutParams();
+        params.height = (gv7.getDividerHeight()+55)* lstExp.size();
+        gv7.setLayoutParams(params);
+        trabajosAdapter lstAdapter=new trabajosAdapter(lstExp,this);
+        gv7.setAdapter(lstAdapter);
     }
 
     public void desplegarReg1(View view){
@@ -1512,7 +1506,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
     }
     public void checkReg6(){
-        if(!dM.getTtl_posgrado().isEmpty() && !dM.getPos_diploma().isEmpty() && !dM.getPos_acta().isEmpty()){
+        if(lstEsp.size()!=0){
             ok6=true;
             setPogreso(4);
             barraAvance.setProgress(getPogreso());
@@ -1527,10 +1521,10 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 iv_vi.setImageDrawable(getDrawable(R.drawable.hide));
             }
         }
+
     }
     public void checkReg7(){
-        if(!dM.getCertificado_exp().isEmpty() && !dM.getInstitucion_exp().isEmpty() && !dM.getCargo_exp().isEmpty()){
-            if(!dM.getFiAnio_exp().isEmpty() && !dM.getFfAnio_exp().isEmpty() && !dM.getFiMes_exp().isEmpty() && !dM.getFfMes_exp().isEmpty() && !dM.getFiDia_exp().isEmpty() && !dM.getFfDia_exp().isEmpty()) {
+        if(lstExp.size()!=0){
                 ok7 = true;
                 setPogreso(4);
                 barraAvance.setProgress(getPogreso());
@@ -1538,7 +1532,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     iv_vii.setImageDrawable(getDrawable(R.drawable.check));
                 }
-            }
+
         }else{
             ok7=false;
             tv_vii.setText(getResources().getString(R.string.reg_7_nok));
@@ -1548,16 +1542,14 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
     }
     public void checkReg8(){
-        if(!dM.getCurso().isEmpty() && !dM.getInstitucion_curso().isEmpty()){
-            if(!dM.getFiAnio_curso().isEmpty() && !dM.getFfAnio_curso().isEmpty() && !dM.getFiMes_curso().isEmpty() && !dM.getFfMes_curso().isEmpty() && !dM.getFiDia_curso().isEmpty() && !dM.getFfDia_curso().isEmpty()) {
-                ok8 = true;
-                setPogreso(6);
-                barraAvance.setProgress(getPogreso());
-                tv_viii.setText(getResources().getString(R.string.reg_8_ok));
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    iv_viii.setImageDrawable(getDrawable(R.drawable.check));
+        if(lstCursos.size()!=0){
+            ok8 = true;
+            setPogreso(6);
+            barraAvance.setProgress(getPogreso());
+            tv_viii.setText(getResources().getString(R.string.reg_8_ok));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                iv_viii.setImageDrawable(getDrawable(R.drawable.check));
                 }
-            }
         }else{
             ok8=false;
             tv_viii.setText(getResources().getString(R.string.reg_8_nok));
@@ -1565,6 +1557,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 iv_viii.setImageDrawable(getDrawable(R.drawable.hide));
             }
         }
+
     }
     public void checkReg9(){
         lstModalidad=new ArrayList<>();
@@ -1588,9 +1581,9 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             }
         }
 
-        if(!dM.getDireccion_sede().isEmpty() && !dM.getNombre_sede().isEmpty() && flag_consulta && flag_modalidad){
+        if(flag_consulta && flag_modalidad && lstSedes.size()!=0){
             ok9=true;
-            setPogreso(6);
+            setPogreso(10);
             barraAvance.setProgress(getPogreso());
             tv_ix.setText(getResources().getString(R.string.reg_9_ok));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -1647,12 +1640,10 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
         dialog.dismiss();
     }
-
     @Override
     public void onNameNegative(DialogFragment dialog) {
         dialog.dismiss();
     }
-
     @Override
     public void onDocumentoPositive(DialogFragment dialog,String slgn){
         if(!slgn.isEmpty()){
@@ -1661,12 +1652,10 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
         dialog.dismiss();
     }
-
     @Override
     public void onDocumentoNegative(DialogFragment dialog){
         dialog.dismiss();
     }
-
     @Override
     public void onCalendarPositiveClick(DialogFragment dialog, int code, int d, int m, int y) {
         String data;
@@ -1704,43 +1693,41 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 barraAvance.setProgress(getPogreso());
                 tv1_editFechaExp.setText(data);
             }else if(code==70){//Fecha de Inicio
-                dM.setFiDia_exp(auxD);
-                dM.setFiMes_exp(auxM);
-                dM.setFiAnio_exp(auxY);
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
                 tv7_editFechaI.setText(data);
+                generalTD.setFiDia_exp(auxD);
+                generalTD.setFiMes_exp(auxM);
+                generalTD.setFiAnio_exp(auxY);
             }else if(code==71){//Fecha de Finalizacion
-                dM.setFfDia_exp(auxD);
-                dM.setFfMes_exp(auxM);
-                dM.setFfAnio_exp(auxY);
                 setPogreso(1);
                 barraAvance.setProgress(getPogreso());
                 tv7_editFechaF.setText(data);
-            }else if(code==80){//Fecha de Inicio
-                dM.setFiDia_curso(auxD);
-                dM.setFiMes_curso(auxM);
-                dM.setFiAnio_curso(auxY);
+                generalTD.setFfDia_exp(auxD);
+                generalTD.setFfMes_exp(auxM);
+                generalTD.setFfAnio_exp(auxY);
+            }else if(code==80){//Fecha de Inicio-Cursos
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
                 tv8_editFechaI.setText(data);
-            }else if(code==81){//Fecha de Finalizacion
-                dM.setFfDia_curso(auxD);
-                dM.setFfMes_curso(auxM);
-                dM.setFfAnio_curso(auxY);
+                generalCD.setFiDia_curso(auxD);
+                generalCD.setFiMes_curso(auxM);
+                generalCD.setFiAnio_curso(auxY);
+            }else if(code==81){//Fecha de Finalizacion-Cursos
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
                 tv8_editFechaF.setText(data);
+                generalCD.setFfDia_curso(auxD);
+                generalCD.setFfMes_curso(auxM);
+                generalCD.setFfAnio_curso(auxY);
             }
         }
         dialog.dismiss();
     }
-
     @Override
     public void onCalendarNegativeClick(DialogFragment dialog) {
         dialog.dismiss();
     }
-
     @Override
     public void onDirPositive(DialogFragment dialog, int code, String dir) {
         if(!dir.isEmpty()){
@@ -1750,15 +1737,14 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
                 setPogreso(3);
                 barraAvance.setProgress(getPogreso());
             }else if(code==90){//Direccion Sede
-                dM.setDireccion_sede(dir);
-                tv9_editDirecc.setText(dir);
+                sedesDoctor sd=new sedesDoctor(et9_nombreSede.getText().toString(),dir);
+                lstSedes.add(sd);
                 setPogreso(2);
                 barraAvance.setProgress(getPogreso());
             }
         }
         dialog.dismiss();
     }
-
     @Override
     public void onDirNegative(DialogFragment dialog) {
         dialog.dismiss();
@@ -1790,6 +1776,49 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     }
     public void onClicDialogCursoFF(View view){
         showDialogCalendar_CursoFF();
+    }
+    public void onClicEspecialidades(View view){
+        posgradosDoctor pd=new posgradosDoctor();
+        pd.setTtl_posgrado(et6_titulo.getText().toString());
+        pd.setPos_diploma(rutaDiploma);
+        pd.setPos_acta(rutaActa);
+        lstEsp.add(pd);
+        uriAct.add(uri_posActa);
+        uriDip.add(uri_posdiploma);
+        updateLista_Esp();
+        cntPos++;
+        tv6_loadActa.setText(getResources().getString(R.string.reg_acta));
+        tv6_loadDiploma.setText(getResources().getString(R.string.reg_diploma));
+    }
+    public void onClicCursos(View view){
+        generalCD.setCurso(et8_curso.getText().toString());
+        generalCD.setInstitucion_curso(et8_institucion.getText().toString());
+        lstCursos.add(generalCD);
+        updateLista_Cursos();
+        et8_institucion.setText("");
+        et8_curso.setText("");
+        tv8_editFechaF.setText("");
+        tv8_editFechaI.setText("");
+    }
+    public void onClicExperiencia(View view){
+        generalTD.setCargo_exp(et7_cargo.getText().toString());
+        generalTD.setInstitucion_exp(et7_institucion.getText().toString());
+        generalTD.setCertificado_exp(rutaCert);
+        lstExp.add(generalTD);
+        updateLista_Exp();
+        uriCert.add(uri_certificado);
+        et7_cargo.setText("");
+        et7_institucion.setText("");
+        tv7_editFechaF.setText("");
+        tv7_editFechaI.setText("");
+        tv7_loadCertificado.setText(getResources().getString(R.string.reg_certificadoExperiencia));
+        cntCert++;
+    }
+    public void onClicSedes(View view){
+        updateLista_Sedes();
+        et9_nombreSede.setText("");
+        tv9_editDirecc.setText("");
+
     }
 
     public void showDialogName() {
@@ -1885,6 +1914,26 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
         mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_data).setValue(dM);
 
+        //Agregar Cursos
+        for(int i=0;i<lstCursos.size();i++){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_cursos).child(String.valueOf(i)).setValue(lstCursos.get(i));
+        }
+
+        //Agregar Experiencia
+        for(int i=0;i<lstExp.size();i++){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_exp).child(String.valueOf(i)).setValue(lstExp.get(i));
+        }
+
+        //Agregar Especialidades
+        for(int i=0;i<lstEsp.size();i++){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_esp).child(String.valueOf(i)).setValue(lstEsp.get(i));
+        }
+
+        //Agregar Sedes
+        for(int i=0;i<lstSedes.size();i++){
+            mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_sedes).child(String.valueOf(i)).setValue(lstSedes.get(i));
+        }
+
         //Agregar Tipos de Consulta
         for(int i=0;i<lstConsultas.size();i++){
             mDB.child(TAG_medicos).child(dM.getNumDoc()).child(TAG_consultas).child(String.valueOf(i)).setValue(lstConsultas.get(i));
@@ -1957,16 +2006,18 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         riversRef = storageRef.child(dM.getPre_acta());
         uploadTask = riversRef.putFile(uri_preacta);
         //Guardar documentos del Posgrado
-        riversRef = storageRef.child(dM.getPos_diploma());
-        uploadTask = riversRef.putFile(uri_posdiploma);
-        riversRef = storageRef.child(dM.getPos_acta());
-        uploadTask = riversRef.putFile(uri_posacta);
+        for(int i=0;i<lstEsp.size();i++){
+            riversRef = storageRef.child(lstEsp.get(i).getPos_acta());
+            uploadTask = riversRef.putFile(uriAct.get(i));
+
+            riversRef = storageRef.child(lstEsp.get(i).getPos_diploma());
+            uploadTask = riversRef.putFile(uriDip.get(i));
+        }
         //Guardar Certificado
-        riversRef = storageRef.child(dM.getCertificado_exp());
-        uploadTask = riversRef.putFile(uri_certificado);
-        //Guardar Resolucion
-        riversRef = storageRef.child(dM.getResolucion());
-        uploadTask = riversRef.putFile(uri_resolucion);
+        for(int i=0;i<lstExp.size();i++){
+            riversRef = storageRef.child(lstExp.get(i).getCertificado_exp());
+            uploadTask = riversRef.putFile(uriCert.get(i));
+        }
     }
 
     public void registrar_medico(View view){

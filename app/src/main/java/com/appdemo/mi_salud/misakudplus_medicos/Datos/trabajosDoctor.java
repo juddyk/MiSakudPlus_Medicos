@@ -10,6 +10,7 @@ public class trabajosDoctor {
     private String ffDia_exp;
     private String ffMes_exp;
     private String ffAnio_exp;
+    private long id;
 
     public trabajosDoctor() {
         this.certificado_exp ="";
@@ -21,6 +22,7 @@ public class trabajosDoctor {
         this.ffDia_exp ="";
         this.ffMes_exp ="";
         this.ffAnio_exp ="";
+        this.id=0;
     }
 
     public String getCertificado_exp() {
@@ -94,4 +96,13 @@ public class trabajosDoctor {
     public void setFfAnio_exp(String ffAnio_exp) {
         this.ffAnio_exp = ffAnio_exp;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
 }

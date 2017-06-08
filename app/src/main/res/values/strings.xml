@@ -99,6 +99,7 @@
     <string name="reg_curso">Programa o Curso*</string>
     <string name="reg_sede">Dirección del Punto de Atención*</string>
     <string name="reg_nombreSede">Asigne un nombre para su punto de Atención*</string>
+    <string name="reg_add">Puede agregar cuantas sean necesarias</string>
     <string name="reg_ejemploSede">Puede ser referente a su ubicación</string>
     <string name="reg_horarioConsulta">Horario de Consultas*</string>
     <string name="reg_tipoConsulta">Tipos de Consulta a brindar*</string>
