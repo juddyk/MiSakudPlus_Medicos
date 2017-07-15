@@ -86,7 +86,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     private static final int CODE_ACTA_POS=602;
     private static final int CODE_CERTIFICADO_EXP=701;
 
-
     //Objetos para el control de la visualización
     TextView tv_i,tv_ii,tv_iii,tv_iv,tv_v,tv_vi,tv_vii,tv_viii,tv_ix,tv_x;
     ImageView iv_i,iv_ii,iv_iii,iv_iv,iv_v,iv_vi,iv_vii,iv_viii,iv_ix,iv_x;
@@ -736,6 +735,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
     }
 
+    //Este método se encarga de la respuesta al acceder a los documentos del telefono (Como cuando se busca una imagen, o PDF...)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -823,6 +823,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
     }
 
+    //Los siguientes métodos son para instanciar los objetos
     public void instanciasObjetosVisualizacion(){
         tv_i=(TextView) findViewById(R.id.tvReg1);
         iv_i=(ImageView) findViewById(R.id.ivReg1);
@@ -946,6 +947,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
     }
 
+    //Los siguientes métodos se encargan de crear listas para los checkbox
     public void createLista_MediosPago(){
         String[] mediosArray = getResources().getStringArray(R.array.medios_pago);
         medios= new ArrayList<>(mediosArray.length);
@@ -993,6 +995,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         gv9_1.setAdapter(consultasAdapter);
     }
 
+    //Los siguientes métodos se encargar de actualizar la listas empleadas en el Registro
     public void updateLista_Sedes(){
         ViewGroup.LayoutParams params = gv9_0.getLayoutParams();
         params.height = (gv9_0.getDividerHeight()+55)* lstSedes.size();
@@ -1022,6 +1025,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         gv7.setAdapter(lstAdapter);
     }
 
+    //Los siguientes métodos manejan que item del registro se va a desplegar
     public void desplegarReg1(View view){
         estadoReg1(false);
         estadoReg2(true);
@@ -1412,6 +1416,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
     }
 
+    //Los siguientes métodos verifican y validan el estado de cada item del registro
     public void checkReg1(){
         if(!docExist){
             dM.setNumDoc(tv1_documento.getText().toString());
@@ -1626,6 +1631,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         }
     }
 
+    //Los siguientes métodos son usados para atender la respuesta después de que una Ventana de Dialogo es usada
     @Override
     public void onNamePositive(DialogFragment dialog, int code, String a1, String a2, String n1, String n2) {
         if(!n1.isEmpty() && !a1.isEmpty()){
@@ -1750,6 +1756,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         dialog.dismiss();
     }
 
+    //Los siguientes métodos se encargan de abrir las diferentes ventanas de Dialogo
     public void onClicDialogName(View view){
         showDialogName();
     }
@@ -1777,6 +1784,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
     public void onClicDialogCursoFF(View view){
         showDialogCalendar_CursoFF();
     }
+    //Los siguientes métodos se encargan de añadir y actualizar las listas de los registros dinamicos
     public void onClicEspecialidades(View view){
         posgradosDoctor pd=new posgradosDoctor();
         pd.setTtl_posgrado(et6_titulo.getText().toString());
@@ -1789,6 +1797,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         cntPos++;
         tv6_loadActa.setText(getResources().getString(R.string.reg_acta));
         tv6_loadDiploma.setText(getResources().getString(R.string.reg_diploma));
+        et6_titulo.setText(getResources().getString(R.string.reg_tituloPosgrado));
     }
     public void onClicCursos(View view){
         generalCD.setCurso(et8_curso.getText().toString());
@@ -1821,6 +1830,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
 
     }
 
+    //Los siguientes métodos se encargan de crear las ventanas de Dialogo
     public void showDialogName() {
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new DialogName();
@@ -1902,6 +1912,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         dialog.show(getSupportFragmentManager(), getResources().getString(R.string.reg_fechaFinal));
     }
 
+    //Los siguientes métodos se encargan de modificar la barra de progeso
     public int getPogreso() {
         return pogreso;
     }
@@ -1909,6 +1920,7 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
         this.pogreso += pogreso;
     }
 
+    //Los siguientes métodos se encargan del registro de los usuarios en base de datos
     private void writeNewUser() {
         DatabaseReference mDB;
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
@@ -2019,7 +2031,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             uploadTask = riversRef.putFile(uriCert.get(i));
         }
     }
-
     public void registrar_medico(View view){
         checkReg10();
         if(ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9 && ok10){
@@ -2039,7 +2050,6 @@ public class registro extends AppCompatActivity implements DialogName.NameListen
             Toast.makeText(getApplicationContext(),"¡Faltan datos!",Toast.LENGTH_SHORT).show();
         }
     }
-
     //Método para validar existencia de la cedula
     private  void validarDoc(String documento){
         DatabaseReference mDB;

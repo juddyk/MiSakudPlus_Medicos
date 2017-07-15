@@ -29,6 +29,7 @@ import java.util.Map;
 
 public class citas extends AppCompatActivity implements DialogCitas.CitasListener {
 
+    //Variables Auxiliares
     ListView lstCitas;
     String usuarioId;
     List<datosCita> lstData;
@@ -78,7 +79,6 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         });
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -91,6 +91,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         }
     }
 
+    //Se carga la ventana de dialogo para mostrar la información de las citas
     public void showDialoginfo(int pos) {
         String date=lstData.get(pos).getFechaDia()+"/"+lstData.get(pos).getFechaMes()+"/"+lstData.get(pos).getFechaAnio();
         String hour=citasAdapter.correcTime(lstData.get(pos).getHora())+":"+citasAdapter.correcTime(lstData.get(pos).getMinuto());
@@ -112,6 +113,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         dialog.show(getSupportFragmentManager(), getResources().getString(R.string.app_citas));
     }
 
+    //Los siguientes métodos se encargan de actualizar y verificar las citas existentes
     public void actualizar_lista(){
         citasAdapter adapter = new citasAdapter(lstData, this);
         ViewGroup.LayoutParams params = lstCitas.getLayoutParams();
@@ -158,7 +160,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
 
     }
 
-
+    //el siguiente método encarga de eliminar un cita
     @Override
     public void onCitasEliminar(DialogFragment dialog,int pos, long id) {
         String msg=getResources().getString(R.string.citas_notificar1)+" "+lstData.get(pos).getNombrePaciente()+" "+getResources().getString(R.string.citas_notificar2_cancel);
@@ -171,6 +173,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         dialog.dismiss();
     }
 
+    //El siguiente método se encarga de modificar una cita
     @Override
     public void onCitasCambiar(DialogFragment dialog,int pos, long id) {
         String msg=getResources().getString(R.string.citas_notificar1)+" "+lstData.get(pos).getNombrePaciente()+" "+getResources().getString(R.string.citas_notificar2_change);
@@ -209,68 +212,4 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
 
     }
 
-    public void temporal(View view){
-        actualizar_lista();
-        mensaje.setVisibility(View.VISIBLE);
-        /*datosCita d1,d2,d3,d4,d5,d6;
-        d1=new datosCita();
-        d2=new datosCita();
-        d3=new datosCita();
-        d4=new datosCita();
-        d5=new datosCita();
-        d6=new datosCita();
-
-        d1.setDocumMedico("0");
-        d2.setDocumMedico("0");
-        d3.setDocumMedico("0");
-        d4.setDocumMedico("0");
-        d5.setDocumMedico("0");
-        d6.setDocumMedico("0");
-
-        d1.setDocumPaciente("0");
-        d2.setDocumPaciente("1");
-        d3.setDocumPaciente("0");
-        d4.setDocumPaciente("1");
-        d5.setDocumPaciente("2");
-        d6.setDocumPaciente("3");
-
-        d1.setSede("demo");
-        d2.setSede("demo");
-        d3.setSede("demo");
-        d4.setSede("demo");
-        d5.setSede("demo");
-        d6.setSede("demo");
-
-        d1.setTipoConsulta("Teleconsulta");
-        d2.setTipoConsulta("Telemedicina");
-        d3.setTipoConsulta("Domicilio");
-        d4.setTipoConsulta("Teleconsulta");
-        d5.setTipoConsulta("Domicilio");
-        d6.setTipoConsulta("Telemedicina");
-
-        d1.setModalidadAtencion("Especializada de Control");
-        d2.setModalidadAtencion("Especializada por Primera Vez");
-        d3.setModalidadAtencion("Interconsulta Especilizada");
-        d4.setModalidadAtencion("Especializada por Primera Vez");
-        d5.setModalidadAtencion("Especializada de Control");
-        d6.setModalidadAtencion("Interconsulta Especilizada");
-
-        d1.setFechaAnio("2017");
-        d2.setFechaAnio("2017");
-        d3.setFechaAnio("2017");
-        d4.setFechaAnio("2017");
-        d5.setFechaAnio("2017");
-        d6.setFechaAnio("2017");
-
-
-
-        mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
-        mDB.child(TAG_citas).child(d1.getDocumMedico()).child("0").setValue(d1);
-        mDB.child(TAG_citas).child(d2.getDocumMedico()).child("1").setValue(d2);
-        mDB.child(TAG_citas).child(d3.getDocumMedico()).child("2").setValue(d3);
-        mDB.child(TAG_citas).child(d4.getDocumMedico()).child("3").setValue(d4);
-        mDB.child(TAG_citas).child(d5.getDocumMedico()).child("4").setValue(d5);
-        mDB.child(TAG_citas).child(d6.getDocumMedico()).child("5").setValue(d6);*/
-
-    }
 }

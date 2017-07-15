@@ -93,7 +93,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         existListaJ();
         existListaV();
         existListaS();
-        actualizarConteo();
+        //actualizarConteo();
         diasS=getResources().getStringArray(R.array.diaSemana);
         //Acciones para los objetos de la interfaz
         fab.setOnClickListener(new View.OnClickListener() {
@@ -288,10 +288,15 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_domingo).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lDom=0;
                 Log.e("Count " ,""+snapshot.getChildrenCount());
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
                     lstD.add(post);
+                    lDom++;
+                    if(lDom==snapshot.getChildrenCount()){
+                        lDom=post.getId()+1;
+                    }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {
@@ -305,10 +310,15 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_lunes).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lLun=0;
                 Log.e("Count " ,""+snapshot.getChildrenCount());
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
                     lstL.add(post);
+                    lLun++;
+                    if(lLun==snapshot.getChildrenCount()){
+                        lLun=post.getId()+1;
+                    }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {
@@ -322,10 +332,15 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_martes).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lMar=0;
                 Log.e("Count " ,""+snapshot.getChildrenCount());
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
                     lstM.add(post);
+                    lMar++;
+                    if(lMar==snapshot.getChildrenCount()){
+                        lMar=post.getId()+1;
+                    }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {
@@ -338,10 +353,15 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_miercoles).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lMier=0;
                 Log.e("Count " ,""+snapshot.getChildrenCount());
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
                     lstW.add(post);
+                    lMier++;
+                    if(lMier==snapshot.getChildrenCount()){
+                        lMier=post.getId()+1;
+                    }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {
@@ -354,10 +374,15 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_jueves).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lJue=0;
                 Log.e("Count " ,""+snapshot.getChildrenCount());
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
                     lstJ.add(post);
+                    lJue++;
+                    if(lJue==snapshot.getChildrenCount()){
+                        lJue=post.getId()+1;
+                    }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {
@@ -370,10 +395,15 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_viernes).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lVie=0;
                 Log.e("Count " ,""+snapshot.getChildrenCount());
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
                     lstV.add(post);
+                    lVie++;
+                    if(lVie==snapshot.getChildrenCount()){
+                        lVie=post.getId()+1;
+                    }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {
@@ -386,10 +416,15 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_sabado).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lSab=0;
                 Log.e("Count " ,""+snapshot.getChildrenCount());
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
                     lstS.add(post);
+                    lSab++;
+                    if(lSab==snapshot.getChildrenCount()){
+                        lSab=post.getId()+1;
+                    }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {
@@ -427,8 +462,8 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             hD.setId(lDom);
             lstD.add(hD);
             actualizar_listaD();
-            mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario);
-            mDB.child(TAG_domingo).child(String.valueOf(lDom)).setValue(hD);
+            mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_domingo);
+            mDB.child(String.valueOf(lDom)).setValue(hD);
             lDom++;
         } else if (flagL) {
             hD.setDia(2);
@@ -436,7 +471,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             lstL.add(hD);
             actualizar_listaL();
             mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_lunes);
-            mDB.setValue(hD);
+            mDB.child(String.valueOf(lLun)).setValue(hD);
             lLun++;
         } else if (flagM) {
             hD.setDia(3);
@@ -444,7 +479,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             lstM.add(hD);
             actualizar_listaM();
             mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_martes);
-            mDB.setValue(hD);
+            mDB.child(String.valueOf(lMar)).setValue(hD);
             lMar++;
         } else if (flagW) {
             hD.setDia(4);
@@ -452,7 +487,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             lstW.add(hD);
             actualizar_listaW();
             mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_miercoles);
-            mDB.setValue(hD);
+            mDB.child(String.valueOf(lMier)).setValue(hD);
             lMier++;
         } else if (flagJ) {
             hD.setDia(5);
@@ -460,7 +495,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             lstJ.add(hD);
             actualizar_listaJ();
             mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_jueves);
-            mDB.setValue(hD);
+            mDB.child(String.valueOf(lJue)).setValue(hD);
             lJue++;
         } else if (flagV) {
             hD.setDia(6);
@@ -468,7 +503,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             lstV.add(hD);
             actualizar_listaV();
             mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_viernes);
-            mDB.setValue(lstV);
+            mDB.child(String.valueOf(lVie)).setValue(hD);
             lVie++;
         } else if (flagS) {
             hD.setDia(7);
@@ -476,7 +511,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             lstS.add(hD);
             actualizar_listaS();
             mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/").child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_sabado);
-            mDB.setValue(lstS);
+            mDB.child(String.valueOf(lSab)).setValue(hD);
             lSab++;
         }
         dialog.dismiss();
@@ -536,6 +571,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         }
     }
 
+    /*
     public void actualizarConteo(){
         mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_domingo).orderByKey().addValueEventListener(new ValueEventListener() {
@@ -665,5 +701,5 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         });
 
     }
-
+*/
 }

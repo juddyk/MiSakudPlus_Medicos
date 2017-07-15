@@ -130,17 +130,19 @@ public class logueo extends AppCompatActivity implements DialogAvisoRegistro.Avi
 
     }
 
+    //Los siguientes métodos se encargan de la respuesta ante la ventana de dialogo
     @Override
     public void onClicAvisoPositive(DialogFragment dialog) {
+        //Se crea la actividad para el REGISTROS
         Intent i =new Intent(logueo.this, registro.class);
         startActivity(i);
     }
-
     @Override
     public void onClicAvisoNegative(DialogFragment dialog) {
 
     }
 
+    //Muestra la ventana de dialogo de Aviso antes del registro
     public void showAvisoDialog() {
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new DialogAvisoRegistro();
