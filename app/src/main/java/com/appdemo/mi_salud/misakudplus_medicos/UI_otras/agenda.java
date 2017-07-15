@@ -103,7 +103,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
             }
         });
 
-        //Accion para el ListView
+        //Accion para el ListView sobre los elementos que se desean eliminar
         lstHorario.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -127,6 +127,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         });
     }
 
+    //Los siguientes métodos que permiten especificar el día de la semana en la que se definirá el horario
     public void onClicDomingo(View view) {
         flagD = true;
         flagL = false;
@@ -233,6 +234,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         }
     }
 
+    //Los siguientes métodos son para actualizar la lista de los horarios
     public void actualizar_listaD(){
         agendaAdapter adapter = new agendaAdapter(lstD, this);
         ViewGroup.LayoutParams params = lstHorario.getLayoutParams();
@@ -283,6 +285,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         lstHorario.setAdapter(adapter);
     }
 
+    //Los siguientes métodos son para ver que horarios existen en la base de datos
     public void existListaD(){
         mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
         mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_domingo).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
@@ -433,6 +436,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         });
     }
 
+    //Los siguientes métodos se encargan de la ventana de dialogo que permite agregar un horario
     public void showDialogHorario() {
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new DialogAddHorario();
@@ -448,6 +452,7 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         dialog.show(getSupportFragmentManager(), getResources().getString(R.string.app_agenda));
     }
 
+    //Los siguientes métodos se encargan de la respuesta de las ventanas de dialogo
     @Override
     public void onHorarioPositive(DialogFragment dialog, int tiempo, int hi, int mi, int hf, int mf) {
         horarioDoctor hD = new horarioDoctor();
@@ -571,135 +576,5 @@ public class agenda extends AppCompatActivity implements DialogAddHorario.HourLi
         }
     }
 
-    /*
-    public void actualizarConteo(){
-        mDB=fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
-        mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_domingo).orderByKey().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count " ,""+snapshot.getChildrenCount());
-                lDom=0;
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
-                    lDom++;
-                    if(lDom==snapshot.getChildrenCount()){
-                        lDom=post.getId()+1;
-                    }
-                }
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
 
-        mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_lunes).orderByKey().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count " ,""+snapshot.getChildrenCount());
-                lLun=0;
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
-                    lLun++;
-                    if(lLun==snapshot.getChildrenCount()){
-                        lLun=post.getId()+1;
-                    }
-                }
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
-
-        mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_martes).orderByKey().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count " ,""+snapshot.getChildrenCount());
-                lMar=0;
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
-                    lMar++;
-                    if(lMar==snapshot.getChildrenCount()){
-                        lMar=post.getId()+1;
-                    }
-                }
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
-
-        mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_miercoles).orderByKey().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count " ,""+snapshot.getChildrenCount());
-                lMier=0;
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
-                    lMier++;
-                    if(lMier==snapshot.getChildrenCount()){
-                        lMier=post.getId()+1;
-                    }
-                }
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
-
-        mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_jueves).orderByKey().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count " ,""+snapshot.getChildrenCount());
-                lJue=0;
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
-                    lJue++;
-                    if(lJue==snapshot.getChildrenCount()){
-                        lJue=post.getId()+1;
-                    }
-                }
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
-
-        mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_viernes).orderByKey().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count " ,""+snapshot.getChildrenCount());
-                lVie=0;
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
-                    lVie++;
-                    if(lVie==snapshot.getChildrenCount()){
-                        lVie=post.getId()+1;
-                    }
-                }
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
-
-        mDB.child(TAG_medicos).child(usuarioId).child(TAG_horario).child(TAG_sabado).orderByKey().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Log.e("Count " ,""+snapshot.getChildrenCount());
-                lSab=0;
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    horarioDoctor post = postSnapshot.getValue(horarioDoctor.class);
-                    lSab++;
-                    if(lSab==snapshot.getChildrenCount()){
-                        lSab=post.getId()+1;
-                    }
-                }
-            }
-            @Override public void onCancelled(DatabaseError error) {
-                Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
-
-    }
-*/
 }

@@ -191,6 +191,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         dialog.dismiss();
     }
 
+    //Método para elimibar una cita
     public void deleteCita(long id){
         mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
         mDB.child(TAG_citas).child(usuarioId).child(String.valueOf(id)).addValueEventListener(new ValueEventListener() {
@@ -204,6 +205,7 @@ public class citas extends AppCompatActivity implements DialogCitas.CitasListene
         });
     }
 
+    //Método para modificar el estado de una cita
     public void saveEstadoCita(long id, String estado){
         mDB= fbDB.getReferenceFromUrl("https://mi-salud-5965a.firebaseio.com/");
         Map<String, Object> updates = new HashMap<>();
